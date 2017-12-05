@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         var DI = localStorage.getItem('q16-1-1');
         if (DI == null) {
-            DI= 0;
+            DI = 0;
         }
         var DNIND = localStorage.getItem('q16-2-1');
         if (DNIND == null) {
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (DD == null) {
             DD = 0;
         }
-        
+
         var answer_body; // pour enregistrer les réponses simples
     </script>
     <body>
@@ -63,8 +63,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- SCRIPTS here -->
         <?php include('include/scripts.php'); ?>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/controlQuestions.js"></script>
-       <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/insertAnswer.js"></script>
-        
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/insertAnswer.js"></script>
+
         <script type="text/javascript">
         $(document).ready(function () {
 
@@ -97,7 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 question_note = "";
             }
             window.setInterval(function () {
-
 
                 if (localStorage.getItem('Q21') == 'oui') {
                     $('.oui-q21').show();
@@ -140,147 +139,445 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             /// Règles spécifiques selon les id  
 
-            for (i = 1; i < 32; i++) {
-                if (id == i)
-                {
-                    $(window).keydown(function (e) {
-                        if (e.which === 13) {
+//            for (i = 1; i < 32; i++) {
+//                if (id == i)
+//                {
+//                    $(window).keydown(function (e) {
+//                        if (e.which === 13) {
+//
+//                            window.location.href = href_next;
+//                        }
+//                    });
+//                    $('#next_btn').click(function () {
+//                        $("#next_btn").attr("href", href_next);
+//                    });
+//                }
+            if (id == 1)
+            {
 
-                            window.location.href = href_next;
-                        }
-                    });
-                    $('#next_btn').click(function () {
-                        $("#next_btn").attr("href", href_next);
-                    });
-                }
-                if (id == i && id == 9)
-                {
-                    window.setInterval(function () {
-                        control_q9();
-                    }, 50);
+                window.setInterval(function () {
 
-                }
-                if (id == i && id == 10)
-                {
-                    window.setInterval(function () {
-                        control_q10();
-                    }, 50);
+                    if (localStorage.getItem('Q1') == 'oui') {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/3';
+                    } else {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/2';
+                    }
+                }, 50);
 
-                }
-                if (id == i && id == 11)
-                {
-                    window.setInterval(function () {
-                        control_q11();
-                    }, 50);
-
-                }
-                if (id == i && id == 15)
-                {
-                    window.setInterval(function () {
-                        control_q15();
-                    }, 50);
-
-                }
-                  if (id == i && id == 18)
-                {
-                    window.setInterval(function () {
-                        control_q18();
-                        control_q18_2();
-                    }, 50);
-
-                }
-                  if (id == i && id == 19)
-                {
-                    window.setInterval(function () {
-                        control_q19();
-                        control_q19_2();
-                    }, 50);
-
-                }
-                  if (id == i && id == 20)
-                {
-                    window.setInterval(function () {
-                        control_q20();
-                        control_q20_2();
-                    }, 50);
-
-                }
-                if (id == i && id == 12)
-                {
-                    window.setInterval(function () {
-                        if (localStorage.getItem('Q12') == 'non') {
-                            href_next = base_url + 'index.php/home/survey/' + survey + '/14';
-                        }
-                    }, 50);
-                    $(window).keydown(function (e) {
-                        if (e.which === 13) {
-
-                            window.location.href = href_next;
-                        }
-                    });
-                    $('#next_btn').click(function () {
-                        $("#next_btn").attr("href", href_next);
-                    });
-
-                }
-                if (id == i && id == 14)
-                {
-                    window.setInterval(function () {
-                        if (localStorage.getItem('Q14') == 'non') {
-                            href_next = base_url + 'index.php/home/survey/' + survey + '/16';
-                        }
-                    }, 50);
-                    $(window).keydown(function (e) {
-                        if (e.which === 13) {
-
-                            window.location.href = href_next;
-                        }
-                    });
-                    $('#next_btn').click(function () {
-                        $("#next_btn").attr("href", href_next);
-                    });
-
-                }
-                if (id == i && id == 1)
-                {
-                    
-                    window.setInterval(function () {
-                      
-                         if (localStorage.getItem('Q1') == 'oui') {
-                            href_next = base_url + 'index.php/home/survey/' + survey + '/3';
-                        }else{
-                            href_next = base_url + 'index.php/home/survey/' + survey + '/2';
-                        }
-                    }, 50);
-                   
-                    $(window).keydown(function (e) {
-                        if (e.which === 13) {
-                            insertAnserSimple(localStorage.getItem('Q1'));
-                            window.location.href = href_next;
-                            
-                        }
-                    });
-                    $('#next_btn').click(function () {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('Q1'));
-                        $("#next_btn").attr("href", href_next);
-                        
-                    });
+                        window.location.href = href_next;
 
-                    $('#back_btn').hide();
-                }
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('Q1'));
+                    $("#next_btn").attr("href", href_next);
+
+                });
+
+                $('#back_btn').hide();
+            }
+            if (id == 2)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q2'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q2'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 3)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q3'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q3'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 4)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q4'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q4'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 5)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ5();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ5();
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 6)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q6'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q6'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 7)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q7'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q7'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 8)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q8'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q8'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 9)
+            {
+                window.setInterval(function () {
+                    control_q9();
+                }, 50);
+
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ9();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ9();
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 10)
+            {
+                window.setInterval(function () {
+                    control_q10();
+                }, 50);
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ10();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ10();
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 11)
+            {
+                window.setInterval(function () {
+                    control_q11();
+                }, 50);
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ11();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ11();
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 12)
+            {
+                window.setInterval(function () {
+                    if (localStorage.getItem('Q12') == 'non') {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/14';
+                    }
+                }, 50);
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('Q12'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('Q12'));
+                    $("#next_btn").attr("href", href_next);
+                });
 
             }
 
-            if (id == array_IDs.length) //id=39
+            if (id == 13)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ13();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ13();
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 14)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('Q14'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('Q14'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 15)
+            {
+                window.setInterval(function () {
+                    control_q15();
+                }, 50);
+
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ15();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ15();
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 16)
+            {
+            }
+            if (id == 17)
+            {
+            }
+            if (id == 18)
+            {
+                window.setInterval(function () {
+                    control_q18();
+                    control_q18_2();
+                }, 50);
+
+            }
+            if (id == 19)
+            {
+                window.setInterval(function () {
+                    control_q19();
+                    control_q19_2();
+                }, 50);
+
+            }
+            if (id == 20)
+            {
+                window.setInterval(function () {
+                    control_q20();
+                    control_q20_2();
+                }, 50);
+
+            }
+            if (id == 21)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ21();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ21();
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 22)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ22();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ22();
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 23)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q23'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q23'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 24)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q24'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q24'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 25)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q25'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q25'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 26)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q26'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q26'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 27)
+            {
+                  $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ27();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ27();
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 28)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('Q28'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('Q28'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 29)
+            {
+                    $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ29();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ29();
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == 30)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q30'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q30'));
+                    $("#next_btn").attr("href", href_next);
+                });
+
+            }
+            if (id == 31)
+            {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertAnserSimple(localStorage.getItem('q31'));
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertAnserSimple(localStorage.getItem('q31'));
+                    $("#next_btn").attr("href", href_next);
+                });
+            }
+            if (id == array_IDs.length) //id=32
             {
                 $("#next_btn").html("Valider");
                 href_next = base_url + "index.php/home/fin/"
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
+                        insertQ32();
                         window.location.href = href_next;
                     }
                 });
                 $("#next_btn").click(function () {
+                    insertQ32();
                     $(this).attr("href", href_next);
                 });
             }
@@ -383,7 +680,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //});
             });
         </script>
-       
+
         <script>
             function maxLengthCheck(object) {
                 if (object.value.length > object.maxLength)
@@ -405,8 +702,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script>
             $(document).ready(function () {
 
- });
-            </script>
+            });
+        </script>
 
     </body>
 

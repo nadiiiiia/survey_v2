@@ -4,7 +4,7 @@ function control_q9() {
     for (i = 1; i < 5; i++)
     {
         var input = localStorage.getItem('q9-' + i);
-        
+
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -13,17 +13,17 @@ function control_q9() {
     }
 //var test = parseFloat(chiffre.replace(",",""));
 
-  var progressBar = $('.progress-bar');
-var percentVal = somme;
+    var progressBar = $('.progress-bar');
+    var percentVal = somme;
 
-    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal); 
+    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
     progressBar.attr("aria-valuemax", chiffre + '%');
-    
+
     if (percentVal == chiffre)
     {
-    	percentVal = 0;      
+        percentVal = 0;
     }
-    
+
     if (somme > chiffre) { // le chiffre dans Q8
 
         $('#error_q9').empty();
@@ -96,10 +96,10 @@ function control_q14() {
     }
 
     if (somme > total_q13) {
-       $('#error_q14').show();
-            //  $('#error_q14').empty();
+        $('#error_q14').show();
+        //  $('#error_q14').empty();
 
-       // $('#error_q14').append("Le montant total des quantités dépasse le Total déchets de votre réponse dans Q13 (" + total_q13 + " " + total_q13_unit + ")");
+        // $('#error_q14').append("Le montant total des quantités dépasse le Total déchets de votre réponse dans Q13 (" + total_q13 + " " + total_q13_unit + ")");
 //        $('#next_btn').click(function () {
 //            $("#next_btn").attr("href", "#");
 //        });
@@ -108,7 +108,7 @@ function control_q14() {
 //        $('#next_btn').click(function () {
 //            $("#next_btn").attr("href", href_next);
 //        });
-   }
+    }
     return parseFloat(somme);
 }
 
@@ -123,7 +123,7 @@ function control_q15() {
     }
     min = parseFloat(min);
     max = parseFloat(max);
-    
+
     if (max < min) {
         $('#error_q15').empty();
         $('#error_q15').append("vérifiez que la valeur Max est supérieure à la valeur Min");
@@ -214,7 +214,7 @@ function control_q19_2() {
 }
 
 function control_q19() {
-var somme = 0;
+    var somme = 0;
     for (i = 1; i < 13; i++)
     {
         var input = localStorage.getItem('q19-' + i + '-3');
@@ -239,11 +239,11 @@ var somme = 0;
         $('#error_q19').hide();
     }
 
-   // return parseFloat(somme);
+    // return parseFloat(somme);
 }
 
 function control_q20(somme) {
-var somme = 0;
+    var somme = 0;
     for (i = 1; i < 10; i++)
     {
         var input = localStorage.getItem('q20-' + i + '-3');
@@ -270,5 +270,4 @@ var somme = 0;
     }
     return parseFloat(somme);
 }
-
 

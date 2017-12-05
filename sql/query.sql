@@ -12,3 +12,7 @@ ALTER TABLE `survey_answers` ADD `created_at` datetime NOT NULL DEFAULT NOW();
 -- ajouter un champ question_back .. qui contient l'id de la page précédente (16/11/2017)
 --
 ALTER TABLE `survey_questions` ADD `question_back`  INT DEFAULT 0 AFTER `question_body`;
+--
+-- Augmenter la taille de la réponse (5/12/2017)
+--
+ALTER TABLE `survey_answers` CHANGE  `answer_body` `answer_body` VARCHAR(1000) DEFAULT '' ;

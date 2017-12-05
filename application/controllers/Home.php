@@ -46,65 +46,67 @@ class Home extends Home_Controller {
             redirect('login', 'refresh');
         } else {
             $dataLogin = $this->session->userdata('logged_in');
-           // $this->data['role'] = $dataLogin["role"];
-
-     
-          // $question_gr = $this->SurveyModel->getQuestionsBySurveyAndGroup($survey, $group);
+            // $this->data['role'] = $dataLogin["role"];
+            // $question_gr = $this->SurveyModel->getQuestionsBySurveyAndGroup($survey, $group);
             $gr_questions = $this->SurveyModel->getGrQuestionsBySurvey($survey);
-            
-             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
-            $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
-         
-            $this->data["question_json"] = json_encode($question);
-            $this->data["question_id"] = json_encode($question[0]["question_id"]);
-           $this->data["question_number"] = json_encode($question[0]["question_number"]);
-            $this->data["question_body"] = json_encode($question[0]["question_body"]);
-            $this->data["question_note"] = json_encode($question[0]["note"]);
-           $this->data["section_number"] = json_encode($question[0]["section_number"]);
-            $this->data["section_name"] = json_encode($question[0]["section_name"]);
-            $this->data["array_IDs_json"] = json_encode($id_questions);
-           // var_dump($question);
-            $this->data['id'] = $id;
-            $this->data['survey'] = $survey;
-           
-            $this->load->view('survey', $this->data);
-        }
-    }
-/*
-    public function page($survey, $id) {
-        if (!$this->session->userdata('logged_in')) {
-            redirect('login', 'refresh');
-        } else {
-            $dataLogin = $this->session->userdata('logged_in');
-// $this->data['role'] = $dataLogin["role"];
+
             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
             $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
-             $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
-            $this->data["back_page"] = json_encode($back_page);
-            //var_dump($this->data["back_page"]);die;
 
             $this->data["question_json"] = json_encode($question);
             $this->data["question_id"] = json_encode($question[0]["question_id"]);
             $this->data["question_number"] = json_encode($question[0]["question_number"]);
             $this->data["question_body"] = json_encode($question[0]["question_body"]);
-            $this->data["question_note"] = json_encode($question[0]["question_note"]);
+            $this->data["question_note"] = json_encode($question[0]["note"]);
             $this->data["section_number"] = json_encode($question[0]["section_number"]);
             $this->data["section_name"] = json_encode($question[0]["section_name"]);
             $this->data["array_IDs_json"] = json_encode($id_questions);
-
+            // var_dump($question);
             $this->data['id'] = $id;
             $this->data['survey'] = $survey;
-            $this->load->view('page', $this->data);
+
+            $this->load->view('survey', $this->data);
         }
     }
-*/
+
+    /*
+      public function page($survey, $id) {
+      if (!$this->session->userdata('logged_in')) {
+      redirect('login', 'refresh');
+      } else {
+      $dataLogin = $this->session->userdata('logged_in');
+      // $this->data['role'] = $dataLogin["role"];
+      $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
+      $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
+      $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
+      $this->data["back_page"] = json_encode($back_page);
+      //var_dump($this->data["back_page"]);die;
+
+      $this->data["question_json"] = json_encode($question);
+      $this->data["question_id"] = json_encode($question[0]["question_id"]);
+      $this->data["question_number"] = json_encode($question[0]["question_number"]);
+      $this->data["question_body"] = json_encode($question[0]["question_body"]);
+      $this->data["question_note"] = json_encode($question[0]["question_note"]);
+      $this->data["section_number"] = json_encode($question[0]["section_number"]);
+      $this->data["section_name"] = json_encode($question[0]["section_name"]);
+      $this->data["array_IDs_json"] = json_encode($id_questions);
+
+      $this->data['id'] = $id;
+      $this->data['survey'] = $survey;
+      $this->load->view('page', $this->data);
+      }
+      }
+     */
+
     public function set_answers() {
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
         $question = $this->input->post('question_id');
         $survey = $this->input->post('survey_id');
 
-
+        if (is_array($answer)) {
+            $answer = implode(",", $answer);  // (implode) Join array elements with a string
+        }
         $answer_data = array(
             'answer_question_id' => $question,
             'answer_survey_id' => $survey,
@@ -197,7 +199,7 @@ class Home extends Home_Controller {
     public function set_answers_q14() {
 
         $answer_body = $this->input->post('answer_body');
-         $user = $this->input->post('user_id');
+        $user = $this->input->post('user_id');
         $back = $this->input->post('back');
         $next = $this->input->post('next');
         $survey = $this->input->post('survey');
@@ -219,7 +221,7 @@ class Home extends Home_Controller {
             $this->AnswerModel->addAnswerDepartement($row);
         }
         //////// back_question
-       
+
 
         $back_data = array(
             'user_id' => $user,
@@ -235,7 +237,7 @@ class Home extends Home_Controller {
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
         $survey = $this->input->post('survey');
-        
+
         $next = $this->input->post('next');
         $back = $this->input->post('back');
 
@@ -267,37 +269,28 @@ class Home extends Home_Controller {
 
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
-        $survey = $this->input->post('survey');
-        
-        $next = $this->input->post('next');
-        $back = $this->input->post('back');
+        $survey = $this->input->post('survey_id');
+        $question = $this->input->post('question_id');
 
         if ($answer != null) {
             $answer = implode(",", $answer);  // (implode) Join array elements with a string
         } else {
             $answer = $answer;
         }
-        $user = $this->input->post('user_id');
-        $question = $this->input->post('question_id');
+
 
         $answer_data = array(
             'answer_question_id' => $question,
-            'user' => $user,
+            'answer_survey_id' => $survey,
+            'user_id' => $user,
             'answer_body' => $answer);
 
-       $back_data = array(
-            'user_id' => $user,
-            'survey_id' => $survey,
-            'question_nbr' => $next,
-            'back_nbr' => $back);
-
         $this->AnswerModel->addAnswer($answer_data);
-        $this->AnswerModel->setBackPage($back_data);
     }
 
     public function set_answers_test() {
 
-        $result = $this->input->post('next');
+        $result = $this->input->post('answer_body');
 
 
 

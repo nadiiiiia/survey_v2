@@ -9,5 +9,5 @@
 </fieldset>
 
 <div class="non-q22">Si non, pourquoi ?
-    <div class='md-form'><input type='text' id='q22' name="Q22" class='form-control'></div>
+    <div class='md-form'><input type='text' id='q22-non' name="q22-non" class='form-control'></div>
 </div>
