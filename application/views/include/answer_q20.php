@@ -83,42 +83,62 @@
             <!--Table head-->
 
             <!--Table body-->
-            <tbody>
+            <tbody class="qte">
                 <tr>
-
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"><input type = "text" class="q20" name="dechet_id" value="17"/></td> 
-                    <td>   <input id='q20-1-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>   <input id='q20-1-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q20" name="dechet_id" value="18"/></td> 
-                    <td>   <input id='q20-2-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>   <input id='q20-2-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"><input type = "text" class="q20" name="dechet_id" value="19"/></td>  
-                    <td>   <input id='q20-3-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>   <input id='q20-3-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q20" name="dechet_id" value="20"/></td> 
-                    <td>   <input id='q20-4-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>   <input id='q20-4-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q20" name="dechet_id" value="21"/></td> 
-                    <td>  <input id='q20-5-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>  <input id='q20-5-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q20" name="dechet_id" value="22"/></td> 
-                    <td><input id='q20-6-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td><input id='q20-6-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q20" name="dechet_id" value="23"/></td> 
-                    <td> <input id='q20-7-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td> <input id='q20-7-3' type = "number" maxlength = "9" name="qte" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
-                <tr>
+                 <!--<tr>
                     <td> <input id='q20-8-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
                     <td> <input id='q20-9-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
-                </tr>
+                </tr>-->
 
             </tbody>
             <!--Table body-->
@@ -164,7 +184,7 @@
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q20-4-4'></td>
 
         </tr>
-                <tr>
+        <tr>
             <th scope="row">UIDD</th>
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q20-5-4'></td>
 
@@ -178,7 +198,7 @@
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q20-7-4'></td>
 
         </tr>
-                <tr>
+        <tr>
             <th scope="row">Prise en charge par un collecteur</th>
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q20-8-4'></td>
 

@@ -79,62 +79,62 @@
             <!--Table body-->
             <tbody class="qte">
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
-                    <td class="hidden">  <input name="question_id" class="question" type='text'  ></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>  
                     <td class="hidden"> <input type = "text" class="q18" name="dechet_id" value="1"/></td> 
-                    <td>    <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-1-3'></td>
+                    <td><input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-1-3'></td>
                     <td><select id='q18-1-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
 
                 </tr>
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
-                    <td class="hidden">  <input name="question_id" class="question" type='text'  ></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"><input type = "text" class="q18" name="dechet_id" value="2"/></td> 
                     <td> <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-2-3'></td>
                     <td><select id='q18-2-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr>
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
-                    <td class="hidden">  <input name="question_id" class="question" type='text'  ></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q18" name="dechet_id" value="3"/></td> 
                     <td> <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-3-3'></td>
                     <td><select id='q18-3-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr>
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
-                    <td class="hidden">  <input name="question_id" class="question" type='text'  ></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
+                    <td class="hidden">  <input name="question_id" class="question" type='text'></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q18" name="dechet_id" value="4"/></td> 
                     <td><input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-4-3'></td>
                     <td><select id='q18-4-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr>
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
                     <td class="hidden">  <input name="question_id" class="question" type='text'></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q18" name="dechet_id" value="5"/></td> 
                     <td> <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-5-3'></td>
                     <td><select id='q18-5-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr>
                 <tr>
-                    <td class="hidden"><input name="user_id" class="user" type='text' ></td>
+                    <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
                     <td class="hidden">  <input name="question_id" class="question" type='text'></td>
-                    <td class="hidden">  <input name="survey_id" class="survey" type='text'  ></td>
+                    <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"><input type = "text" class="q18" name="dechet_id" value="6"/></td> 
                     <td>  <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-6-3'></td>
                     <td><select id='q18-6-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr>
-                <tr class="hidden">
+               <!-- <tr class="hidden">
                     <td> <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-7-3'></td>
                     <td><select id='q18-7-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
                 </tr >
                 <tr>
                     <td> <input type = "number" name="qte" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id='q18-8-3'></td>
                     <td><select id='q18-8-4' class='mdb-select initialized'><option value='tonnes'>Tonnes</option><option value='m3'>m3</option></select></td>
-                </tr>
+                </tr>-->
             </tbody>
             <!--Table body-->
         </table>

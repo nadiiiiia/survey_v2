@@ -240,17 +240,17 @@ function insertQ17() {
         var array = [];
         //$("#btnShow2").on("click", function () {
         $("tr:nth-child(n+1)").each(function () {
-            rowData = $(this).find('input, select').serializeArray();
+            rowData = $(this).find('input').serializeArray();
             var rowAr = {};
             $.each(rowData, function (e, v) {
                 rowAr[v['name']] = v['value'];
             });
             array.push(rowAr);
         });
-        
+
         return array;
     }
-   // alert(array[3].user);
+    // alert(array[3].user);
     var Q17 = getTableQ17Data();
     $.ajax({
         type: "post",
@@ -262,6 +262,32 @@ function insertQ17() {
 //        }
     });
 
+}
+function insertQ18_19_20() {
+    function getTableDechetsData() {
+        var array = [];
+        $(".qte tr:nth-child(n+1)").each(function () {
+            rowData = $(this).find('input').serializeArray();
+            var rowAr = {};
+            $.each(rowData, function (e, v) {
+                rowAr[v['name']] = v['value'];
+            });
+            array.push(rowAr);
+        });
+        return array;
+    }
+
+    var answer_table = getTableDechetsData();
+    //alert(tab_data1[1].qte);
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers_q18_q19_q20/",
+        data: {"answer_body": answer_table},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
 }
 /*
  function insertQ2() {

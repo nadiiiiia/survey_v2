@@ -271,3 +271,29 @@ function control_q20(somme) {
     return parseFloat(somme);
 }
 
+function control_q20_2() {
+    var somme = 0;
+
+    for (i = 1; i < 9; i++)
+    {
+        var input = localStorage.getItem('q20-' + i + '-3');
+        if (input == null || input == NaN || input == '') {
+            input = 0;
+        }
+        somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
+    }
+
+    if (somme > 100 && id == 20) {
+        $('#error_q20_2').empty();
+        $('#error_q20_2').append("Le montant total des quantités dépasse 100% (" + somme + " / 100 )");
+        $('#error_q20_2').show();
+    } else if (somme < 100 && id == 20) {
+        $('#error_q20_2').empty();
+        $('#error_q20_2').append("Le montant total des quantités est inférieur à 100% (" + somme + " / 100 )");
+        $('#error_q20_2').show();
+    } else {
+        $('#error_q20_2').hide();
+    }
+
+}
+

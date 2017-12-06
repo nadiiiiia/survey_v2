@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 05 déc. 2017 à 16:10
+-- Généré le :  mer. 06 déc. 2017 à 15:05
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `survey`
+-- Base de données :  `survey_v2`
 --
 
 -- --------------------------------------------------------
@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `survey_dechets_ans`;
 CREATE TABLE IF NOT EXISTS `survey_dechets_ans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `survey_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `dechet_id` int(11) NOT NULL,
   `qte` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;

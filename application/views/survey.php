@@ -433,7 +433,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     control_q18();
                     control_q18_2();
                 }, 50);
-
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ18_19_20();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ18_19_20();
+                    $("#next_btn").attr("href", href_next);
+                });
             }
             if (id == 19)
             {
@@ -441,14 +450,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     control_q19();
                     control_q19_2();
                 }, 50);
+                    $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ18_19_20();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ18_19_20();
+                    $("#next_btn").attr("href", href_next);
+                });
 
             }
             if (id == 20)
             {
                 window.setInterval(function () {
                     control_q20();
-                    control_q20_2();
+                    //control_q20_2();
                 }, 50);
+           $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ18_19_20();
+                        //window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ18_19_20();
+                    $("#next_btn").attr("href", href_next);
+                });
 
             }
             if (id == 21)

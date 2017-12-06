@@ -55,7 +55,7 @@ class Home extends Home_Controller {
             $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
             $user = $dataLogin["id"];
             $answer = $this->AnswerModel->getAnswer($survey, $question_id, $user);
-     
+
 
             $this->data["question_json"] = json_encode($question);
             $this->data["question_id"] = json_encode($question[0]["question_id"]);
@@ -121,30 +121,6 @@ class Home extends Home_Controller {
         $this->AnswerModel->addAnswer($answer_data);
     }
 
-    public function set_answers_and_back() {
-        $answer = $this->input->post('answer_body');
-        $user = $this->input->post('user_id');
-        $question = $this->input->post('question_id');
-        $back = $this->input->post('back');
-        $next = $this->input->post('next');
-        $survey = $this->input->post('survey');
-
-
-        $answer_data = array(
-            'answer_question_id' => $question,
-            'user' => $user,
-            'answer_body' => $answer);
-
-        $back_data = array(
-            'user_id' => $user,
-            'survey_id' => $survey,
-            'question_nbr' => $next,
-            'back_nbr' => $back);
-
-        $this->AnswerModel->addAnswer($answer_data);
-        $this->AnswerModel->setBackPage($back_data);
-    }
-
     public function set_answers_q17() {
 
         $answer_body = $this->input->post('answer_body');
@@ -169,40 +145,49 @@ class Home extends Home_Controller {
         }
     }
 
-    public function set_answers_q9_q10_q11() {
-        // partie oui/non
-        $answer = $this->input->post('answer_body');
-        $user = $this->input->post('user_id');
-        $question = $this->input->post('question_id');
-        $survey = $this->input->post('survey_id');
-        
+    public function set_answers_q18_q19_q20() {
 
-        $answer_data = array(
-            'answer_question_id' => $question,
-            'answer_survey_id' => $survey,
-            'user' => $user,
-            'answer_body' => $answer);
-
-        $this->AnswerModel->addAnswer($answer_data);
-
-        // partie tableau
-        $tab_data = $this->input->post('tab_data');
-
+      $answer_body = $this->input->post('answer_body');
+      
         $result = array();
         $element = array();
 
-        foreach ($tab_data as $cle => $valeur) {
+        foreach ($answer_body as $cle => $valeur) {
             $data = array_values($valeur);
-            $element['question_id'] = $data[0];
-            $element['user_id'] = $data[1];
-            $element['dechet_id'] = $data[2];
-            $element['qte'] = $data[3];
+            $element['survey_id'] = $data[0];
+            $element['question_id'] = $data[1];
+            $element['user_id'] = $data[2];
+            $element['dechet_id'] = $data[3];
+            $element['qte'] = $data[4];
             $result[] = $element;
-
-            foreach ($result as $row) {
-                $this->AnswerModel->addAnswerActivity($row);
-            }
         }
+        foreach ($result as $row) {
+            $this->AnswerModel->addAnswerDechets($row);
+        }
+    }
+
+    public function set_answers_and_back() {
+        $answer = $this->input->post('answer_body');
+        $user = $this->input->post('user_id');
+        $question = $this->input->post('question_id');
+        $back = $this->input->post('back');
+        $next = $this->input->post('next');
+        $survey = $this->input->post('survey');
+
+
+        $answer_data = array(
+            'answer_question_id' => $question,
+            'user' => $user,
+            'answer_body' => $answer);
+
+        $back_data = array(
+            'user_id' => $user,
+            'survey_id' => $survey,
+            'question_nbr' => $next,
+            'back_nbr' => $back);
+
+        $this->AnswerModel->addAnswer($answer_data);
+        $this->AnswerModel->setBackPage($back_data);
     }
 
     public function set_answers_q14() {
@@ -301,19 +286,16 @@ class Home extends Home_Controller {
 
         $result = $this->input->post('answer_body');
 
-
-
         $this->output->set_content_type('application/json');
         $this->output->set_output(json_encode($result));
         return $result;
     }
-    
-     public function get_answer($survey, $question, $user) {
-      $result = $this->AnswerModel->getAnswer($survey, $question, $user);
-      var_dump($result['answer_body']) ; die; 
-       
+
+    public function get_answer($survey, $question, $user) {
+        $result = $this->AnswerModel->getAnswer($survey, $question, $user);
+        var_dump($result['answer_body']);
+        die;
     }
-    
 
     public function generate_pdf_survey() {
         $this->data["action"] = 'attach';
