@@ -140,7 +140,7 @@ class Home extends Home_Controller {
         $this->AnswerModel->setBackPage($back_data);
     }
 
-    public function set_answers_q7() {
+    public function set_answers_q17() {
 
         $answer_body = $this->input->post('answer_body');
 
@@ -149,12 +149,13 @@ class Home extends Home_Controller {
 
         foreach ($answer_body as $cle => $valeur) {
             $data = array_values($valeur);
-            $element['question_id'] = $data[5];
-            $element['user_id'] = $data[4];
-            $element['activity_id'] = $data[0];
-            $element['qte'] = $data[1];
-            $element['unit'] = $data[2];
-            $element['percent'] = $data[3];
+            $element['survey_id'] = $data[0];
+            $element['question_id'] = $data[1];
+            $element['user_id'] = $data[2];
+            $element['activity_id'] = $data[3];
+            $element['DI'] = $data[4];
+            $element['DNIND'] = $data[5];
+            $element['DD'] = $data[6];
             $result[] = $element;
         }
 
@@ -168,9 +169,12 @@ class Home extends Home_Controller {
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
         $question = $this->input->post('question_id');
+        $survey = $this->input->post('survey_id');
+        
 
         $answer_data = array(
             'answer_question_id' => $question,
+            'answer_survey_id' => $survey,
             'user' => $user,
             'answer_body' => $answer);
 

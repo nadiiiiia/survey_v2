@@ -88,6 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('.hidden').hide();
             $('.user').val(user_id);
             $('.question').val(question_id);
+            $('.survey').val(survey);
             $('#back').val(question_number);
 
             if (section_name == null) {
@@ -387,9 +388,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 16)
             {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ16();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ16();
+                    $("#next_btn").attr("href", href_next);
+                });
+
             }
             if (id == 17)
             {
+                $(window).keydown(function (e) {
+                    if (e.which === 13) {
+                        insertQ17();
+                        window.location.href = href_next;
+                    }
+                });
+                $('#next_btn').click(function () {
+                    insertQ17();
+                    $("#next_btn").attr("href", href_next);
+                });
             }
             if (id == 18)
             {
