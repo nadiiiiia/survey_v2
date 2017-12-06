@@ -18,7 +18,7 @@
                     </div>
                     <p class="note" ></p>
 
-                    <div id="answer" > 
+                    <div id="answer" >
                     <?php 
                     for($i=1;$i<33;$i++){
                     if($id == $i){ include('answer_q'.$i.'.php'); }

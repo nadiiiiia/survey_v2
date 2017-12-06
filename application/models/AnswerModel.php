@@ -31,6 +31,26 @@ Class AnswerModel extends CI_Model {
             }
         }
     }
+    
+     public function getAnswer($survey_id, $question_id,$user_id) {
+            $query = $this->db->select('answer_body')
+                ->from('survey_answers')
+                ->where('user_id', $user_id) //le meme utilisateur
+                ->where('answer_question_id', $question_id)  //la meme question
+                ->where('answer_survey_id', $survey_id) //le meme questionnaire
+                ->get(); //select * from ipw_report_categ‏
+
+        $ret = $query->result_array();
+
+
+        if ($ret) {
+            return $ret[0]; // return all fields of table : ipw_create_report
+        } else {
+            return null;
+        }
+         
+      
+    }
 
     public function addAnswerActivity($data) {
         $survey_id = $data['survey_id'];

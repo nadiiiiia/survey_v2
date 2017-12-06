@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Dim 12 Novembre 2017 à 10:01
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 05 déc. 2017 à 17:21
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,36 +28,22 @@ SET time_zone = "+00:00";
 -- Structure de la table `survey_activity_ans`
 --
 
-CREATE TABLE `survey_activity_ans` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `survey_activity_ans`;
+CREATE TABLE IF NOT EXISTS `survey_activity_ans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `survey_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `activity_id` int(11) NOT NULL,
-  `qte` int(11) NOT NULL,
-  `unit` varchar(10) NOT NULL,
-  `percent` varchar(10) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `DI` int(11) DEFAULT 0,
+  `DNIND` int(11) DEFAULT 0,
+  `DD` int(11) DEFAULT 0,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
---
--- Index pour les tables exportées
---
 
---
--- Index pour la table `survey_activity_ans`
---
-ALTER TABLE `survey_activity_ans`
-  ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `survey_activity_ans`
---
-ALTER TABLE `survey_activity_ans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

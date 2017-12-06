@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 15 Novembre 2017 à 15:44
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 05 déc. 2017 à 16:09
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,15 +28,17 @@ SET time_zone = "+00:00";
 -- Structure de la table `survey_dechets`
 --
 
-CREATE TABLE `survey_dechets` (
-  `id_dechet` int(11) NOT NULL,
+DROP TABLE IF EXISTS `survey_dechets`;
+CREATE TABLE IF NOT EXISTS `survey_dechets` (
+  `id_dechet` int(11) NOT NULL AUTO_INCREMENT,
   `nom_dechet` varchar(500) NOT NULL,
   `type_dechet` int(11) NOT NULL,
-  `note` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `note` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_dechet`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `survey_dechets`
+-- Déchargement des données de la table `survey_dechets`
 --
 
 INSERT INTO `survey_dechets` (`id_dechet`, `nom_dechet`, `type_dechet`, `note`) VALUES
@@ -61,26 +65,8 @@ INSERT INTO `survey_dechets` (`id_dechet`, `nom_dechet`, `type_dechet`, `note`) 
 (21, 'Déchets d\'équipements électriques et électroniques', 3, '(DEEE)'),
 (22, 'Equipements techniques', 3, '(hors DEEE)'),
 (23, 'Autres déchets dangereux', 3, '');
+COMMIT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `survey_dechets`
---
-ALTER TABLE `survey_dechets`
-  ADD PRIMARY KEY (`id_dechet`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `survey_dechets`
---
-ALTER TABLE `survey_dechets`
-  MODIFY `id_dechet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

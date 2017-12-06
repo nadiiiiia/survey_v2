@@ -51,7 +51,11 @@ class Home extends Home_Controller {
             $gr_questions = $this->SurveyModel->getGrQuestionsBySurvey($survey);
 
             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
+            $question_id = $question[0]["question_id"];
             $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
+            $user = $dataLogin["id"];
+            $answer = $this->AnswerModel->getAnswer($survey, $question_id, $user);
+     
 
             $this->data["question_json"] = json_encode($question);
             $this->data["question_id"] = json_encode($question[0]["question_id"]);
@@ -64,7 +68,8 @@ class Home extends Home_Controller {
             // var_dump($question);
             $this->data['id'] = $id;
             $this->data['survey'] = $survey;
-
+            $this->data['answer'] = json_encode($answer['answer_body']);
+// var_dump($answer['answer_body']); die;
             $this->load->view('survey', $this->data);
         }
     }
@@ -302,6 +307,13 @@ class Home extends Home_Controller {
         $this->output->set_output(json_encode($result));
         return $result;
     }
+    
+     public function get_answer($survey, $question, $user) {
+      $result = $this->AnswerModel->getAnswer($survey, $question, $user);
+      var_dump($result['answer_body']) ; die; 
+       
+    }
+    
 
     public function generate_pdf_survey() {
         $this->data["action"] = 'attach';

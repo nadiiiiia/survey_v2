@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var question_note = <?php echo $question_note; ?>;
         var section_name = <?php echo $section_name; ?>;
         var section_number = <?php echo $section_number; ?>;
+        var answer = <?php echo $answer; ?>; // la réponse enregistrée dans la BD
         var array_IDs = <?php echo $array_IDs_json; ?>;
         var total = parseFloat(localStorage.getItem('q13-1-1'));
         var total_unit = localStorage.getItem('q13-1-2');
@@ -55,6 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!--  survey_body here-->
         <?php include('include/survey_body.php'); ?>
+        
+        
 
 
         <!-- Footer here-->
@@ -172,6 +175,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     }
                 });
+                
+                $('input[value="' + answer + '"][name="Q1"]').prop('checked', true); // récupération de la réponse (radio)
                 $('#next_btn').click(function () {
                     insertAnserSimple(localStorage.getItem('Q1'));
                     $("#next_btn").attr("href", href_next);
@@ -182,6 +187,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 2)
             {
+                $('#q2').val(answer); // récupération de la réponse (texte)
+                
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q2'));
@@ -195,6 +202,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 3)
             {
+                $('#q3').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q3'));
@@ -208,6 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 4)
             {
+                $('#q4').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q4'));
@@ -234,6 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 6)
             {
+                $('#q6').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q6'));
@@ -247,6 +257,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 7)
             {
+                $('#q7').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q7'));
@@ -260,6 +271,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 8)
             {
+                $('#q8').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q8'));
@@ -323,6 +335,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 12)
             {
+                $('input[value="' + answer + '"][name="Q12"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
                     if (localStorage.getItem('Q12') == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/14';
@@ -357,6 +370,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 14)
             {
+                $('input[value="' + answer + '"][name="Q14"]').prop('checked', true); // récupération de la réponse (radio)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('Q14'));
@@ -467,6 +481,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 23)
             {
+                 $('#q23').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q23'));
@@ -481,6 +496,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 24)
             {
+                 $('#q24').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q24'));
@@ -495,6 +511,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 25)
             {
+                 $('#q25').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q25'));
@@ -509,6 +526,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 26)
             {
+                 $('#q26').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q26'));
@@ -536,6 +554,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 28)
             {
+                $('input[value="' + answer + '"][name="Q28"]').prop('checked', true); // récupération de la réponse (radio)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('Q28'));
@@ -563,6 +582,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 30)
             {
+                $('#q30').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q30'));
@@ -577,6 +597,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 31)
             {
+                 $('#q31').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('q31'));
@@ -658,19 +679,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                 ////////Getters////////
-                $('.useLocal').each(function () {
-                    var key = $(this).attr('id');
-                    if (localStorage.getItem(key)) {
-                        $(this).val(localStorage.getItem(key));
-                    }
-                });
+//                $('.useLocal').each(function () {
+//                    var key = $(this).attr('id');
+//                    if (localStorage.getItem(key)) {
+//                        $(this).val(localStorage.getItem(key));
+//                    }
+//                });
 
-                $('input[type="radio"]').each(function () {
-                    var name = $(this).attr('name');
-                    var value = localStorage.getItem(name);
-                    $('input[value="' + value + '"][name="' + name + '"]').prop('checked', true);
-                });
-
+//                $('input[type="radio"]').each(function () {
+//                    var name = $(this).attr('name');
+//                    var value = localStorage.getItem(name);
+//                    $('input[value="' + value + '"][name="' + name + '"]').prop('checked', true);
+//                });
+//    
+                  ////////Fin Getters////////
 
 //                for (i = 0; i < checkboxes.length; i++) {
 //                    checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === "true" ? true : false;

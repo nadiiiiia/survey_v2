@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 15 Novembre 2017 à 15:43
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mar. 05 déc. 2017 à 16:08
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,40 +28,24 @@ SET time_zone = "+00:00";
 -- Structure de la table `survey_type_dechets`
 --
 
-CREATE TABLE `survey_type_dechets` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `survey_type_dechets`;
+CREATE TABLE IF NOT EXISTS `survey_type_dechets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(200) NOT NULL,
-  `note` varchar(300) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `note` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `survey_type_dechets`
+-- Déchargement des données de la table `survey_type_dechets`
 --
 
 INSERT INTO `survey_type_dechets` (`id`, `type`, `note`) VALUES
 (3, 'dangereux', ''),
-(2, 'non_inertes_non_dangereux', ''),
+(2, 'non inertes, non dangereux', ''),
 (1, 'inertes', '');
+COMMIT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `survey_type_dechets`
---
-ALTER TABLE `survey_type_dechets`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `survey_type_dechets`
---
-ALTER TABLE `survey_type_dechets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
