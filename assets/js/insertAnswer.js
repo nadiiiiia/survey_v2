@@ -67,7 +67,8 @@ function insertQ11() {
     var Q11_7 = localStorage.getItem('q11-7');
     var Q11_8 = localStorage.getItem('q11-8');
     var Q11_9 = localStorage.getItem('q11-9');
-    var Q11 = [Q11_1, Q11_2, Q11_3, Q11_4, Q11_5, Q11_6, Q11_7, Q11_8, Q11_9];
+    var Q11_10 = localStorage.getItem('q11-10');
+    var Q11 = [Q11_1, Q11_2, Q11_3, Q11_4, Q11_5, Q11_6, Q11_7, Q11_8, Q11_9, Q11_10];
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers/",

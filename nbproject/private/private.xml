@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q1.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/models/AnswerModel.php</file>
             <file>file:/C:/wamp/www/survey_v2/assets/js/insertAnswer.js</file>
             <file>file:/C:/wamp/www/survey_v2/application/controllers/Home.php</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q20.php</file>
             <file>file:/C:/wamp/www/survey_v2/assets/js/controlQuestions.js</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q9.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q18.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q19.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/survey.php</file>
-            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q17.php</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/include/survey_body.php</file>
         </group>
     </open-files>
 </project-private>
