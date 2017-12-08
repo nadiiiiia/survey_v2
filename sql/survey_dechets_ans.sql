@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 06 déc. 2017 à 15:05
+-- Généré le :  ven. 08 déc. 2017 à 14:48
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -34,11 +34,12 @@ CREATE TABLE IF NOT EXISTS `survey_dechets_ans` (
   `survey_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `dechet_id` int(11) NOT NULL,
-  `qte` int(11) NOT NULL,
+  `oui_non` varchar(100) NOT NULL,
+  `qte` varchar(300) NOT NULL,
+  `autres` varchar(200) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

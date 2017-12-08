@@ -457,9 +457,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 17)
             {
                 for (i = 0; i < 7; i++) {
-                    $('#q17-1-' + (i + 1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
-                    $('#q17-2-' + (i + 1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
-                    $('#q17-3-' + (i + 1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
+                    $('#q17-1-' + (i+1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
+                    $('#q17-2-' + (i+1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
+                    $('#q17-3-' + (i+1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
                 }
 
                 $(window).keydown(function (e) {
