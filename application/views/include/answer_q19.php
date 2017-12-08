@@ -18,65 +18,61 @@
             <tbody>
                 <tr>
                     <th scope="row">1.Mélanges déchets non dangereux non inertes (DIB)</th>
-                    <td> <input type="radio" name="Q19-1" id='q19-1-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-1" id='q19-1-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-1" value="oui"></td>
+                    <td><input type="radio" name="Q19-1"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">2.Métaux</th>
-                    <td> <input type="radio" name="Q19-2" id='q19-2-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-2" id='q19-2-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-2" value="oui"></td>
+                    <td><input type="radio" name="Q19-2" value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">3.Plâtre - plaques et carreaux</th>
-                    <td> <input type="radio" name="Q19-3" id='q19-3-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-3" id='q19-3-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-3"  value="oui"></td>
+                    <td><input type="radio" name="Q19-3" ' value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">4.Plâtre - enduits sur supports inertes</th>
-                    <td> <input type="radio" name="Q19-4" id='q19-4-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-4" id='q19-4-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-4" value="oui"></td>
+                    <td><input type="radio" name="Q19-4"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">5.Plastiques</th>
-                    <td> <input type="radio" name="Q19-5" id='q19-5-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-5" id='q19-5-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-5" value="oui"></td>
+                    <td><input type="radio" name="Q19-5"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">6.Vitrages</th>
-                    <td> <input type="radio" name="Q19-6" id='q19-6-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-6" id='q19-6-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-6" value="oui"></td>
+                    <td><input type="radio" name="Q19-6" value="non"></td>
                 </tr>
 
                 <tr>
                     <th scope="row">7.Bois brut ou faiblement adjuventés</th>
-                    <td> <input type="radio" name="Q19-7" id='q19-7-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-7" id='q19-7-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-7" value="oui"></td>
+                    <td><input type="radio" name="Q19-7"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">8.Déchets végétaux</th>
-                    <td> <input type="radio" name="Q19-8" id='q19-8-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-8" id='q19-8-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-8"  value="oui"></td>
+                    <td><input type="radio" name="Q19-8"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">9. Déchets résiduels issus de l'usage et occupation des bâtiments</th>
-                    <td> <input type="radio" name="Q19-9" id='q19-9-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-9" id='q19-9-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-9"  value="oui"></td>
+                    <td><input type="radio" name="Q19-9 value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">10.Autres déchets non dangereux</th>
-                    <td> <input type="radio" name="Q19-10" id='q19-10-1' value="oui"></td>
-                    <td><input type="radio" name="Q19-10" id='q19-10-2' value="non"></td>
+                    <td> <input type="radio" name="Q19-10"  value="oui"></td>
+                    <td><input type="radio" name="Q19-10"  value="non"></td>
                 </tr>
                 <tr>
-                    <th scope="row"><input name="Q19-11" id='q19-10-11' type="text" placeholder="Préciser"></th>
+                    <th scope="row"><input name="Q19-11" id='q19-1-2' type="text" placeholder="Préciser"></th>
                     <td></td>
                     <td></td>
                 </tr>
-                <tr>
-                    <th scope="row"><input name="Q19-12" type="text" id='q19-10-12' placeholder="Préciser"></th>
-                    <td> </td>
-                    <td></td>
-                </tr>
+                
             </tbody>
             <!--Table body-->
         </table>
@@ -153,7 +149,7 @@
                     <td class="hidden">  <input name="question_id" class="question" type='text'></td>
                     <td class="hidden"><input name="user_id" class="user" type='text' ></td> 
                     <td class="hidden"> <input type = "text" class="q19" name="dechet_id" value="14"/></td> 
-                    <td>  <input id='q19-8-3' type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
+                    <td>  <input id='q19-8-3' name="qte"  type = "number" maxlength = "9" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"></td>
                 </tr>
                 <tr>
                     <td class="hidden">  <input name="survey_id" class="survey" type='text'></td>
@@ -200,7 +196,7 @@
     <!--Table head-->
 
     <!--Table body-->
-    <tbody>
+    <tbody class="percent">
         <tr>
             <th scope="row">Réemploi sur site</th>
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q19-1-4'></td>

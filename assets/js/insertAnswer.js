@@ -264,32 +264,116 @@ function insertQ17() {
     });
 
 }
-function insertQ18_19_20() {
-    function getTableDechetsData() {
-        var array = [];
-        $(".qte tr:nth-child(n+1)").each(function () {
-            rowData = $(this).find('input').serializeArray();
-            var rowAr = {};
-            $.each(rowData, function (e, v) {
-                rowAr[v['name']] = v['value'];
-            });
-            array.push(rowAr);
-        });
-        return array;
+function insertQ18() {
+
+    var Q18_1_1 = []; // contient les valeurs oui/non
+    var Q18_1_2 = []; // contient les valeurs qte
+    var Q18_2 = []; // contient les valeurs percent
+
+    // le 1er tableau
+    for (i = 1; i < 7; i++) {
+        Q18_1_1[i] = localStorage.getItem('Q18-' + i + ''); //oui/non
+    }
+    for (i = 1; i < 7; i++) {
+        Q18_1_2[i] = localStorage.getItem('q18-' + i + '-2'); //qte
     }
 
-    var answer_table = getTableDechetsData();
-    //alert(tab_data1[1].qte);
+    // le 2ème tableau
+    for (i = 1; i < 11; i++) {
+        Q18_2[i] = localStorage.getItem('q18-' + i + '-4');//percent
+    }
+    Q18_2[11] = localStorage.getItem('q18-autres');
+
+    var oui_non_table = [Q18_1_1[1], Q18_1_1[2], Q18_1_1[3], Q18_1_1[4], Q18_1_1[5], Q18_1_1[6]];
+    var qte_table = [Q18_1_2[1], Q18_1_2[2], Q18_1_2[3], Q18_1_2[4], Q18_1_2[5], Q18_1_2[6]];
+    var autres = localStorage.getItem('q18-1-3'); // contient les valeurs à préciser
+    var percent_table = [Q18_2[1], Q18_2[2], Q18_2[3], Q18_2[4], Q18_2[5], Q18_2[6], Q18_2[7], Q18_2[8], Q18_2[9], Q18_2[10], Q18_2[11]];
+
+
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q18_q19_q20/",
-        data: {"answer_body": answer_table},
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
 //        }
     });
 }
+function insertQ19() {
+
+    // le 1er tableau
+    var Q19_1_1 = []; // contient les valeurs oui/non
+    for (i = 1; i < 11; i++) {
+        Q19_1_1[i] = localStorage.getItem('Q19-' + i + '');
+    }
+    var oui_non_table = [Q19_1_1[1], Q19_1_1[2], Q19_1_1[3], Q19_1_1[4], Q19_1_1[5], Q19_1_1[6], Q19_1_1[7], Q19_1_1[8], Q19_1_1[9], Q19_1_1[10]];
+
+    var Q19_1_2 = []; // contient les valeurs qte
+    for (i = 1; i < 11; i++) {
+        Q19_1_2[i] = localStorage.getItem('q19-' + i + '-3');
+    }
+    var qte_table = [Q19_1_2[1], Q19_1_2[2], Q19_1_2[3], Q19_1_2[4], Q19_1_2[5], Q19_1_2[6], Q19_1_2[7], Q19_1_2[8], Q19_1_2[9], Q19_1_2[10]];
+
+    var autres = localStorage.getItem('q19-1-2'); // contient les valeurs à préciser
+
+    // le 2ème tableau
+    var Q19_2 = [];
+    for (i = 1; i < 11; i++) {
+        Q19_2[i] = localStorage.getItem('q19-' + i + '-4');
+    }
+    Q19_2[10] = localStorage.getItem('q19-autres');
+
+    var percent_table = [Q19_2[1], Q19_2[2], Q19_2[3], Q19_2[4], Q19_2[5], Q19_2[6], Q19_2[7], Q19_2[8], Q19_2[9], Q19_2[10]];
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers_q18_q19_q20/",
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+function insertQ20() {
+
+    var Q20_1_1 = []; // contient les valeurs oui/non
+    var Q20_1_3 = []; // contient les valeurs qte
+    var Q20_2 = []; // contient les valeurs percent
+
+    // le 1er tableau
+    for (i = 1; i < 8; i++) {
+        Q20_1_1[i] = localStorage.getItem('Q20-' + i + ''); //oui/non
+    }
+    for (i = 1; i < 8; i++) {
+        Q20_1_3[i] = localStorage.getItem('q20-' + i + '-3'); //qte
+    }
+    // le 2ème tableau
+    var Q20_2 = [];
+    for (i = 1; i < 10; i++) {
+        Q20_2[i] = localStorage.getItem('q20-' + i + '-4');
+    }
+    Q20_2[10] = localStorage.getItem('q20-autres');
+
+    var oui_non_table = [Q20_1_1[1], Q20_1_1[2], Q20_1_1[3], Q20_1_1[4], Q20_1_1[5], Q20_1_1[6], Q20_1_1[7]];
+    var autres = localStorage.getItem('q20-1-2'); // contient les valeurs à préciser
+    var qte_table = [Q20_1_3[1], Q20_1_3[2], Q20_1_3[3], Q20_1_3[4], Q20_1_3[5], Q20_1_3[6], Q20_1_3[7]];
+    var percent_table = [Q20_2[1], Q20_2[2], Q20_2[3], Q20_2[4], Q20_2[5], Q20_2[6], Q20_2[7], Q20_2[8], Q20_2[9], Q20_2[10]];
+
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers_q18_q19_q20/",
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+
+}
+
 /*
  function insertQ2() {
  href_next = base_url + 'index.php/home/page/' + survey + '/25'; //if q3 == non

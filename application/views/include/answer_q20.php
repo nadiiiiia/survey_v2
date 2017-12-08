@@ -18,51 +18,47 @@
             <tbody>
                 <tr>
                     <th scope="row">1.Terres et matériaux meubles pollués</th>
-                    <td> <input type="radio" name="Q20-1" id='q20-1-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-1" id='q20-1-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-1"  value="oui"></td>
+                    <td><input type="radio" name="Q20-1"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">2.Amiante</th>
-                    <td> <input type="radio" name="Q20-2" id='q20-2-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-2" id='q20-2-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-2"  value="oui"></td>
+                    <td><input type="radio" name="Q20-2" value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">3.Bois traités <small>(traverses chemin fer, poteaux EDF ou FT, bois recouvert de peintures au plomb, etc.)</small></th>
-                    <td> <input type="radio" name="Q20-3" id='q20-3-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-3" id='q20-3-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-3"  value="oui"></td>
+                    <td><input type="radio" name="Q20-3"  value="non"></td>
                 </tr>
                 <tr> 
                     <th scope="row">4.Lampes</th>
-                    <td> <input type="radio" name="Q20-4" id='q20-4-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-4" id='q20-4-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-4" value="oui"></td>
+                    <td><input type="radio" name="Q20-4"  value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">5.Déchets d'équipements électriques et électroniques (DEEE)</th>
-                    <td> <input type="radio" name="Q20-5" id='q20-5-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-5" id='q20-5-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-5" value="oui"></td>
+                    <td><input type="radio" name="Q20-5" value="non"></td>
                 </tr>
                 <tr>
                     <th scope="row">6.Equipements techniques (hors DEEE)</th>
-                    <td> <input type="radio" name="Q20-6" id='q20-6-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-6" id='q20-6-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-6"  value="oui"></td>
+                    <td><input type="radio" name="Q20-6"  value="non"></td>
                 </tr>
 
 
                 <tr>
                     <th scope="row">7.Autres déchets dangereux</th>
-                    <td> <input type="radio" name="Q20-7" id='q20-7-1' value="oui"></td>
-                    <td><input type="radio" name="Q20-7" id='q20-7-2' value="non"></td>
+                    <td> <input type="radio" name="Q20-7"  value="oui"></td>
+                    <td><input type="radio" name="Q20-7"  value="non"></td>
                 </tr>
                 <tr>
-                    <th scope="row"><input name="Q20-8" type="text" placeholder="Préciser"></th>
+                    <th scope="row"><input id="q20-1-2" type="text" placeholder="Préciser"></th>
                     <td></td>
                     <td></td>
                 </tr>
-                <tr>
-                    <th scope="row"><input name="Q20-9" type="text" placeholder="Préciser"></th>
-                    <td> </td>
-                    <td></td>
-                </tr>
+              
             </tbody>
             <!--Table body-->
         </table>
@@ -164,7 +160,7 @@
     <!--Table head-->
 
     <!--Table body-->
-    <tbody>
+    <tbody class="percent">
         <tr>
             <th scope="row">Traitement et réemploi sur site</th>
             <td><input name="percent" type = "number" maxlength = "3" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)"  id='q20-1-4'></td>

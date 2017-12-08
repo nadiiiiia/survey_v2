@@ -84,19 +84,32 @@ Class AnswerModel extends CI_Model {
             }
         }
     }
+         public function getAnswerActivity($survey_id, $question_id,$user_id) {
+            $query = $this->db->select('*')
+                ->from('survey_activity_ans')
+                ->where('user_id', $user_id) //le meme utilisateur
+                ->where('question_id', $question_id)  //la meme question
+                ->where('survey_id', $survey_id) //le meme questionnaire
+                ->get(); //select * from ipw_report_categ‏
+
+        $ret = $query->result_array();
+
+         return $ret;
+      
+    }
      public function addAnswerDechets($data) {
         $survey_id = $data['survey_id'];
         $question_id = $data['question_id'];
         $user_id = $data['user_id'];
-        $dechet_id = $data['dechet_id'];
+        $oui_non = $data['oui_non'];
         $qte = $data['qte'];
+        $autres = $data['autres'];
         
         $this->db->select('*');
         $this->db->from('survey_dechets_ans');
         $this->db->where('user_id', $user_id); //le meme utilisateur
         $this->db->where('question_id', $question_id); //la meme question
         $this->db->where('survey_id', $survey_id); //  le meme questionnaire
-        $this->db->where('dechet_id', $dechet_id); //  le meme questionnaire
 
 
         if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
@@ -104,15 +117,34 @@ Class AnswerModel extends CI_Model {
                 return true;
             }
         } else {  /// traitement si la réponse existe --> update
-            if ($this->db->set('qte', $qte)
+            if ($this->db->set('oui_non', $oui_non)
+                            ->set('qte', $qte)
+                            ->set('autres', $autres)
                             ->where('survey_id', $survey_id)
                             ->where('question_id', $question_id)
                             ->where('user_id', $user_id)
-                            ->where('dechet_id', $dechet_id)
                             ->update('survey_dechets_ans')) {
                 return true;
             }
         }
+    }
+    
+             public function getAnswerDechets($survey_id, $question_id,$user_id) {
+            $query = $this->db->select('*')
+                ->from('survey_dechets_ans')
+                ->where('user_id', $user_id) //le meme utilisateur
+                ->where('question_id', $question_id)  //la meme question
+                ->where('survey_id', $survey_id) //le meme questionnaire
+                ->get(); //select * from ipw_report_categ‏
+
+        $ret = $query->result_array();
+             //return $ret[0];
+        if ($ret) {
+            return $ret[0]; 
+        } else {
+            return null;
+        }
+//      
     }
 //        public function addAnswerDechets($data) {
 //        $survey_id = $data['survey'];
