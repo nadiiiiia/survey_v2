@@ -8,8 +8,8 @@
                             </li>-->
                             
                             <li class="nav-item ">
-                                <a href="<?php echo base_url(); ?>index.php/home/logout" id="logout" onclick="(function(){localStorage.clear();})()" class="nav-link  waves-effect waves-light" >
-                                    <i class="fa fa-sign-out"></i>
+                                <a href="<?php echo base_url(); ?>index.php/home/logout" id="logout" class="nav-link  waves-effect waves-light" >
+                                    <i class="fa fa-sign-out"></i>  <!--onclick="(function(){localStorage.clear();})()"-->
                                 </a>
                                 
                             </li>

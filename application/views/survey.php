@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('Q1'));
+                         insertAnserSimple(localStorage.getItem('Q1'));
                         window.location.href = href_next;
 
                     }
@@ -167,12 +167,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('q2'));
+                        insertAnserSimple($('#q2').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('q2'));
+                   insertAnserSimple($('#q2').val());
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -181,12 +181,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#q3').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('q3'));
+                       insertAnserSimple($('#q3').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('q3'));
+                    insertAnserSimple($('#q3').val());
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -195,24 +195,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#q4').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('q4'));
+                        insertAnserSimple($('#q4').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('q4'));
+                    insertAnserSimple($('#q4').val());
                     $("#next_btn").attr("href", href_next);
                 });
             }
             if (id == 5)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if ((answer != null) && (answer.indexOf(',') > -1)) {
                     tab = answer.split(',');
+                    $('#q5-1').val(tab[0]); // récupération de la réponse (texte)
+                $('#q5-2').val(tab[1]); // récupération de la réponse (texte)
+                $('#q5-3').val(tab[2]); // récupération de la réponse (texte)
                 }
-                $('#nom').val(tab[0]); // récupération de la réponse (texte)
-                $('#tel').val(tab[1]); // récupération de la réponse (texte)
-                $('#email').val(tab[2]); // récupération de la réponse (texte)
+                
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {

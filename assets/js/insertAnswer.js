@@ -8,10 +8,11 @@ function insertAnserSimple(answer) { // answer simple = radio ou texte
 }
 
 function insertQ5() {
-    var Q5_1 = localStorage.getItem('q5-1');
-    var Q5_2 = localStorage.getItem('q5-2');
-    var Q5_3 = localStorage.getItem('q5-3');
-    var Q5 = [Q5_1, Q5_2, Q5_3];
+    var Q5 = [];
+    for (i = 0; i < 3; i++) {
+        Q5[i] = $('#q5-' + (i+1) + '').val();
+    }
+
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers/",
