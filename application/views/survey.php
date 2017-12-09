@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                         insertAnserSimple(localStorage.getItem('Q1'));
+                        insertAnserSimple(localStorage.getItem('Q1'));
                         window.location.href = href_next;
 
                     }
@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                 });
                 $('#next_btn').click(function () {
-                   insertAnserSimple($('#q2').val());
+                    insertAnserSimple($('#q2').val());
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#q3').val(answer); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                       insertAnserSimple($('#q3').val());
+                        insertAnserSimple($('#q3').val());
                         window.location.href = href_next;
                     }
                 });
@@ -210,10 +210,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if ((answer != null) && (answer.indexOf(',') > -1)) {
                     tab = answer.split(',');
                     $('#q5-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q5-2').val(tab[1]); // récupération de la réponse (texte)
-                $('#q5-3').val(tab[2]); // récupération de la réponse (texte)
+                    $('#q5-2').val(tab[1]); // récupération de la réponse (texte)
+                    $('#q5-3').val(tab[2]); // récupération de la réponse (texte)
                 }
-                
+
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
@@ -271,13 +271,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 9)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('#q9-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('#q9-2').val(tab[1]); // récupération de la réponse (texte)
+                    $('#q9-3').val(tab[2]); // récupération de la réponse (texte)
+                    $('#q9-4').val(tab[3]); // récupération de la réponse (texte)
                 }
-                $('#q9-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q9-2').val(tab[1]); // récupération de la réponse (texte)
-                $('#q9-3').val(tab[2]); // récupération de la réponse (texte)
-                $('#q9-4').val(tab[3]); // récupération de la réponse (texte)
+
                 window.setInterval(function () {
                     control_q9();
                 }, 50);
@@ -296,15 +297,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 10)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('#q10-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('#q10-2').val(tab[1]); // récupération de la réponse (texte)
+                    $('#q10-3').val(tab[2]); // récupération de la réponse (texte)
+                    $('#q10-4').val(tab[3]); // récupération de la réponse (texte)
+                    $('#q10-5').val(tab[4]); // récupération de la réponse (texte)
+                    $('#q10-6').val(tab[5]); // récupération de la réponse (texte)
                 }
-                $('#q10-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q10-2').val(tab[1]); // récupération de la réponse (texte)
-                $('#q10-3').val(tab[2]); // récupération de la réponse (texte)
-                $('#q10-4').val(tab[3]); // récupération de la réponse (texte)
-                $('#q10-5').val(tab[4]); // récupération de la réponse (texte)
-                $('#q10-6').val(tab[5]); // récupération de la réponse (texte)
+
                 window.setInterval(function () {
                     control_q10();
                 }, 50);
@@ -323,19 +325,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 11)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('#q11-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('#q11-2').val(tab[1]); // récupération de la réponse (texte)
+                    $('#q11-3').val(tab[2]); // récupération de la réponse (texte)
+                    $('#q11-4').val(tab[3]); // récupération de la réponse (texte)
+                    $('#q11-5').val(tab[4]); // récupération de la réponse (texte)
+                    $('#q11-6').val(tab[5]); // récupération de la réponse (texte)
+                    $('#q11-7').val(tab[6]); // récupération de la réponse (texte)
+                    $('#q11-8').val(tab[7]); // récupération de la réponse (texte)
+                    $('#q11-9').val(tab[8]); // récupération de la réponse (texte)
+                    $('#q11-10').val(tab[9]); // récupération de la réponse (texte)
                 }
-                $('#q11-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q11-2').val(tab[1]); // récupération de la réponse (texte)
-                $('#q11-3').val(tab[2]); // récupération de la réponse (texte)
-                $('#q11-4').val(tab[3]); // récupération de la réponse (texte)
-                $('#q11-5').val(tab[4]); // récupération de la réponse (texte)
-                $('#q11-6').val(tab[5]); // récupération de la réponse (texte)
-                $('#q11-7').val(tab[6]); // récupération de la réponse (texte)
-                $('#q11-8').val(tab[7]); // récupération de la réponse (texte)
-                $('#q11-9').val(tab[8]); // récupération de la réponse (texte)
-                $('#q11-10').val(tab[9]); // récupération de la réponse (texte)
+
                 window.setInterval(function () {
                     control_q11();
                 }, 50);
@@ -374,13 +377,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 13)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('#q13-1-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('#q13-1-2').val(tab[1]); // récupération de la réponse (texte)
+                    $('#q13-2-1').val(tab[2]); // récupération de la réponse (texte)
+                    $('#q13-2-2').val(tab[3]); // récupération de la réponse (texte)
+
                 }
-                $('#q13-1-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q13-1-2').val(tab[1]); // récupération de la réponse (texte)
-                $('#q13-2-1').val(tab[2]); // récupération de la réponse (texte)
-                $('#q13-2-2').val(tab[3]); // récupération de la réponse (texte)
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
@@ -411,11 +415,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 15)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('#q15-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('#q15-2').val(tab[1]); // récupération de la réponse (texte)
+
                 }
-                $('#q15-1').val(tab[0]); // récupération de la réponse (texte)
-                $('#q15-2').val(tab[1]); // récupération de la réponse (texte)
+
                 window.setInterval(function () {
                     control_q15();
                 }, 50);
@@ -434,15 +440,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 16)
             {
-                var tab = answer.split(',');
+                if (answer != null) {
+                    var tab = answer.split(',');
 
-                $('#q16-1').val(tab[0]); // récupération de la réponse (texte)
-                $('input[value="' + tab[1] + '"][name="Q16-1"]').prop('checked', true); // récupération de la réponse (radio)
-                $('#q16-2').val(tab[2]); // récupération de la réponse (texte)
-                $('input[value="' + tab[3] + '"][name="Q16-2"]').prop('checked', true); // récupération de la réponse (radio)
-                $('#q16-3').val(tab[4]); // récupération de la réponse (texte)
-                $('input[value="' + tab[5] + '"][name="Q16-3"]').prop('checked', true); // récupération de la réponse (radio)
-
+                    $('#q16-1').val(tab[0]); // récupération de la réponse (texte)
+                    $('input[value="' + tab[1] + '"][name="Q16-1"]').prop('checked', true); // récupération de la réponse (radio)
+                    $('#q16-2').val(tab[2]); // récupération de la réponse (texte)
+                    $('input[value="' + tab[3] + '"][name="Q16-2"]').prop('checked', true); // récupération de la réponse (radio)
+                    $('#q16-3').val(tab[4]); // récupération de la réponse (texte)
+                    $('input[value="' + tab[5] + '"][name="Q16-3"]').prop('checked', true); // récupération de la réponse (radio)
+                }
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ16();
@@ -458,9 +465,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 17)
             {
                 for (i = 0; i < 7; i++) {
-                    $('#q17-1-' + (i+1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
-                    $('#q17-2-' + (i+1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
-                    $('#q17-3-' + (i+1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
+                    $('#q17-1-' + (i + 1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
+                    $('#q17-2-' + (i + 1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
+                    $('#q17-3-' + (i + 1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
                 }
 
                 $(window).keydown(function (e) {
@@ -480,26 +487,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
                 var Dechets_qte = <?php echo $Dechets_qte ?>;
                 var Dechets_autres = <?php echo $Dechets_autres ?>;
-
-                Dechets_oui_non = Dechets_oui_non.split(',');
-                Dechets_qte = Dechets_qte.split(',');
-                //alert(Dechets_oui_non.length);
-
-                for (i = 1; i < 7; i++) {
-                    $('input[value="' + Dechets_oui_non[i-1] + '"][name="Q18-'+i+'"]').prop('checked', true); // récupération de la réponse (radio)
-                } for (i = 1; i < 7; i++) {
-                   $('#q18-'+i+'-2').val(Dechets_qte[i-1]); // récupération de la réponse (texte)
+                if (Dechets_oui_non != null) {
+                    Dechets_oui_non = Dechets_oui_non.split(',');
+                    for (i = 1; i < 7; i++) {
+                        $('input[value="' + Dechets_oui_non[i - 1] + '"][name="Q18-' + i + '"]').prop('checked', true); // récupération de la réponse (radio)
+                    }
                 }
+                if (Dechets_qte != null) {
+                    Dechets_qte = Dechets_qte.split(',');
+                    //alert(Dechets_oui_non.length);
+                    for (i = 1; i < 7; i++) {
+                        $('#q18-' + i + '-2').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
+                    }
+                }
+
+
+
                 $('#q18-1-3').val(Dechets_autres); // récupération de la réponse (texte)
-                
+
                 //$('#q16-1').val(tab[0]); // récupération de la réponse (texte)
                 // $('input[value="' + tab[1] + '"][name="Q16-1"]').prop('checked', true); // récupération de la réponse (radio)
-                var tab = answer.split(',');
-                for (i = 0; i < 10; i++) {
-                    $('#q18-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
-                }
-                $('#q18-autres').val(tab[10]); // récupération de la réponse (texte)
 
+                if (answer != null) {
+                    var tab = answer.split(',');
+                    for (i = 0; i < 10; i++) {
+                        $('#q18-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
+                    }
+                    $('#q18-autres').val(tab[10]); // récupération de la réponse (texte)
+                }
                 window.setInterval(function () {
                     control_q18();
                     control_q18_2();
@@ -517,27 +532,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 19)
             {
-                 var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
+                var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
                 var Dechets_qte = <?php echo $Dechets_qte ?>;
                 var Dechets_autres = <?php echo $Dechets_autres ?>;
-
-                Dechets_oui_non = Dechets_oui_non.split(',');
-                Dechets_qte = Dechets_qte.split(',');
-                //alert(Dechets_oui_non.length);
-
-                for (i = 1; i < 11; i++) {
-                    $('input[value="' + Dechets_oui_non[i-1] + '"][name="Q19-'+i+'"]').prop('checked', true); // récupération de la réponse (radio)
-                } for (i = 1; i < 11; i++) {
-                   $('#q19-'+i+'-3').val(Dechets_qte[i-1]); // récupération de la réponse (texte)
+                if (Dechets_oui_non != null) {
+                    Dechets_oui_non = Dechets_oui_non.split(',');
+                    for (i = 1; i < 11; i++) {
+                        $('input[value="' + Dechets_oui_non[i - 1] + '"][name="Q19-' + i + '"]').prop('checked', true); // récupération de la réponse (radio)
+                    }
+                }
+                if (Dechets_oui_non != null) {
+                    Dechets_qte = Dechets_qte.split(',');
+                    //alert(Dechets_oui_non.length);
+                    for (i = 1; i < 11; i++) {
+                        $('#q19-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
+                    }
                 }
                 $('#q19-1-2').val(Dechets_autres); // récupération de la réponse (texte)
                 /////////////////
-                var tab = answer.split(',');
-                for (i = 0; i < 9; i++) {
-                    $('#q19-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
+                if (answer != null) {
+                    var tab = answer.split(',');
+                    for (i = 0; i < 9; i++) {
+                        $('#q19-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
+                    }
+                    $('#q19-autres').val(tab[9]); // récupération de la réponse (texte)
                 }
-                $('#q19-autres').val(tab[9]); // récupération de la réponse (texte)
-
                 window.setInterval(function () {
                     control_q19();
                     control_q19_2();
@@ -557,29 +576,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 20)
             {
 
-             var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
+                var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
                 var Dechets_qte = <?php echo $Dechets_qte ?>;
                 var Dechets_autres = <?php echo $Dechets_autres ?>;
 
-                Dechets_oui_non = Dechets_oui_non.split(',');
-                Dechets_qte = Dechets_qte.split(',');
-                //alert(Dechets_oui_non.length);
+                if (Dechets_oui_non != null) {
+                    Dechets_oui_non = Dechets_oui_non.split(',');
+                    for (i = 1; i < 8; i++) {
+                        $('input[value="' + Dechets_oui_non[i - 1] + '"][name="Q20-' + i + '"]').prop('checked', true); // récupération de la réponse (radio)
+                    }
 
-                for (i = 1; i < 8; i++) {
-                    $('input[value="' + Dechets_oui_non[i-1] + '"][name="Q20-'+i+'"]').prop('checked', true); // récupération de la réponse (radio)
-                } for (i = 1; i < 8; i++) {
-                   $('#q20-'+i+'-3').val(Dechets_qte[i-1]); // récupération de la réponse (texte)
                 }
-                $('#q20-1-2').val(Dechets_autres); // récupération de la réponse (texte)
-                
+                if (Dechets_qte != null) {
+                    Dechets_qte = Dechets_qte.split(',');
+                    //alert(Dechets_oui_non.length);
+                    for (i = 1; i < 8; i++) {
+                        $('#q20-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
+                    }
+                    $('#q20-1-2').val(Dechets_autres); // récupération de la réponse (texte)
+
+                }
                 /////////////////
-                var tab = answer.split(',');
+                if (answer != null) {
+                    var tab = answer.split(',');
 
-                for (i = 0; i < 9; i++) {
-                    $('#q20-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
+                    for (i = 0; i < 9; i++) {
+                        $('#q20-' + (i + 1) + '-4').val(tab[i]); // récupération de la réponse (texte)
+                    }
+                    $('#q20-autres').val(tab[9]); // récupération de la réponse (texte)
                 }
-                $('#q20-autres').val(tab[9]); // récupération de la réponse (texte)
-
                 window.setInterval(function () {
                     control_q20();
                     control_q20_2();
@@ -599,16 +624,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 21)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null) {
                     tab = answer.split(',');
+                    $('input[value="' + tab[0] + '"][name="Q21"]').prop('checked', true); // récupération de la réponse (radio)
+                    if (tab[0] == 'oui') {
+                        $('#q21-oui').val(tab[1]); // récupération de la réponse (texte)
+                    } else {
+                        $('#q21-non').val(tab[1]); // récupération de la réponse (texte)
+                    }
+                    $('#q21-else').val(tab[2]); // récupération de la réponse (texte)
                 }
-                $('input[value="' + tab[0] + '"][name="Q21"]').prop('checked', true); // récupération de la réponse (radio)
-                if (tab[0] == 'oui') {
-                    $('#q21-oui').val(tab[1]); // récupération de la réponse (texte)
-                } else {
-                    $('#q21-non').val(tab[1]); // récupération de la réponse (texte)
-                }
-                $('#q21-else').val(tab[2]); // récupération de la réponse (texte)
+
                 window.setInterval(function () {
                     if (localStorage.getItem('Q21') == 'oui') {
                         $('.oui-q21').show();
@@ -634,7 +660,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 22)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+                if (answer != null && answer.indexOf(',') > -1) {
                     tab = answer.split(',');
                     $('input[value="' + tab[0] + '"][name="Q22"]').prop('checked', true); // récupération de la réponse (radio)
                     $('#q22-non').val(tab[1]); // récupération de la réponse (texte)
@@ -725,7 +751,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 27)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+               if (answer != null && answer.indexOf(',') > -1) {
                     tab = answer.split(',');
                     $('input[value="' + tab[0] + '"][name="Q27"]').prop('checked', true); // récupération de la réponse (radio)
                     $('#q27-non').val(tab[1]); // récupération de la réponse (texte)
@@ -771,7 +797,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 29)
             {
                 var tab;
-                if (answer.indexOf(',') > -1) {
+               if (answer != null && answer.indexOf(',') > -1) {
                     tab = answer.split(',');
                     $('input[value="' + tab[0] + '"][name="Q29"]').prop('checked', true); // récupération de la réponse (radio)
                     $('#q29-non').val(tab[1]); // récupération de la réponse (texte)
@@ -828,13 +854,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == array_IDs.length) //id=32
             {
-                var tab = answer.split(',');
+                var tab;
+            if (answer != null ) {            
+           tab = answer.split(',');
                 $('input[value="' + tab[0] + '"][name="Q32-1"]').prop('checked', true); // récupération de la réponse (radio)
                 $('input[value="' + tab[1] + '"][name="Q32-2"]').prop('checked', true); // récupération de la réponse (radio)
                 $('input[value="' + tab[2] + '"][name="Q32-3"]').prop('checked', true); // récupération de la réponse (radio)
                 $('input[value="' + tab[3] + '"][name="Q32-4"]').prop('checked', true); // récupération de la réponse (radio)
                 $('input[value="' + tab[4] + '"][name="Q32-5"]').prop('checked', true); // récupération de la réponse (radio)
                 $('input[value="' + tab[5] + '"][name="Q32-6"]').prop('checked', true); // récupération de la réponse (radio)
+            }
                 $("#next_btn").html("Valider");
                 href_next = base_url + "index.php/home/fin/"
                 $(window).keydown(function (e) {
