@@ -1,4 +1,8 @@
+
+
+
 function insertAnserSimple(answer) { // answer simple = radio ou texte
+   // alert(answer);
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers/",
@@ -25,10 +29,10 @@ function insertQ5() {
 }
 
 function insertQ9() {
-    var Q9_1 = localStorage.getItem('q9-1');
-    var Q9_2 = localStorage.getItem('q9-2');
-    var Q9_3 = localStorage.getItem('q9-3');
-    var Q9_4 = localStorage.getItem('q9-4');
+    var Q9_1 = $('#q9-1').val();
+    var Q9_2 = $('#q9-2').val();
+    var Q9_3 = $('#q9-3').val();
+    var Q9_4 = $('#q9-4').val();
     var Q9 = [Q9_1, Q9_2, Q9_3, Q9_4];
     $.ajax({
         type: "post",
@@ -41,12 +45,12 @@ function insertQ9() {
     });
 }
 function insertQ10() {
-    var Q10_1 = localStorage.getItem('q10-1');
-    var Q10_2 = localStorage.getItem('q10-2');
-    var Q10_3 = localStorage.getItem('q10-3');
-    var Q10_4 = localStorage.getItem('q10-4');
-    var Q10_5 = localStorage.getItem('q10-5');
-    var Q10_6 = localStorage.getItem('q10-6');
+    var Q10_1 = $('#q10-1').val();
+    var Q10_2 = $('#q10-2').val();
+    var Q10_3 = $('#q10-3').val();
+    var Q10_4 = $('#q10-4').val();
+    var Q10_5 = $('#q10-5').val();
+    var Q10_6 = $('#q10-6').val();
     var Q10 = [Q10_1, Q10_2, Q10_3, Q10_4, Q10_5, Q10_6];
     $.ajax({
         type: "post",
@@ -59,16 +63,16 @@ function insertQ10() {
     });
 }
 function insertQ11() {
-    var Q11_1 = localStorage.getItem('q11-1');
-    var Q11_2 = localStorage.getItem('q11-2');
-    var Q11_3 = localStorage.getItem('q11-3');
-    var Q11_4 = localStorage.getItem('q11-4');
-    var Q11_5 = localStorage.getItem('q11-5');
-    var Q11_6 = localStorage.getItem('q11-6');
-    var Q11_7 = localStorage.getItem('q11-7');
-    var Q11_8 = localStorage.getItem('q11-8');
-    var Q11_9 = localStorage.getItem('q11-9');
-    var Q11_10 = localStorage.getItem('q11-10');
+    var Q11_1 = $('#q11-1').val();
+    var Q11_2 = $('#q11-2').val();
+    var Q11_3 = $('#q11-3').val();
+    var Q11_4 = $('#q11-4').val();
+    var Q11_5 = $('#q11-5').val();
+    var Q11_6 = $('#q11-6').val();
+    var Q11_7 = $('#q11-7').val();
+    var Q11_8 = $('#q11-8').val();
+    var Q11_9 = $('#q11-9').val();
+    var Q11_10 = $('#q11-10').val();
     var Q11 = [Q11_1, Q11_2, Q11_3, Q11_4, Q11_5, Q11_6, Q11_7, Q11_8, Q11_9, Q11_10];
     $.ajax({
         type: "post",
@@ -81,10 +85,10 @@ function insertQ11() {
     });
 }
 function insertQ13() {
-    var Q13_1_1 = localStorage.getItem('q13-1-1');
-    var Q13_1_2 = localStorage.getItem('q13-1-2');
-    var Q13_2_1 = localStorage.getItem('q13-2-1');
-    var Q13_2_2 = localStorage.getItem('q13-2-2');
+    var Q13_1_1 = $('#q13-1-1').val();
+    var Q13_1_2 = $('#q13-1-2').val();
+    var Q13_2_1 = $('#q13-2-1').val();
+    var Q13_2_2 = $('#q13-2-2').val();
     var Q13 = [Q13_1_1, Q13_1_2, Q13_2_1, Q13_2_2];
     $.ajax({
         type: "post",
@@ -98,8 +102,8 @@ function insertQ13() {
 }
 
 function insertQ15() {
-    var Q15_1 = localStorage.getItem('q15-1');
-    var Q15_2 = localStorage.getItem('q15-2');
+    var Q15_1 = $('#q15-1').val();
+    var Q15_2 = $('#q15-2').val();
     var Q15 = [Q15_1, Q15_2];
     $.ajax({
         type: "post",

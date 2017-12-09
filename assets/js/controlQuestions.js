@@ -3,27 +3,27 @@ function control_q9() {
 
     for (i = 1; i < 5; i++)
     {
-        var input = localStorage.getItem('q9-' + i);
+        var input = $('#q9-' + i).val();
 
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
-        //alert(somme);
+       
     }
 //var test = parseFloat(chiffre.replace(",",""));
 
-    var progressBar = $('.progress-bar');
-    var percentVal = somme;
-
-    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
-    progressBar.attr("aria-valuemax", chiffre + '%');
-
-    if (percentVal == chiffre)
-    {
-        percentVal = 0;
-    }
-
+//    var progressBar = $('.progress-bar');
+//    var percentVal = somme;
+//
+//    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
+//    progressBar.attr("aria-valuemax", chiffre + '%');
+//
+//    if (percentVal == chiffre)
+//    {
+//        percentVal = 0;
+//    }
+ //alert(chiffre);
     if (somme > chiffre) { // le chiffre dans Q8
 
         $('#error_q9').empty();
@@ -40,7 +40,7 @@ function control_q10() {
 
     for (i = 1; i < 7; i++)
     {
-        var input = localStorage.getItem('q10-' + i);
+        var input = $('#q10-' + i).val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -63,7 +63,7 @@ function control_q11() {
 
     for (i = 1; i < 10; i++)
     {
-        var input = localStorage.getItem('q11-' + i);
+        var input = $('#q11-' + i).val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -87,7 +87,7 @@ function control_q14() {
 
     for (i = 1; i < 6; i++)
     {
-        var input = localStorage.getItem('q14-' + i + '-2');
+        var input = $('#q14-' + i + '-2').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -113,8 +113,8 @@ function control_q14() {
 }
 
 function control_q15() {
-    var min = localStorage.getItem('q15-1');
-    var max = localStorage.getItem('q15-2');
+    var min = $('#q15-1').val();
+    var max = $('#q15-2').val();
     if (min == null || min == NaN || min == '') {
         min = 0;
     }
@@ -138,13 +138,13 @@ function control_q18() {
 
     for (i = 1; i < 8; i++)
     {
-        var input = localStorage.getItem('q18-' + i + '-3');
+        var input = $('#q18-' + i + '-3').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
-
+    
     if (somme > DI && id == 18) {
         $('#error_q18').empty();
         $('#error_q18').append("Le montant total des quantités dépasse le Total des Déchets inertes dans Q16 (" + somme + " / " + DI + " Tonnes )");
@@ -166,7 +166,7 @@ function control_q18_2() {
 
     for (i = 1; i < 11; i++)
     {
-        var input = localStorage.getItem('q18-' + i + '-4');
+        var input = $('#q18-' + i + '-4').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -192,7 +192,7 @@ function control_q19_2() {
 
     for (i = 1; i < 10; i++)
     {
-        var input = localStorage.getItem('q19-' + i + '-4');
+        var input = $('#q19-' + i + '-4').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -217,7 +217,7 @@ function control_q19() {
     var somme = 0;
     for (i = 1; i < 13; i++)
     {
-        var input = localStorage.getItem('q19-' + i + '-3');
+        var input = $('#q19-' + i + '-3').val();
 
         if (input == null || input == NaN || input == '') {
             input = 0;
@@ -246,7 +246,7 @@ function control_q20(somme) {
     var somme = 0;
     for (i = 1; i < 10; i++)
     {
-        var input = localStorage.getItem('q20-' + i + '-3');
+        var input = $('#q20-' + i + '-3').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
@@ -276,7 +276,7 @@ function control_q20_2() {
 
     for (i = 1; i < 9; i++)
     {
-        var input = localStorage.getItem('q20-' + i + '-3');
+        var input = $('#q20-' + i + '-3').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
