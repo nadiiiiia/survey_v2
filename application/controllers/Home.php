@@ -71,11 +71,13 @@ class Home extends Home_Controller {
             $this->data['id'] = $id;
             $this->data['survey'] = $survey;
             $this->data['answer'] = json_encode($answer['answer_body']);
-            $this->data['answer_Q17'] = json_encode($answer_Q17);
+            $this->data['answer_Q17_DI'] = json_encode($answer_Q17['DI']);
+            $this->data['answer_Q17_DNIND'] = json_encode($answer_Q17['DNIND']);
+            $this->data['answer_Q17_DD'] = json_encode($answer_Q17['DD']);
             $this->data['Dechets_oui_non'] = json_encode($answer_Dechets['oui_non']);
-             $this->data['Dechets_qte'] = json_encode($answer_Dechets['qte']);
-             $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
-            
+            $this->data['Dechets_qte'] = json_encode($answer_Dechets['qte']);
+            $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
+
 // var_dump($answer['answer_body']); die;
             $this->load->view('survey', $this->data);
         }
@@ -130,43 +132,43 @@ class Home extends Home_Controller {
 
     public function set_answers_q17() {
 
-        $answer_body = $this->input->post('answer_body');
+        $survey = $this->input->post('survey_id');
+        $question = $this->input->post('question_id');
+        $user = $this->input->post('user_id');
+        $DI = $this->input->post('DI');
+        $DNIND = $this->input->post('DNIND');
+        $DD = $this->input->post('DD');
 
-        $result = array();
-        $element = array();
+        $DI = implode(",", $DI);  // (implode) Join array elements with a string
+        $DNIND = implode(",", $DNIND);  // (implode) Join array elements with a string
+        $DD = implode(",", $DD);
 
-        foreach ($answer_body as $cle => $valeur) {
-            $data = array_values($valeur);
-            $element['survey_id'] = $data[0];
-            $element['question_id'] = $data[1];
-            $element['user_id'] = $data[2];
-            $element['activity_id'] = $data[3];
-            $element['DI'] = $data[4];
-            $element['DNIND'] = $data[5];
-            $element['DD'] = $data[6];
-            $result[] = $element;
-        }
+        $activity_data = array(
+            'survey_id' => $survey,
+            'question_id' => $question,
+            'user_id' => $user,
+            'DI' => $DI,
+            'DNIND' => $DNIND,
+            'DD' => $DD);
 
-        foreach ($result as $row) {
-            $this->AnswerModel->addAnswerActivity($row);
-        }
+        $this->AnswerModel->addAnswerActivity($activity_data);
     }
 
     public function set_answers_q18_q19_q20() {
-     
+
         $survey = $this->input->post('survey_id');
         $question = $this->input->post('question_id');
         $user = $this->input->post('user_id');
         $oui_non_table = $this->input->post('oui_non_table');
-         $qte_table = $this->input->post('qte_table');
-          $autres = $this->input->post('autres');
+        $qte_table = $this->input->post('qte_table');
+        $autres = $this->input->post('autres');
         $percent = $this->input->post('percent_table');
-        
+
         //transformer les tableaux en string
         $oui_non_table = implode(",", $oui_non_table);  // (implode) Join array elements with a string
         $qte_table = implode(",", $qte_table);  // (implode) Join array elements with a string
         $percent = implode(",", $percent);  // (implode) Join array elements with a string
-        
+
         $dechets_data = array(
             'survey_id' => $survey,
             'question_id' => $question,
@@ -174,17 +176,17 @@ class Home extends Home_Controller {
             'oui_non' => $oui_non_table,
             'qte' => $qte_table,
             'autres' => $autres);
-        
+
         $this->AnswerModel->addAnswerDechets($dechets_data);
-        
+
         $answer_data = array(
             'answer_question_id' => $question,
             'user_id' => $user,
             'answer_survey_id' => $survey,
             'answer_body' => $percent);
-        
+
         $this->AnswerModel->addAnswer($answer_data);
-      
+
 //        $result = array();
 //        $element = array();
 //
@@ -206,7 +208,7 @@ class Home extends Home_Controller {
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
         $question = $this->input->post('question_id');
-        $back = $this->input->post('back');        
+        $back = $this->input->post('back');
         $next = $this->input->post('next');
         $survey = $this->input->post('survey');
 
@@ -329,8 +331,8 @@ class Home extends Home_Controller {
     }
 
     public function get_answer_test($survey, $question, $user) {
-        $result = $this->AnswerModel->getAnswerDechets($survey, $question, $user);
-        var_dump(json_encode($result['qte']));
+        $result = $this->AnswerModel->getAnsweractivity($survey, $question, $user);
+        var_dump(json_encode($result['DI']));
         die;
     }
 

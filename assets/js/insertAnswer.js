@@ -120,11 +120,11 @@ function insertQ21() {
     var Q21_2;
 
     if (Q21_1 == 'oui') {
-        Q21_2 = localStorage.getItem('q21-oui');
+        Q21_2 = $('#q21-oui').val();
     } else {
-        Q21_2 = localStorage.getItem('q21-non');
+        Q21_2 = $('#q21-non').val();
     }
-    var Q21_3 = localStorage.getItem('q21-else');
+    var Q21_3 = $('#q21-else').val();
     var Q21 = [Q21_1, Q21_2, Q21_3];
     $.ajax({
         type: "post",
@@ -143,7 +143,7 @@ function insertQ22() {
     var Q22;
 
     if (Q22_1 == 'non') {
-        Q22_2 = localStorage.getItem('q22-non');
+        Q22_2 = $('#q22-non').val();
         Q22 = [Q22_1, Q22_2];
     } else {
         Q22 = Q22_1;
@@ -242,26 +242,21 @@ function insertQ16() {
     });
 }
 function insertQ17() {
-    function getTableQ17Data() {
-        var array = [];
-        //$("#btnShow2").on("click", function () {
-        $("tr:nth-child(n+1)").each(function () {
-            rowData = $(this).find('input').serializeArray();
-            var rowAr = {};
-            $.each(rowData, function (e, v) {
-                rowAr[v['name']] = v['value'];
-            });
-            array.push(rowAr);
-        });
-
-        return array;
+    var DI = [];
+    var DNIND = [];
+    var DD = [];
+        
+    for(i=0;i<6;i++)
+    {
+       DI[i] = $('#q17-1-'+(i+1)+'').val();
+       DNIND[i] = $('#q17-2-'+(i+1)+'').val();
+       DD[i] = $('#q17-3-'+(i+1)+'').val();
     }
-    // alert(array[3].user);
-    var Q17 = getTableQ17Data();
+
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q17/",
-        data: {"answer_body": Q17},
+        data: {"DI": DI , "DNIND": DNIND,  "DD": DD, "question_id": question_id, "user_id": user_id, "survey_id": survey},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);

@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var section_name = <?php echo $section_name; ?>;
         var section_number = <?php echo $section_number; ?>;
         var answer = <?php echo $answer; ?>; // la réponse enregistrée dans la BD 
-        var answer_Q17 = <?php echo $answer_Q17 ?>;
+
 
         var array_IDs = <?php echo $array_IDs_json; ?>;
-        
-        var total = localStorage.getItem('q13-1-1'); 
+
+        var total = localStorage.getItem('q13-1-1');
         var total_unit = localStorage.getItem('q13-1-2');
         if (total_unit == null) {
             total_unit = 'Tonnes';
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                 }, 50);
 
-            
+
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple(localStorage.getItem('Q1'));
@@ -465,11 +465,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 17)
             {
-                for (i = 0; i < 7; i++) {
-                    $('#q17-1-' + (i + 1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
-                    $('#q17-2-' + (i + 1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
-                    $('#q17-3-' + (i + 1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
+                var DI = <?php echo $answer_Q17_DI; ?>;
+                var DNIND = <?php echo $answer_Q17_DNIND; ?>;
+                var DD = <?php echo $answer_Q17_DD; ?>;
+
+                if (DI != null) {
+                    DI = DI.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-1-' + (i + 1) + '').val(DI[i]); // récupération de la réponse (texte)
+                    }
                 }
+
+                if (DNIND != null) {
+                    DNIND = DNIND.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-2-' + (i + 1) + '').val(DNIND[i]); // récupération de la réponse (texte)
+                    }
+                }
+                
+                  if (DD != null) {
+                    DD = DD.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
+                    }
+                }
+//                if(answer_Q17 != null){
+//                for (i = 0; i < 7; i++) {
+//                    $('#q17-1-' + (i + 1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
+//                    $('#q17-2-' + (i + 1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
+//                    $('#q17-3-' + (i + 1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
+//                }
+//            }
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {

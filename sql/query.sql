@@ -16,3 +16,18 @@ ALTER TABLE `survey_questions` ADD `question_back`  INT DEFAULT 0 AFTER `questio
 -- Augmenter la taille de la réponse (5/12/2017)
 --
 ALTER TABLE `survey_answers` CHANGE  `answer_body` `answer_body` VARCHAR(1000) DEFAULT '' ;
+--
+-- Augmenter la taille de la réponse (9/12/2017)
+--
+DROP TABLE IF EXISTS `survey_activity_answer`;
+CREATE TABLE IF NOT EXISTS `survey_activity_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `survey_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `DI` int(11) DEFAULT NULL,
+  `DNIND` int(11) DEFAULT NULL,
+  `DD` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
