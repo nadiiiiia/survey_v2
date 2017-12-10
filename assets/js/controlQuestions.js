@@ -275,15 +275,15 @@ function control_q20(somme) {
 function control_q20_2() {
     var somme = 0;
 
-    for (i = 1; i < 9; i++)
+    for (i = 1; i < 11; i++)
     {
-        var input = $('#q20-' + i + '-3').val();
+        var input = $('#q20-' + i + '-4').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
-
+//alert(somme);
     if (somme > 100 && id == 20) {
         $('#error_q20_2').empty();
         $('#error_q20_2').append("Le montant total des quantités dépasse 100% (" + somme + " / 100 )");
