@@ -134,31 +134,32 @@ function control_q15() {
 }
 
 function control_q18() {
+   
     var somme = 0;
 
-    for (i = 1; i < 8; i++)
+    for (i = 1; i < 7; i++)
     {
-        var input = $('#q18-' + i + '-3').val();
+        var input = $('#q18-' + i + '-2').val();
         if (input == null || input == NaN || input == '') {
             input = 0;
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
     
-    if (somme > DI && id == 18) {
+    if (somme > DI_total && id == 18) {
         $('#error_q18').empty();
-        $('#error_q18').append("Le montant total des quantités dépasse le Total des Déchets inertes dans Q16 (" + somme + " / " + DI + " Tonnes )");
+        $('#error_q18').append("Le montant total des quantités dépasse le Total des Déchets inertes dans Q16 (" + somme + " / " + DI_total + " Tonnes )");
         $('#error_q18').show();
-    } else if (somme < DI && id == 18) {
+    } else if (somme < DI_total && id == 18) {
         $('#error_q18').empty();
-        $('#error_q18').append("Le montant total des quantités est inférieur au Total des Déchets inertes dans Q16 (" + somme + " / " + DI + " Tonnes )");
+        $('#error_q18').append("Le montant total des quantités est inférieur au Total des Déchets inertes dans Q16 (" + somme + " / " + DI_total + " Tonnes )");
         $('#error_q18').show();
     } else {
         $('#error_q18').hide();
     }
 
 
-    return parseFloat(somme);
+   // return parseFloat(somme);
 }
 
 function control_q18_2() {
@@ -226,13 +227,13 @@ function control_q19() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
 
     }
-    if (somme > DNIND && id == 19) {
+    if (somme > DNIND_total && id == 19) {
         $('#error_q19').empty();
-        $('#error_q19').append("Le montant total des quantités dépasse le Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND + " Tonnes )");
+        $('#error_q19').append("Le montant total des quantités dépasse le Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND_total + " Tonnes )");
         $('#error_q19').show();
-    } else if (somme < DNIND && id == 19) {
+    } else if (somme < DNIND_total && id == 19) {
         $('#error_q19').empty();
-        $('#error_q19').append("Le montant total des quantités est inférieur au Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND + " Tonnes )");
+        $('#error_q19').append("Le montant total des quantités est inférieur au Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND_total + " Tonnes )");
         $('#error_q19').show();
 
     } else {
@@ -254,15 +255,15 @@ function control_q20(somme) {
         //alert(somme);
     }
 
-    if (somme > DD && id == 20) {
+    if (somme > DD_total && id == 20) {
         $('#error_q20').empty();
-        $('#error_q20').append("Le montant total des quantités dépasse le Total des Déchets dangereux dans Q16 (" + somme + " / " + DD + " Tonnes )");
+        $('#error_q20').append("Le montant total des quantités dépasse le Total des Déchets dangereux dans Q16 (" + somme + " / " + DD_total + " Tonnes )");
         $('#error_q20').show();
 
 
-    } else if (somme < DD && id == 20) {
+    } else if (somme < DD_total && id == 20) {
         $('#error_q20').empty();
-        $('#error_q20').append("Le montant total des quantités est inférieur au Total des Déchets dangereux dans Q16 (" + somme + " / " + DD + " Tonnes )");
+        $('#error_q20').append("Le montant total des quantités est inférieur au Total des Déchets dangereux dans Q16 (" + somme + " / " + DD_total + " Tonnes )");
         $('#error_q20').show();
 
     } else {

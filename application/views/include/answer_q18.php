@@ -106,7 +106,7 @@
     </div>
 </div>
 
-<div id="error_q18" class=" alert-danger"><p>Le montant total des quantités dépasse le Total déchets de votre réponse dans Q4</p></div>
+<div id="error_q18" class=" alert-danger"></div>
 
 <br>
 <div id="q18-2-table" class="col-lg-12 col-md-12 mb-r">
@@ -182,4 +182,4 @@
 </table>
 </div>
 
-<div id="error_q18_2" class=" alert-danger"><p>Le montant total des quantités dépasse 100%</p></div>
+<div id="error_q18_2" class=" alert-danger"></div>

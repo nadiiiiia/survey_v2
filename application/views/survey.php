@@ -35,6 +35,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
+        
+    var DI_total = localStorage.getItem('q16-1');
+        if (DI_total == null) {
+            DI_total = 0;
+        }
+        var DNIND_total = localStorage.getItem('q16-2');
+        if (DNIND_total == null) {
+            DNIND_total = 0;
+        }
+        var DD_total = localStorage.getItem('q16-3');
+        if (DD_total == null) {
+            DD_total = 0;
+        }
        
 
         var answer_body; // pour enregistrer les réponses simples
