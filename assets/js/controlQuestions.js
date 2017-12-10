@@ -1,6 +1,7 @@
 function control_q9() {
     var somme = 0;
 
+
     for (i = 1; i < 5; i++)
     {
         var input = $('#q9-' + i).val();
@@ -13,17 +14,18 @@ function control_q9() {
     }
 //var test = parseFloat(chiffre.replace(",",""));
 
-//    var progressBar = $('.progress-bar');
-//    var percentVal = somme;
-//
-//    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
-//    progressBar.attr("aria-valuemax", chiffre + '%');
-//
-//    if (percentVal == chiffre)
-//    {
-//        percentVal = 0;
-//    }
- //alert(chiffre);
+    var progressBar = $('.progress-bar');
+    var percent = ((100 * parseFloat(somme)) / chiffre);
+    //percent = isNaN(percent) ? '0.00' : percent;
+    var percentVal = percent;
+
+   // alert(chiffre);
+
+    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
+    progressBar.attr("aria-valuemax", chiffre +'%');
+
+    
+ 
     if (somme > chiffre) { // le chiffre dans Q8
 
         $('#error_q9').empty();

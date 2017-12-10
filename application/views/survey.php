@@ -31,7 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (total_unit == null) {
             total_unit = 'Tonnes';
         }
-        var chiffre = localStorage.getItem("q8");
+        
+          var chiffre =localStorage.getItem('q8');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
@@ -259,7 +260,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 8)
             {
+                
                 $('#q8').val(answer); // récupération de la réponse (texte)
+               
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple($('#q8').val());
