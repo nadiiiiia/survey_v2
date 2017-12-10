@@ -35,18 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
-        var DI = localStorage.getItem('q16-1-1');
-        if (DI == null) {
-            DI = 0;
-        }
-        var DNIND = localStorage.getItem('q16-2-1');
-        if (DNIND == null) {
-            DNIND = 0;
-        }
-        var DD = localStorage.getItem('q16-3-1');
-        if (DD == null) {
-            DD = 0;
-        }
+       
 
         var answer_body; // pour enregistrer les réponses simples
     </script>
@@ -489,13 +478,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
                     }
                 }
-//                if(answer_Q17 != null){
-//                for (i = 0; i < 7; i++) {
-//                    $('#q17-1-' + (i + 1) + '').val(answer_Q17[i]['DI']); // récupération de la réponse (texte)
-//                    $('#q17-2-' + (i + 1) + '').val(answer_Q17[i]['DNIND']); // récupération de la réponse (texte)
-//                    $('#q17-3-' + (i + 1) + '').val(answer_Q17[i]['DD']); // récupération de la réponse (texte)
-//                }
-//            }
+               
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
@@ -522,7 +505,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (Dechets_qte != null) {
                     Dechets_qte = Dechets_qte.split(',');
-                    //alert(Dechets_oui_non.length);
                     for (i = 1; i < 7; i++) {
                         $('#q18-' + i + '-2').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
                     }
@@ -531,9 +513,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                 $('#q18-1-3').val(Dechets_autres); // récupération de la réponse (texte)
-
-                //$('#q16-1').val(tab[0]); // récupération de la réponse (texte)
-                // $('input[value="' + tab[1] + '"][name="Q16-1"]').prop('checked', true); // récupération de la réponse (radio)
 
                 if (answer != null) {
                     var tab = answer.split(',');
@@ -570,7 +549,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (Dechets_oui_non != null) {
                     Dechets_qte = Dechets_qte.split(',');
-                    //alert(Dechets_oui_non.length);
                     for (i = 1; i < 11; i++) {
                         $('#q19-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
                     }
@@ -616,7 +594,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (Dechets_qte != null) {
                     Dechets_qte = Dechets_qte.split(',');
-                    //alert(Dechets_oui_non.length);
+                    
                     for (i = 1; i < 8; i++) {
                         $('#q20-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
                     }
