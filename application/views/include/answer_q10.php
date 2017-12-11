@@ -16,4 +16,10 @@
     
     <br>
 <div id="error_q10" class=" center alert-danger"></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q10" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q10" align="center" > <p><font size="2"></font></p></div>
 

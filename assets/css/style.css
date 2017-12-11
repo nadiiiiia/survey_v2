@@ -21,14 +21,13 @@ input[type=text]{
 
 body{
     background-color: #e9ecef !important;
+    background-image: url(questionnaire.JPEG) !important;
+    background-position: center ;
+    background-size: 100% auto;
     
 }
  
-body {
-   background-image: url(questionnaire.jpeg);
-    background-position: center ;
-    background-size: 100% auto;
-}
+
 
 .error{
     color:red;
@@ -63,3 +62,43 @@ input::-o-outer-spin-button {
 	-o-appearance: none;
 	margin:0
 }
+
+/* backgrounds 
+
+.bg-danger{background-color:#ff3547!important}
+.bg-warning{background-color:#F80!important}
+.bg-success{background-color:#00C851!important}
+.bg-info{background-color:#33b5e5!important}
+.bg-default{background-color:#2BBBAD!important}
+.bg-secondary{background-color:#a6c!important}
+.bg-elegant{background-color:#2E2E2E!important}
+.bg-unique{background-color:#880e4f!important}
+.bg-dark-green{background-color:#388E3C!important}
+.bg-mdb-color{background-color:#59698D!important}
+.bg-red{background-color:#D32F2F!important}
+.bg-pink{background-color:#ec407a!important}
+.bg-purple{background-color:#8e24aa!important}
+.bg-deep-purple{background-color:#512da8!important}
+.bg-indigo{background-color:#3f51b5!important}
+.bg-blue{background-color:#1976D2!important}
+.bg-light-blue{background-color:#82B1FF!important}
+.bg-cyan{background-color:#00bcd4!important}
+.bg-teal{background-color:#00796b!important}
+.bg-green{background-color:#388E3C!important}
+.bg-light-green{background-color:#8bc34a!important}
+.bg-lime{background-color:#afb42b!important}
+.bg-yellow{background-color:#fbc02d!important}
+.bg-amber{background-color:#ffa000!important}
+.bg-orange{background-color:#f57c00!important}
+.bg-deep-orange{background-color:#ff7043!important}
+.bg-brown{background-color:#795548!important}
+.bg-grey{background-color:#616161!important}
+.bg-blue-grey{background-color:#78909c!important}
+.bg-white{background-color:#fff!important}
+.bg-black{background-color:#000!important}
+*/
+
+.progress{
+    margin-bottom: 0rem !important;
+}
+

@@ -43,5 +43,15 @@
                     <td></td>
                 </tr>
             </tbody>
+        
             <!--Table body-->
         </table>
+
+    <div id="error_q16"class=" hidden alert-danger"></div>
+    <div class="progress ">
+                     <div class="progress-bar progress_q16" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q16" align="center" > <p><font size="2"></font></p></div>
+

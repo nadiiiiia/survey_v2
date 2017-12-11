@@ -25,14 +25,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         var array_IDs = <?php echo $array_IDs_json; ?>;
-
-        var total = localStorage.getItem('q13-1-1');
-        var total_unit = localStorage.getItem('q13-1-2');
-        if (total_unit == null) {
-            total_unit = 'Tonnes';
-        }
+        var total_q13 = localStorage.getItem('q13-1-1');
         
-          var chiffre =localStorage.getItem('q8');
+//        var total = $('#q13-1-1').val();
+//        var total_unit = localStorage.getItem('q13-1-2');
+//        if (total_unit == null) {
+//            total_unit = 'Tonnes';
+//        }
+//        
+          var chiffre = localStorage.getItem('q8');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
@@ -73,7 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php include('include/scripts.php'); ?>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/controlQuestions.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/insertAnswer.js"></script>
-
+         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/progressBar.js"></script>
+          <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/msg_error.js"></script>
+ <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js"></script>
         <script type="text/javascript">
         $(document).ready(function () {
 
@@ -395,11 +398,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ13();
+                        //total_q13 = localStorage.getItem('q13-1-1');
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
                     insertQ13();
+                   // total_q13 =localStorage.getItem('q13-1-1');
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -456,6 +461,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('#q16-3').val(tab[4]); // récupération de la réponse (texte)
                     $('input[value="' + tab[5] + '"][name="Q16-3"]').prop('checked', true); // récupération de la réponse (radio)
                 }
+                window.setInterval(function () {
+                    control_q16();
+                }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ16();
@@ -493,7 +501,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     for (i = 0; i < 7; i++) {
                         $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
                     }
-                }
+                }window.setInterval(function () {
+                    control_q17();
+                }, 50);
                
 
                 $(window).keydown(function (e) {

@@ -146,6 +146,13 @@
 </div>
 
 <div id="error_q20" class=" alert-danger"><p></p></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q20_1"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q20_1"  align="center" > <p><font size="2"></font></p></div>
+
 <br>
 <p><strong>Q20-2  Merci d’indiquer les filières utilisées pour la gestion de vos déchets dangereux: </strong></p>
 <table class="table">
@@ -213,3 +220,10 @@
 </table>
 
 <div id="error_q20_2" class=" alert-danger"><p>Le montant total des quantités dépasse 100%</p></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q20_2" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q20_2" align="center" > <p><font size="2"></font></p></div>
+

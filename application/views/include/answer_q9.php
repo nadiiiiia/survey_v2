@@ -12,9 +12,10 @@
 
 <br>
 <div id="error_q9" class=" center alert-danger"></div>
-<!--<div class="progress">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width: 0%">
+<div class="progress ">
+                     <div class="progress-bar progress_q9" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                         
                     </div>
-</div>-->
+</div>
+<div class="percent_val" id="percent_q9" align="center" > <p><font size="2"></font></p></div>
 

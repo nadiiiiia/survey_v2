@@ -10,31 +10,12 @@ function control_q9() {
             input = 0;
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
-       
+
     }
-//var test = parseFloat(chiffre.replace(",",""));
-
-    var progressBar = $('.progress-bar');
-    var percent = ((100 * parseFloat(somme)) / chiffre);
-    //percent = isNaN(percent) ? '0.00' : percent;
-    var percentVal = percent;
-
-   // alert(chiffre);
-
-    progressBar.css("width", percentVal).attr("aria-valuenow", percentVal);
-    progressBar.attr("aria-valuemax", chiffre +'%');
-
     
- 
-    if (somme > chiffre) { // le chiffre dans Q8
-
-        $('#error_q9').empty();
-        $('#error_q9').append("Le montant total dépasse le chiffre dans Q8 (" + somme + " / " + chiffre + ")");
-        $('#error_q9').show();
-    } else {
-        $('#error_q9').hide();
-    }
-    // return parseFloat(somme);
+    progressBar('progress_q9', somme, chiffre);
+    percent_val('percent_q9', somme, chiffre, 'K€');
+    control_error('error_q9', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
 }
 
 function control_q10() {
@@ -49,16 +30,9 @@ function control_q10() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
         //alert(somme);
     }
-
-    if (somme > chiffre) { // le chiffre dans Q8
-
-        $('#error_q10').empty();
-        $('#error_q10').append("Le montant total dépasse le chiffre dans Q8 (" + somme + " / " + chiffre + ")");
-        $('#error_q10').show();
-    } else {
-        $('#error_q10').hide();
-    }
-    // return parseFloat(somme);
+    progressBar('progress_q10', somme, chiffre);
+    percent_val('percent_q10', somme, chiffre, 'K€');
+    control_error('error_q10', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
 }
 function control_q11() {
     var somme = 0;
@@ -72,49 +46,13 @@ function control_q11() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
         //alert(somme);
     }
-
-    if (somme > chiffre) { // le chiffre dans Q8
-
-        $('#error_q11').empty();
-        $('#error_q11').append("Le montant total dépasse le chiffre dans Q8 (" + somme + " / " + chiffre + ")");
-        $('#error_q11').show();
-    } else {
-        $('#error_q11').hide();
-    }
-    // return parseFloat(somme);
+     progressBar('progress_q11', somme, chiffre);
+    percent_val('percent_q11', somme, chiffre, 'K€');
+    control_error('error_q11', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
 }
 
-function control_q14() {
-    var somme = 0;
 
-    for (i = 1; i < 6; i++)
-    {
-        var input = $('#q14-' + i + '-2').val();
-        if (input == null || input == NaN || input == '') {
-            input = 0;
-        }
-        somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
-        //alert(somme);
-    }
-
-    if (somme > total_q13) {
-        $('#error_q14').show();
-        //  $('#error_q14').empty();
-
-        // $('#error_q14').append("Le montant total des quantités dépasse le Total déchets de votre réponse dans Q13 (" + total_q13 + " " + total_q13_unit + ")");
-//        $('#next_btn').click(function () {
-//            $("#next_btn").attr("href", "#");
-//        });
-    } else {
-        $('#error_q14').hide();
-//        $('#next_btn').click(function () {
-//            $("#next_btn").attr("href", href_next);
-//        });
-    }
-    return parseFloat(somme);
-}
-
-function control_q15() {
+function control_q15() {  // min et max
     var min = $('#q15-1').val();
     var max = $('#q15-2').val();
     if (min == null || min == NaN || min == '') {
@@ -134,9 +72,70 @@ function control_q15() {
         $('#error_q15').hide();
     }
 }
+function control_q16() {  // 
+    var somme;
+    var DI = $('#q16-1').val();
+    var DNIND = $('#q16-2').val();
+    var DD = $('#q16-3').val();
+    if (DI == null || DI == NaN || DI == '') {
+        DI = 0;
+    }
+    if (DNIND == null || DNIND == NaN || DNIND == '') {
+        DNIND = 0;
+    }
+    if (DD == null || DD == NaN || DD == '') {
+        DD = 0;
+    }
+    DI = parseFloat(DI);
+    DNIND = parseFloat(DNIND);
+    DD = parseFloat(DD);
+
+    somme = DI + DNIND + DD;
+    
+     progressBar('progress_q16', somme, total_q13);
+    percent_val('percent_q16', somme, total_q13, 'Tonnes');
+    control_error('error_q16', ' du chiffre d’affaires  dans  Q13', somme, total_q13, 'Tonnes');
+
+    
+}
+
+function control_q17() {
+
+    var somme = [0, 0, 0, 0, 0, 0];
+    var input = [];
+    var test = $('#q17-1-1');
+
+    for (i = 1; i < 7; i++)
+    {
+        for (j = 1; j < 4; j++)
+        {
+            input[j] = $('#q17-' + i + '-' + j + '').val();
+            if (input == null || input == NaN || input == '') {
+                input = 0;
+            }
+            somme[i] = parseFloat(somme[i]) + parseFloat(input[j]); // calculer la somme des valeurs
+        }
+        if (somme[i] > 100) {
+            $('#q17-' + i + '-1').closest('tr').attr('bgcolor', '#f8d7da');
+        }
+    }
+
+//alert(somme[1]);
+    if (somme > 100) {
+        $('#error_q17').empty();
+        $('#error_q17').append("Le montant total des quantités de la ligne dépasse 100%");
+        $('#error_q17').show();
+    } else {
+        $('#error_q17').hide();
+    }
+
+
+    // return parseFloat(somme);
+}
+
 
 function control_q18() {
-   
+
     var somme = 0;
 
     for (i = 1; i < 7; i++)
@@ -147,21 +146,10 @@ function control_q18() {
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
-    
-    if (somme > DI_total && id == 18) {
-        $('#error_q18').empty();
-        $('#error_q18').append("Le montant total des quantités dépasse le Total des Déchets inertes dans Q16 (" + somme + " / " + DI_total + " Tonnes )");
-        $('#error_q18').show();
-    } else if (somme < DI_total && id == 18) {
-        $('#error_q18').empty();
-        $('#error_q18').append("Le montant total des quantités est inférieur au Total des Déchets inertes dans Q16 (" + somme + " / " + DI_total + " Tonnes )");
-        $('#error_q18').show();
-    } else {
-        $('#error_q18').hide();
-    }
 
-
-   // return parseFloat(somme);
+    progressBar('progress_q18_1', somme, DI_total);
+    percent_val('percent_q18_1', somme, DI_total, 'Tonnes');
+    control_error('error_q18', ' Total des Déchets inertes dans  Q16', somme, DI_total, 'Tonnes');
 }
 
 function control_q18_2() {
@@ -175,18 +163,10 @@ function control_q18_2() {
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
+    progressBar('progress_q18_2', somme, 100);
+    percent_val('percent_q18_2', somme, 100, '%');
+    control_error('error_q18_2', '', somme, 100, '%');
 
-    if (somme > 100 && id == 18) {
-        $('#error_q18_2').empty();
-        $('#error_q18_2').append("Le montant total des quantités dépasse 100% (" + somme + " / 100 )");
-        $('#error_q18_2').show();
-    } else if (somme < 100 && id == 18) {
-        $('#error_q18_2').empty();
-        $('#error_q18_2').append("Le montant total des quantités est inférieur à 100% (" + somme + " / 100 )");
-        $('#error_q18_2').show();
-    } else {
-        $('#error_q18_2').hide();
-    }
 
 }
 
@@ -202,17 +182,9 @@ function control_q19_2() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
 
-    if (somme > 100 && id == 19) {
-        $('#error_q19_2').empty();
-        $('#error_q19_2').append("Le montant total des quantités dépasse 100% (" + somme + " / 100 )");
-        $('#error_q19_2').show();
-    } else if (somme < 100 && id == 19) {
-        $('#error_q19_2').empty();
-        $('#error_q19_2').append("Le montant total des quantités est inférieur à 100% (" + somme + " / 100 )");
-        $('#error_q19_2').show();
-    } else {
-        $('#error_q19_2').hide();
-    }
+   progressBar('progress_q19_2', somme, 100);
+    percent_val('percent_q19_2', somme, 100, '%');
+    control_error('error_q19_2', '', somme, 100, '%');
 
 }
 
@@ -229,20 +201,10 @@ function control_q19() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
 
     }
-    if (somme > DNIND_total && id == 19) {
-        $('#error_q19').empty();
-        $('#error_q19').append("Le montant total des quantités dépasse le Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND_total + " Tonnes )");
-        $('#error_q19').show();
-    } else if (somme < DNIND_total && id == 19) {
-        $('#error_q19').empty();
-        $('#error_q19').append("Le montant total des quantités est inférieur au Total des Déchets non dangereux non inertes dans Q16 (" + somme + " / " + DNIND_total + " Tonnes )");
-        $('#error_q19').show();
+    progressBar('progress_q19_1', somme, DNIND_total);
+    percent_val('percent_q19_1', somme, DNIND_total, 'Tonnes');
+    control_error('error_q19', ' Total des Déchets inertes dans  Q16', somme, DNIND_total, 'Tonnes');
 
-    } else {
-        $('#error_q19').hide();
-    }
-
-    // return parseFloat(somme);
 }
 
 function control_q20(somme) {
@@ -257,21 +219,9 @@ function control_q20(somme) {
         //alert(somme);
     }
 
-    if (somme > DD_total && id == 20) {
-        $('#error_q20').empty();
-        $('#error_q20').append("Le montant total des quantités dépasse le Total des Déchets dangereux dans Q16 (" + somme + " / " + DD_total + " Tonnes )");
-        $('#error_q20').show();
-
-
-    } else if (somme < DD_total && id == 20) {
-        $('#error_q20').empty();
-        $('#error_q20').append("Le montant total des quantités est inférieur au Total des Déchets dangereux dans Q16 (" + somme + " / " + DD_total + " Tonnes )");
-        $('#error_q20').show();
-
-    } else {
-        $('#error_q20').hide();
-    }
-    return parseFloat(somme);
+    progressBar('progress_q20_1', somme, DD_total);
+    percent_val('percent_q20_1', somme, DD_total, 'Tonnes');
+    control_error('error_q20', ' Total des Déchets inertes dans  Q16', somme, DD_total, 'Tonnes');
 }
 
 function control_q20_2() {
@@ -285,18 +235,9 @@ function control_q20_2() {
         }
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
-//alert(somme);
-    if (somme > 100 && id == 20) {
-        $('#error_q20_2').empty();
-        $('#error_q20_2').append("Le montant total des quantités dépasse 100% (" + somme + " / 100 )");
-        $('#error_q20_2').show();
-    } else if (somme < 100 && id == 20) {
-        $('#error_q20_2').empty();
-        $('#error_q20_2').append("Le montant total des quantités est inférieur à 100% (" + somme + " / 100 )");
-        $('#error_q20_2').show();
-    } else {
-        $('#error_q20_2').hide();
-    }
 
+ progressBar('progress_q20_2', somme, 100);
+    percent_val('percent_q20_2', somme, 100, '%');
+    control_error('error_q20_2', '', somme, 100, '%');
 }
 

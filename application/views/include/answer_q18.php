@@ -107,6 +107,14 @@
 </div>
 
 <div id="error_q18" class=" alert-danger"></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q18_1"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q18_1"  align="center" > <p><font size="2"></font></p></div>
+
+
 
 <br>
 <div id="q18-2-table" class="col-lg-12 col-md-12 mb-r">
@@ -183,3 +191,11 @@
 </div>
 
 <div id="error_q18_2" class=" alert-danger"></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q18_2" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q18_2" align="center" > <p><font size="2"></font></p></div>
+
+

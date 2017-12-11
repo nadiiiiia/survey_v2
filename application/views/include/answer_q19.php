@@ -181,6 +181,14 @@
 </div>
 
 <div id="error_q19" class=" alert-danger"><p></p></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q19_1"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q19_1"  align="center" > <p><font size="2"></font></p></div>
+
+
 
 <br>
 <p><strong>Q19-2  Merci d’indiquer les filières utilisées pour la gestion de vos déchets non dangereux non inertes :</strong></p>
@@ -248,4 +256,11 @@
     <!--Table body-->
 </table>
 
-<div id="error_q19_2" class=" alert-danger"><p>Le montant total des quantités dépasse 100%</p></div>
+<div id="error_q19_2" class=" alert-danger"><p</p></div>
+<div class="progress ">
+                     <div class="progress-bar progress_q19_2" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        
+                    </div>
+</div>
+<div class="percent_val" id="percent_q19_2" align="center" > <p><font size="2"></font></p></div>
+
