@@ -256,7 +256,7 @@ function control_q19() {
     }
     progressBar('progress_q19_1', somme, DNIND_total);
     percent_val('percent_q19_1', somme, DNIND_total, 'Tonnes');
-    control_error('error_q19', ' Total des Déchets inertes dans  Q16', somme, DNIND_total, 'Tonnes');
+    control_error('error_q19', ' Total des Déchets non dangereux non inertes dans  Q16', somme, DNIND_total, 'Tonnes');
 
 }
 
@@ -274,7 +274,7 @@ function control_q20(somme) {
 
     progressBar('progress_q20_1', somme, DD_total);
     percent_val('percent_q20_1', somme, DD_total, 'Tonnes');
-    control_error('error_q20', ' Total des Déchets inertes dans  Q16', somme, DD_total, 'Tonnes');
+    control_error('error_q20', ' Total des Déchets dangereux dans  Q16', somme, DD_total, 'Tonnes');
 }
 
 function control_q20_2() {
