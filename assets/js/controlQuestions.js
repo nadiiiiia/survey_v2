@@ -13,9 +13,9 @@ function control_q9() {
 
     }
     
-    progressBar('progress_q9', somme, chiffre);
-    percent_val('percent_q9', somme, chiffre, 'K€');
-    control_error('error_q9', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
+    progressBar('progress_q9', somme, 100);
+    percent_val('percent_q9', somme, 100, '%');
+    control_error('error_q9', '', somme, 100, '%');
 }
 
 function control_q10() {
@@ -30,9 +30,9 @@ function control_q10() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
         //alert(somme);
     }
-    progressBar('progress_q10', somme, chiffre);
-    percent_val('percent_q10', somme, chiffre, 'K€');
-    control_error('error_q10', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
+    progressBar('progress_q10', somme, 100);
+    percent_val('percent_q10', somme, 100, '%');
+    control_error('error_q10', '', somme, 100, '%');
 }
 function control_q11() {
     var somme = 0;
@@ -46,9 +46,9 @@ function control_q11() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
         //alert(somme);
     }
-     progressBar('progress_q11', somme, chiffre);
-    percent_val('percent_q11', somme, chiffre, 'K€');
-    control_error('error_q11', ' du chiffre d’affaires  dans  Q8', somme, chiffre, 'K€');
+     progressBar('progress_q11', somme, 100);
+    percent_val('percent_q11', somme, 100, '%');
+    control_error('error_q11', '', somme, 100, '%');
 }
 
 
