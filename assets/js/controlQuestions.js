@@ -12,7 +12,7 @@ function control_q9() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
 
     }
-    
+
     progressBar('progress_q9', somme, 100);
     percent_val('percent_q9', somme, 100, '%');
     control_error('error_q9', '', somme, 100, '%');
@@ -46,7 +46,7 @@ function control_q11() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
         //alert(somme);
     }
-     progressBar('progress_q11', somme, 100);
+    progressBar('progress_q11', somme, 100);
     percent_val('percent_q11', somme, 100, '%');
     control_error('error_q11', '', somme, 100, '%');
 }
@@ -91,43 +91,96 @@ function control_q16() {  //
     DD = parseFloat(DD);
 
     somme = DI + DNIND + DD;
-    
-     progressBar('progress_q16', somme, total_q13);
+
+    progressBar('progress_q16', somme, total_q13);
     percent_val('percent_q16', somme, total_q13, 'Tonnes');
     control_error('error_q16', ' du chiffre d’affaires  dans  Q13', somme, total_q13, 'Tonnes');
 
-    
+
 }
 
 function control_q17() {
 
-    var somme = [0, 0, 0, 0, 0, 0];
+    var somme = [];
     var input = [];
-    var test = $('#q17-1-1');
+    var compteur = [];
+    var alert = 0 ;
+    
 
-    for (i = 1; i < 7; i++)
-    {
-        for (j = 1; j < 4; j++)
-        {
-            input[j] = $('#q17-' + i + '-' + j + '').val();
-            if (input == null || input == NaN || input == '') {
-                input = 0;
+    for (i = 0; i < 6; i++) {
+        somme[i] = 0;
+        compteur[i] = 0;
+    }
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 3; j++) {
+            input[j] = $('#q17-' + (j + 1) + '-' + (i + 1) + '').val();
+            if (input[j] == null || input[j] == NaN || input[j] == '') {
+                input[j] = 0;
             }
             somme[i] = parseFloat(somme[i]) + parseFloat(input[j]); // calculer la somme des valeurs
+           // compteur = parseFloat(compteur) + parseFloat(input[j]);
         }
+
+    }
+
+
+
+    for (i = 0; i < 6; i++) {
+
         if (somme[i] > 100) {
-            $('#q17-' + i + '-1').closest('tr').attr('bgcolor', '#f8d7da');
+            compteur[i]=1;
+            $('#q17-1-' + (i + 1) + '').closest('tr').attr('bgcolor', '#f8d7da');
+        } else {
+            compteur[i]=0;
+            $('#q17-1-' + (i + 1) + '').closest('tr').attr('bgcolor', '');
+        }
+        if(compteur[i] == 1){
+            alert = alert + 1 ;
         }
     }
 
-//alert(somme[1]);
-    if (somme > 100) {
+    if (alert > 0) {
         $('#error_q17').empty();
-        $('#error_q17').append("Le montant total des quantités de la ligne dépasse 100%");
+        $('#error_q17').append("Le montant total des lignes en rouge, dépasse 100%");
         $('#error_q17').show();
     } else {
         $('#error_q17').hide();
     }
+
+   
+
+
+
+//    for (i = 0; i < 6; i++)
+//    {
+//        for (j = 0; j < 3; j++)
+//        {
+//            input[j] = $('#q17-' + (j+1) + '-' + (i+1) + '').val();
+//            if (input[j] == null || input[j] == NaN || input[j] == '') {
+//                input[j] = 0;
+//            }
+//         
+//        }
+//          somme[i] = parseFloat(somme[i]) + parseFloat(input[j]); // calculer la somme des valeurs
+//             if (somme[i] > 100) {
+//            $('#q17-1-' + (i+1) + '').closest('tr').attr('bgcolor', '#f8d7da');
+//
+//            $('#error_q17').empty();
+//            $('#error_q17').append("Le montant total des quantités de la ligne dépasse 100%");
+//            $('#error_q17').show();
+//        } else {
+//            $('#error_q17').hide();
+//        }
+//    }
+//
+//alert(somme);
+//    if (somme > 100) {
+//        $('#error_q17').empty();
+//        $('#error_q17').append("Le montant total des quantités de la ligne dépasse 100%");
+//        $('#error_q17').show();
+//    } else {
+//        $('#error_q17').hide();
+//    }
 
 
     // return parseFloat(somme);
@@ -182,7 +235,7 @@ function control_q19_2() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
 
-   progressBar('progress_q19_2', somme, 100);
+    progressBar('progress_q19_2', somme, 100);
     percent_val('percent_q19_2', somme, 100, '%');
     control_error('error_q19_2', '', somme, 100, '%');
 
@@ -236,7 +289,7 @@ function control_q20_2() {
         somme = parseFloat(somme) + parseFloat(input); // calculer la somme des valeurs
     }
 
- progressBar('progress_q20_2', somme, 100);
+    progressBar('progress_q20_2', somme, 100);
     percent_val('percent_q20_2', somme, 100, '%');
     control_error('error_q20_2', '', somme, 100, '%');
 }

@@ -26,19 +26,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var array_IDs = <?php echo $array_IDs_json; ?>;
         var total_q13 = localStorage.getItem('q13-1-1');
-        
+
 //        var total = $('#q13-1-1').val();
 //        var total_unit = localStorage.getItem('q13-1-2');
 //        if (total_unit == null) {
 //            total_unit = 'Tonnes';
 //        }
 //        
-          var chiffre = localStorage.getItem('q8');
+        var chiffre = localStorage.getItem('q8');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
-        
-    var DI_total = localStorage.getItem('q16-1');
+
+        var DI_total = localStorage.getItem('q16-1');
         if (DI_total == null) {
             DI_total = 0;
         }
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (DD_total == null) {
             DD_total = 0;
         }
-       
+
 
         var answer_body; // pour enregistrer les réponses simples
     </script>
@@ -74,9 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php include('include/scripts.php'); ?>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/controlQuestions.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/insertAnswer.js"></script>
-         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/progressBar.js"></script>
-          <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/msg_error.js"></script>
- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/progressBar.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/msg_error.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js"></script>
         <script type="text/javascript">
         $(document).ready(function () {
 
@@ -263,9 +263,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 8)
             {
-                
+
                 $('#q8').val(answer); // récupération de la réponse (texte)
-               
+
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple($('#q8').val());
@@ -404,7 +404,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
                 $('#next_btn').click(function () {
                     insertQ13();
-                   // total_q13 =localStorage.getItem('q13-1-1');
+                    // total_q13 =localStorage.getItem('q13-1-1');
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -495,16 +495,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('#q17-2-' + (i + 1) + '').val(DNIND[i]); // récupération de la réponse (texte)
                     }
                 }
-                
-                  if (DD != null) {
+
+                if (DD != null) {
                     DD = DD.split(',');
                     for (i = 0; i < 7; i++) {
                         $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
                     }
-                }window.setInterval(function () {
+                }
+
+                window.setInterval(function () {
                     control_q17();
                 }, 50);
-               
+
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
@@ -620,7 +622,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (Dechets_qte != null) {
                     Dechets_qte = Dechets_qte.split(',');
-                    
+
                     for (i = 1; i < 8; i++) {
                         $('#q20-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
                     }
