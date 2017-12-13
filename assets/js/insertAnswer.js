@@ -1,12 +1,19 @@
 
-
-
 function insertAnserSimple(answer) { // answer simple = radio ou texte
    // alert(answer);
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers/",
         data: {"answer_body": answer, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json"
+    });
+}
+
+function insertAnserSimple_Back(answer, next) { 
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers_back/",
+        data: {"answer_body": answer, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": next, 'back': question_number,},
         dataType: "json"
     });
 }
@@ -90,10 +97,11 @@ function insertQ13() {
     var Q13_2_1 = $('#q13-2-1').val();
     var Q13_2_2 = $('#q13-2-2').val();
     var Q13 = [Q13_1_1, Q13_1_2, Q13_2_1, Q13_2_2];
+    var next = 14 ;
     $.ajax({
         type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q13, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        url: base_url + "index.php/home/set_answers_back/",
+        data: {"answer_body": Q13, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": next, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -107,8 +115,8 @@ function insertQ15() {
     var Q15 = [Q15_1, Q15_2];
     $.ajax({
         type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q15, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        url: base_url + "index.php/home/set_answers_back/",
+        data: {"answer_body": Q15, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 16, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -936,16 +944,6 @@ function insertQ20() {
  dataType: "json"
  });
  }
+  */
+
  
- function getBackPage(id) {
- $.each(back_page, function (key, val) {
- 
- if (val.question_nbr == id) {
- id_back = val.back_nbr;
- }
- 
- });
- return id_back;
- }
- 
- */

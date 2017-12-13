@@ -149,6 +149,45 @@ if ($ret) {
         }
       
     }
+    
+        public function setBackPage($data) {
+        $user = $data['user_id'];
+        $survey = $data['survey_id'];
+        $question = $data['question_nbr'];
+        $back = $data['back_nbr'];
+        $this->db->select('*');
+        $this->db->from('survey_back_question');
+        $this->db->where('user_id', $user); //le meme utilisateur
+        $this->db->where('survey_id', $survey); //la meme question
+        $this->db->where('question_nbr', $question); //la meme reponse
+
+        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
+            if ($this->db->insert('survey_back_question', $data)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {  /// traitement si la réponse existe --> update
+            if ($this->db->set('back_nbr', $back)
+                            ->where('user_id', $user) //le meme utilisateur
+                            ->where('survey_id', $survey) //la meme question
+                            ->where('question_nbr', $question)
+                            ->update('survey_back_question')) {
+                return true;
+            }
+        }
+    }
+
+    public function getBackPage($user, $survey) {
+        $query = $this->db->select('question_nbr, back_nbr')
+                ->from("survey_back_question")
+                ->where('user_id', $user) 
+                ->where('survey_id', $survey) 
+                ->get();
+            
+          $ret = $query->result_array();
+        return $ret;
+    }
 
 
 }

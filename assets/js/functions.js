@@ -7,3 +7,14 @@ function toFloat(nbr) {
         return nbr;
     }
 }
+
+function getBackPage(id) {
+    $.each(back_page, function (key, val) {
+
+        if (val.question_nbr == id) {
+            id_back = val.back_nbr;
+        }
+
+    });
+    return id_back;
+}

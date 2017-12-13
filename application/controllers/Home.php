@@ -57,6 +57,7 @@ class Home extends Home_Controller {
             $answer = $this->AnswerModel->getAnswer($survey, $question_id, $user);
             $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, $question_id, $user);
             $answer_Dechets = $this->AnswerModel->getAnswerDechets($survey, $question_id, $user);
+            $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
 
 
             $this->data["question_json"] = json_encode($question);
@@ -67,7 +68,6 @@ class Home extends Home_Controller {
             $this->data["section_number"] = json_encode($question[0]["section_number"]);
             $this->data["section_name"] = json_encode($question[0]["section_name"]);
             $this->data["array_IDs_json"] = json_encode($id_questions);
-            // var_dump($question);
             $this->data['id'] = $id;
             $this->data['survey'] = $survey;
             $this->data['answer'] = json_encode($answer['answer_body']);
@@ -77,8 +77,8 @@ class Home extends Home_Controller {
             $this->data['Dechets_oui_non'] = json_encode($answer_Dechets['oui_non']);
             $this->data['Dechets_qte'] = json_encode($answer_Dechets['qte']);
             $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
+            $this->data["back_page"] = json_encode($back_page);
 
-// var_dump($answer['answer_body']); die;
             $this->load->view('survey', $this->data);
         }
     }
@@ -128,6 +128,34 @@ class Home extends Home_Controller {
             'answer_body' => $answer);
 
         $this->AnswerModel->addAnswer($answer_data);
+    }
+
+    public function set_answers_back() {
+        $answer = $this->input->post('answer_body');
+        $user = $this->input->post('user_id');
+        $question = $this->input->post('question_id');
+        $back = $this->input->post('back');
+        $next = $this->input->post('next');
+        $survey = $this->input->post('survey_id');
+
+        if (is_array($answer)) {
+            $answer = implode(",", $answer);  // (implode) Join array elements with a string
+        }
+
+         $answer_data = array(
+            'answer_question_id' => $question,
+            'answer_survey_id' => $survey,
+            'user_id' => $user,
+            'answer_body' => $answer);
+
+        $back_data = array(
+            'user_id' => $user,
+            'survey_id' => $survey,
+            'question_nbr' => $next,
+            'back_nbr' => $back);
+
+        $this->AnswerModel->addAnswer($answer_data);
+        $this->AnswerModel->setBackPage($back_data);
     }
 
     public function set_answers_q17() {
@@ -202,30 +230,6 @@ class Home extends Home_Controller {
 //        foreach ($result as $row) {
 //            $this->AnswerModel->addAnswerDechets($row);
 //        }
-    }
-
-    public function set_answers_and_back() {
-        $answer = $this->input->post('answer_body');
-        $user = $this->input->post('user_id');
-        $question = $this->input->post('question_id');
-        $back = $this->input->post('back');
-        $next = $this->input->post('next');
-        $survey = $this->input->post('survey');
-
-
-        $answer_data = array(
-            'answer_question_id' => $question,
-            'user' => $user,
-            'answer_body' => $answer);
-
-        $back_data = array(
-            'user_id' => $user,
-            'survey_id' => $survey,
-            'question_nbr' => $next,
-            'back_nbr' => $back);
-
-        $this->AnswerModel->addAnswer($answer_data);
-        $this->AnswerModel->setBackPage($back_data);
     }
 
     public function set_answers_q14() {

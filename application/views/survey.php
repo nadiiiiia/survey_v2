@@ -22,8 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var section_name = <?php echo $section_name; ?>;
         var section_number = <?php echo $section_number; ?>;
         var answer = <?php echo $answer; ?>; // la réponse enregistrée dans la BD 
-
-
+        var back_page = <?php echo $back_page; ?>;
         var array_IDs = <?php echo $array_IDs_json; ?>;
         var total_q13 = localStorage.getItem('q13-1-1');
 
@@ -141,29 +140,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //                }
             if (id == 1)
             {
+                var next_page;
                 $('input[value="' + answer + '"][name="Q1"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
 
                     if (localStorage.getItem('Q1') == 'oui') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/3';
+                        next_page = 3;
                     } else {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/2';
+                        next_page = 2;
                     }
                 }, 50);
 
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('Q1'));
-                        //  window.location.href = href_next;
+                        insertAnserSimple_Back(localStorage.getItem('Q1'), next_page);
+                        window.location.href = href_next;
                     }
                 });
 
 
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('Q1'));
+                    insertAnserSimple_Back(localStorage.getItem('Q1'), next_page);
                     $("#next_btn").attr("href", href_next);
-
                 });
 
                 $('#back_btn').hide();
@@ -174,12 +175,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple($('#q2').val());
+                        insertAnserSimple_Back($('#q2').val(), 3);
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple($('#q2').val());
+                    insertAnserSimple_Back($('#q2').val(), 3);
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -195,6 +196,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#next_btn').click(function () {
                     insertAnserSimple($('#q3').val());
                     $("#next_btn").attr("href", href_next);
+                });
+                $('#back_btn').click(function () {
+                    href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
+                    $("#back_btn").attr("href", href_back);
                 });
             }
             if (id == 4)
@@ -364,20 +369,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 12)
             {
+                var next_page;
                 $('input[value="' + answer + '"][name="Q12"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
                     if (localStorage.getItem('Q12') == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/14';
+                        next_page = 14;
+                    }else{
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/13';
+                        next_page = 13;
                     }
                 }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('Q12'));
+                        insertAnserSimple_Back(localStorage.getItem('Q12'), next_page);
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('Q12'));
+                    insertAnserSimple_Back(localStorage.getItem('Q12'), next_page);
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -411,16 +421,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 14)
             {
+                var next_page;
                 $('input[value="' + answer + '"][name="Q14"]').prop('checked', true); // récupération de la réponse (radio)
+                window.setInterval(function () {
+                    if (localStorage.getItem('Q14') == 'non') {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/16';
+                        next_page = 16;
+                    }else{
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/15';
+                        next_page = 15;
+                    }
+                }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('Q14'));
+                        insertAnserSimple_Back(localStorage.getItem('Q14'), next_page);
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('Q14'));
+                    insertAnserSimple_Back(localStorage.getItem('Q14'), next_page);
                     $("#next_btn").attr("href", href_next);
+                });
+                $('#back_btn').click(function () {
+                    href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
+                    $("#back_btn").attr("href", href_back);
                 });
             }
             if (id == 15)
@@ -474,7 +498,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     insertQ16();
                     $("#next_btn").attr("href", href_next);
                 });
-
+                $('#back_btn').click(function () {
+                    href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
+                    $("#back_btn").attr("href", href_back);
+                });
             }
             if (id == 17)
             {
