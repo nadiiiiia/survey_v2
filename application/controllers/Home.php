@@ -41,6 +41,11 @@ class Home extends Home_Controller {
         $this->load->view('connexion');
     }
 
+    public function pastrouve() {
+        header("HTTP/1.1 404 Not Found");
+        $this->load->view('error_404');
+    }
+
     public function survey($survey, $id) {
         if (!$this->session->userdata('logged_in')) {
             redirect('login', 'refresh');
@@ -78,6 +83,7 @@ class Home extends Home_Controller {
             $this->data['Dechets_qte'] = json_encode($answer_Dechets['qte']);
             $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
             $this->data["back_page"] = json_encode($back_page);
+            $this->data["rapport"] =  $this->AnswerModel->getAllAnswers($survey, $dataLogin["id"]);
 
             $this->load->view('survey', $this->data);
         }
@@ -142,7 +148,7 @@ class Home extends Home_Controller {
             $answer = implode(",", $answer);  // (implode) Join array elements with a string
         }
 
-         $answer_data = array(
+        $answer_data = array(
             'answer_question_id' => $question,
             'answer_survey_id' => $survey,
             'user_id' => $user,
@@ -334,9 +340,18 @@ class Home extends Home_Controller {
         return $result;
     }
 
-    public function get_answer_test($survey, $question, $user) {
-        $result = $this->AnswerModel->getAnsweractivity($survey, $question, $user);
-        var_dump(json_encode($result['DI']));
+    public function get_answer_test($survey, $user) {
+        $result = $this->AnswerModel->getAllAnswers($survey, $user);
+       // var_dump(json_encode($result));
+        echo $result[1]['answer_question_id'];
+        $length = count($result);
+        $answers = array();
+        for($i=0; $i < $length; $i++){
+            $answers[$result[$i]['question_number']]= $result[$i]['answer_body'];
+        }
+        
+        var_dump($answers);
+       
         die;
     }
 
