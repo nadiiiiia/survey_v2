@@ -753,6 +753,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 23)
             {
+                $('.non-q23').hide();
                 var tab;
                 if (answer != null && answer.indexOf(',') > -1) {
                     tab = answer.split(',');

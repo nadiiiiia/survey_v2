@@ -170,7 +170,7 @@ function insertQ22() {
 }
 
 function insertQ23() {
-    var Q23_1 = localStorage.getItem('Q22');
+    var Q23_1 = localStorage.getItem('Q23');
     var Q23_2;
     var Q23;
 
@@ -213,7 +213,7 @@ function insertQ28() {
     });
 }
 function insertQ30() {
-    var Q30_1 = localStorage.getItem('Q29');
+    var Q30_1 = localStorage.getItem('Q30');
     var Q30_2;
     var Q30;
 
