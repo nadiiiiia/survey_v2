@@ -1,6 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+ini_set("display_errors",0);error_reporting(0);
 
 class Home extends Home_Controller {
 

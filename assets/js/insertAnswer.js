@@ -124,7 +124,7 @@ function insertQ15() {
     });
 }
 function insertQ21() {
-    var Q21_1 = localStorage.getItem('Q21');
+    var Q21_1 = $('input[name="Q21"]:checked').val();
     var Q21_2;
 
     if (Q21_1 == 'oui') {
@@ -146,7 +146,7 @@ function insertQ21() {
 }
 
 function insertQ22() {
-    var Q22_1 = localStorage.getItem('Q22');
+    var Q22_1 = $('input[name="Q22"]:checked').val();
     var Q22_2;
     var Q22;
     var Q22_3 = $('#q22-else').val();
@@ -170,7 +170,7 @@ function insertQ22() {
 }
 
 function insertQ23() {
-    var Q23_1 = localStorage.getItem('Q23');
+    var Q23_1 = $('input[name="Q23"]:checked').val();
     var Q23_2;
     var Q23;
 
@@ -191,12 +191,12 @@ function insertQ23() {
 }
 
 function insertQ28() {
-    var Q28_1 = localStorage.getItem('Q28');
+    var Q28_1 = $('input[name="Q28"]:checked').val();
     var Q28_2;
     var Q28;
 
     if (Q28_1 == 'non') {
-        Q28_2 = localStorage.getItem('q28-non');
+        Q28_2 = $('#q28-non').val();
         Q28 = [Q28_1, Q28_2];
     } else {
         Q27 = Q28_1;
@@ -213,12 +213,12 @@ function insertQ28() {
     });
 }
 function insertQ30() {
-    var Q30_1 = localStorage.getItem('Q30');
+    var Q30_1 = $('input[name="Q30"]:checked').val();
     var Q30_2;
     var Q30;
 
     if (Q30_1 == 'non') {
-        Q30_2 = localStorage.getItem('q30-non');
+        Q30_2 = $('#q30-non').val();
         Q30 = [Q30_1, Q30_2];
     } else {
         Q30 = Q30_1;
@@ -235,12 +235,12 @@ function insertQ30() {
     });
 }
 function insertQ33() {
-    var Q33_1 = localStorage.getItem('Q33-1');
-    var Q33_2 = localStorage.getItem('Q33-2');
-    var Q33_3 = localStorage.getItem('Q33-3');
-    var Q33_4 = localStorage.getItem('Q33-4');
-    var Q33_5 = localStorage.getItem('Q33-5');
-    var Q33_6 = localStorage.getItem('Q33-6');
+    var Q33_1 = $('input[name="Q33-1"]:checked').val();
+    var Q33_2 = $('input[name="Q33-2"]:checked').val();
+    var Q33_3 = $('input[name="Q33-3"]:checked').val();
+    var Q33_4 = $('input[name="Q33-4"]:checked').val();
+    var Q33_5 = $('input[name="Q33-5"]:checked').val();
+    var Q33_6 = $('input[name="Q33-6"]:checked').val();
     var Q33 = [Q33_1, Q33_2, Q33_3, Q33_4, Q33_5, Q33_6];
     $.ajax({
         type: "post",
@@ -253,12 +253,12 @@ function insertQ33() {
     });
 }
 function insertQ16() {
-    var Q16_1_1 = localStorage.getItem('q16-1');
-    var Q16_1_2 = localStorage.getItem('Q16-1');
-    var Q16_2_1 = localStorage.getItem('q16-2');
-    var Q16_2_2 = localStorage.getItem('Q16-2');
-    var Q16_3_1 = localStorage.getItem('q16-3');
-    var Q16_3_2 = localStorage.getItem('Q16-3');
+    var Q16_1_1 = $('#q16-1').val();
+    var Q16_1_2 = $('input[name="Q16-1"]:checked').val(); 
+    var Q16_2_1 = $('#q16-2').val();
+    var Q16_2_2 = $('input[name="Q16-2"]:checked').val(); 
+    var Q16_3_1 = $('#q16-3').val();
+    var Q16_3_2 = $('input[name="Q16-3"]:checked').val(); 
 
     var Q16 = [Q16_1_1, Q16_1_2, Q16_2_1, Q16_2_2, Q16_3_1, Q16_3_2];
     $.ajax({
@@ -302,21 +302,21 @@ function insertQ18() {
 
     // le 1er tableau
     for (i = 1; i < 7; i++) {
-        Q18_1_1[i] = localStorage.getItem('Q18-' + i + ''); //oui/non
+        Q18_1_1[i] = $('input[name="Q18-' + i +'"]:checked').val();  //oui/non
     }
     for (i = 1; i < 7; i++) {
-        Q18_1_2[i] = localStorage.getItem('q18-' + i + '-2'); //qte
+        Q18_1_2[i] = $('#q18-' + i + '-2').val(); //qte
     }
 
     // le 2ème tableau
     for (i = 1; i < 11; i++) {
-        Q18_2[i] = localStorage.getItem('q18-' + i + '-4');//percent
+        Q18_2[i] = $('#q18-' + i + '-4').val();//percent
     }
-    Q18_2[11] = localStorage.getItem('q18-autres');
+    Q18_2[11] = $('#q18-autres').val();
 
     var oui_non_table = [Q18_1_1[1], Q18_1_1[2], Q18_1_1[3], Q18_1_1[4], Q18_1_1[5], Q18_1_1[6]];
     var qte_table = [Q18_1_2[1], Q18_1_2[2], Q18_1_2[3], Q18_1_2[4], Q18_1_2[5], Q18_1_2[6]];
-    var autres = localStorage.getItem('q18-1-3'); // contient les valeurs à préciser
+    var autres = $('#q18-1-3').val(); // contient les valeurs à préciser
     var percent_table = [Q18_2[1], Q18_2[2], Q18_2[3], Q18_2[4], Q18_2[5], Q18_2[6], Q18_2[7], Q18_2[8], Q18_2[9], Q18_2[10], Q18_2[11]];
 
 
@@ -335,24 +335,24 @@ function insertQ19() {
     // le 1er tableau
     var Q19_1_1 = []; // contient les valeurs oui/non
     for (i = 1; i < 11; i++) {
-        Q19_1_1[i] = localStorage.getItem('Q19-' + i + '');
+        Q19_1_1[i] = $('input[name="Q19-' + i +'"]:checked').val();
     }
     var oui_non_table = [Q19_1_1[1], Q19_1_1[2], Q19_1_1[3], Q19_1_1[4], Q19_1_1[5], Q19_1_1[6], Q19_1_1[7], Q19_1_1[8], Q19_1_1[9], Q19_1_1[10]];
 
     var Q19_1_2 = []; // contient les valeurs qte
     for (i = 1; i < 11; i++) {
-        Q19_1_2[i] = localStorage.getItem('q19-' + i + '-3');
+        Q19_1_2[i] = $('#q19-' + i + '-3').val();
     }
     var qte_table = [Q19_1_2[1], Q19_1_2[2], Q19_1_2[3], Q19_1_2[4], Q19_1_2[5], Q19_1_2[6], Q19_1_2[7], Q19_1_2[8], Q19_1_2[9], Q19_1_2[10]];
 
-    var autres = localStorage.getItem('q19-1-2'); // contient les valeurs à préciser
+    var autres = $('#q19-1-2').val(); // contient les valeurs à préciser
 
     // le 2ème tableau
     var Q19_2 = [];
     for (i = 1; i < 11; i++) {
-        Q19_2[i] = localStorage.getItem('q19-' + i + '-4');
+        Q19_2[i] = $('#q19-' + i + '-4').val();
     }
-    Q19_2[10] = localStorage.getItem('q19-autres');
+    Q19_2[10] = $('#q19-autres').val();
 
     var percent_table = [Q19_2[1], Q19_2[2], Q19_2[3], Q19_2[4], Q19_2[5], Q19_2[6], Q19_2[7], Q19_2[8], Q19_2[9], Q19_2[10]];
 
@@ -374,20 +374,20 @@ function insertQ20() {
 
     // le 1er tableau
     for (i = 1; i < 8; i++) {
-        Q20_1_1[i] = localStorage.getItem('Q20-' + i + ''); //oui/non
+        Q20_1_1[i] = $('input[name="Q20-' + i +'"]:checked').val();  //oui/non
     }
     for (i = 1; i < 8; i++) {
-        Q20_1_3[i] = localStorage.getItem('q20-' + i + '-3'); //qte
+        Q20_1_3[i] = $('#q20-' + i + '-3').val(); //qte
     }
     // le 2ème tableau
     var Q20_2 = [];
     for (i = 1; i < 10; i++) {
-        Q20_2[i] = localStorage.getItem('q20-' + i + '-4');
+        Q20_2[i] = $('#q20-' + i + '-4').val();
     }
-    Q20_2[10] = localStorage.getItem('q20-autres');
+    Q20_2[10] = $('#q20-autres').val();
 
     var oui_non_table = [Q20_1_1[1], Q20_1_1[2], Q20_1_1[3], Q20_1_1[4], Q20_1_1[5], Q20_1_1[6], Q20_1_1[7]];
-    var autres = localStorage.getItem('q20-1-2'); // contient les valeurs à préciser
+    var autres = $('#q20-1-2').val(); // contient les valeurs à préciser
     var qte_table = [Q20_1_3[1], Q20_1_3[2], Q20_1_3[3], Q20_1_3[4], Q20_1_3[5], Q20_1_3[6], Q20_1_3[7]];
     var percent_table = [Q20_2[1], Q20_2[2], Q20_2[3], Q20_2[4], Q20_2[5], Q20_2[6], Q20_2[7], Q20_2[8], Q20_2[9], Q20_2[10]];
 

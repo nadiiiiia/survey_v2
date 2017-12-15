@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('input[value="' + answer + '"][name="Q1"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
 
-                    if (localStorage.getItem('Q1') == 'oui') {
+                    if ($('input[name="Q1"]:checked').val() == 'oui') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/3';
                         next_page = 3;
                     } else {
@@ -152,14 +152,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple_Back(localStorage.getItem('Q1'), next_page);
+                        insertAnserSimple_Back($('input[name="Q1"]:checked').val(), next_page);
                         window.location.href = href_next;
                     }
                 });
 
 
                 $('#next_btn').click(function () {
-                    insertAnserSimple_Back(localStorage.getItem('Q1'), next_page);
+                    insertAnserSimple_Back($('input[name="Q1"]:checked').val(), next_page);
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -368,7 +368,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var next_page;
                 $('input[value="' + answer + '"][name="Q12"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
-                    if (localStorage.getItem('Q12') == 'non') {
+                    if ($('input[name="Q12"]:checked').val() == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/14';
                         next_page = 14;
                     }else{
@@ -378,12 +378,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple_Back(localStorage.getItem('Q12'), next_page);
+                        insertAnserSimple_Back($('input[name="Q12"]:checked').val(), next_page);
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple_Back(localStorage.getItem('Q12'), next_page);
+                    insertAnserSimple_Back($('input[name="Q12"]:checked').val(), next_page);
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -420,7 +420,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var next_page;
                 $('input[value="' + answer + '"][name="Q14"]').prop('checked', true); // récupération de la réponse (radio)
                 window.setInterval(function () {
-                    if (localStorage.getItem('Q14') == 'non') {
+                    if ($('input[name="Q14"]:checked').val() == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/16';
                         next_page = 16;
                     }else{
@@ -430,12 +430,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple_Back(localStorage.getItem('Q14'), next_page);
+                        insertAnserSimple_Back($('input[name="Q14"]:checked').val(), next_page);
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple_Back(localStorage.getItem('Q14'), next_page);
+                    insertAnserSimple_Back($('input[name="Q14"]:checked').val(), next_page);
                     $("#next_btn").attr("href", href_next);
                 });
                 $('#back_btn').click(function () {
@@ -880,12 +880,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('input[value="' + answer + '"][name="Q29"]').prop('checked', true); // récupération de la réponse (radio)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple(localStorage.getItem('Q29'));
+                        insertAnserSimple($('input[name="Q29"]:checked').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple(localStorage.getItem('Q29'));
+                    insertAnserSimple($('input[name="Q29"]:checked').val());
                     $("#next_btn").attr("href", href_next);
                 });
 

@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
                             <!--Body-->
-                            <?php echo form_open('verifyLogin');  //controllers/verifyLogin.php ?>
+                            <?php echo form_open('verifyLogin'); ini_set("display_errors",0);error_reporting(0);  //controllers/verifyLogin.php ?>
                             <div class="md-form">
                                 <i class="fa fa-envelope prefix grey-text"></i>
-                                <input type="text" name="email" required="required" id="email" class="form-control">
-                                <label for="email">E-mail</label>
+                                <input type="text" name="email" required="required" id="email" value="<?php echo $_GET["login"] ?>" class="form-control">
+                                <label for="email"><?php if(!isset($_GET["login"])) echo "E-mail"; ?></label>
                             </div>
 
                             <div class="md-form">
