@@ -24,8 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var answer = <?php echo $answer; ?>; // la réponse enregistrée dans la BD 
         var back_page = <?php echo $back_page; ?>;
         var array_IDs = <?php echo $array_IDs_json; ?>;
-        var total_q13 = localStorage.getItem('q13-1-1');
-
+        var total_Q13 = <?php echo $total_Q13; ?>;
+        var moy_Q15 = <?php echo $moy_Q15; ?>;
+        var answer_Q16 = <?php echo $answer_Q16; ?>;
+        var total_q13;
+        var moyenne_q15;
+        var DI_total, DNIND_total, DD_total;
+       
 //        var total = $('#q13-1-1').val();
 //        var total_unit = localStorage.getItem('q13-1-2');
 //        if (total_unit == null) {
@@ -37,23 +42,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             chiffre = 0;
         }
 
-        var DI_total = localStorage.getItem('q16-1');
-        if (DI_total == null) {
-            DI_total = 0;
-        }
-        var DNIND_total = localStorage.getItem('q16-2');
-        if (DNIND_total == null) {
-            DNIND_total = 0;
-        }
-        var DD_total = localStorage.getItem('q16-3');
-        if (DD_total == null) {
-            DD_total = 0;
-        }
+
+
 
 
         var answer_body; // pour enregistrer les réponses simples
     </script>
     <body>
+        <?php //var_dump($answer_Q16) ; die; ?>;
 
         <!-- Navbar here-->
         <?php include('include/navbar.php'); ?>
@@ -61,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br>
 
         <!--  survey_body here-->
-        
+
         <?php include('include/survey_body.php'); ?>
 
         <!-- Footer here-->
@@ -87,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#error_q19_2').hide();
             $('#error_q20_2').hide();
             $('#error_q14').hide();
-            
+
             $('.oui-q22').hide();
             $('.non-q23').hide();
             $('.non-q28').hide();
@@ -119,21 +115,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             href_back = base_url + 'index.php/home/survey/' + survey + '/' + id_back;
             $("#back_btn").attr("href", href_back);
 
+
+
             /// Règles spécifiques selon les id  
 
-//            for (i = 1; i < 32; i++) {
-//                if (id == i)
-//                {
-//                    $(window).keydown(function (e) {
-//                        if (e.which === 13) {
-//
-//                            window.location.href = href_next;
-//                        }
-//                    });
-//                    $('#next_btn').click(function () {
-//                        $("#next_btn").attr("href", href_next);
-//                    });
-//                }
             if (id == 1)
             {
                 var next_page;
@@ -370,20 +355,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 window.setInterval(function () {
                     if ($('input[name="Q12"]:checked').val() == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/14';
-                        next_page = 14;
-                    }else{
+                        control_Q16 = 15;
+                    } else {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/13';
-                        next_page = 13;
+                        control_Q16 = 13;
                     }
                 }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple_Back($('input[name="Q12"]:checked').val(), next_page);
+                        insertAnserSimple($('input[name="Q12"]:checked').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple_Back($('input[name="Q12"]:checked').val(), next_page);
+                    insertAnserSimple($('input[name="Q12"]:checked').val());
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -398,19 +383,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('#q13-1-2').val(tab[1]); // récupération de la réponse (texte)
                     $('#q13-2-1').val(tab[2]); // récupération de la réponse (texte)
                     $('#q13-2-2').val(tab[3]); // récupération de la réponse (texte)
-
                 }
-
+                href_next = base_url + 'index.php/home/survey/' + survey + '/16';
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ13();
-                        //total_q13 = localStorage.getItem('q13-1-1');
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
                     insertQ13();
-                    // total_q13 =localStorage.getItem('q13-1-1');
                     $("#next_btn").attr("href", href_next);
                 });
 
@@ -419,27 +401,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             {
                 var next_page;
                 $('input[value="' + answer + '"][name="Q14"]').prop('checked', true); // récupération de la réponse (radio)
-                window.setInterval(function () {
-                    if ($('input[name="Q14"]:checked').val() == 'non') {
-                        href_next = base_url + 'index.php/home/survey/' + survey + '/16';
-                        next_page = 16;
-                    }else{
-                        href_next = base_url + 'index.php/home/survey/' + survey + '/15';
-                        next_page = 15;
-                    }
-                }, 50);
+//                window.setInterval(function () {
+//                    if ($('input[name="Q14"]:checked').val() == 'non') {
+//                        href_next = base_url + 'index.php/home/survey/' + survey + '/16';
+//                        next_page = 16;
+//                    } else {
+//                        href_next = base_url + 'index.php/home/survey/' + survey + '/15';
+//                        next_page = 15;
+//                    }
+//                }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple_Back($('input[name="Q14"]:checked').val(), next_page);
+                        insertAnserSimple($('input[name="Q14"]:checked').val());
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
-                    insertAnserSimple_Back($('input[name="Q14"]:checked').val(), next_page);
+                    insertAnserSimple($('input[name="Q14"]:checked').val());
                     $("#next_btn").attr("href", href_next);
                 });
                 $('#back_btn').click(function () {
-                    href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
+                    href_back = base_url + 'index.php/home/survey/' + survey + '/12';
                     $("#back_btn").attr("href", href_back);
                 });
             }
@@ -481,6 +463,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('#q16-3').val(tab[4]); // récupération de la réponse (texte)
                     $('input[value="' + tab[5] + '"][name="Q16-3"]').prop('checked', true); // récupération de la réponse (radio)
                 }
+            
+
                 window.setInterval(function () {
                     control_q16();
                 }, 50);
@@ -494,6 +478,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     insertQ16();
                     $("#next_btn").attr("href", href_next);
                 });
+
                 $('#back_btn').click(function () {
                     href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
                     $("#back_btn").attr("href", href_back);
@@ -505,26 +490,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var DNIND = <?php echo $answer_Q17_DNIND; ?>;
                 var DD = <?php echo $answer_Q17_DD; ?>;
 
-                if (DI != null) {
-                    DI = DI.split(',');
-                    for (i = 0; i < 7; i++) {
-                        $('#q17-1-' + (i + 1) + '').val(DI[i]); // récupération de la réponse (texte)
-                    }
-                }
 
-                if (DNIND != null) {
-                    DNIND = DNIND.split(',');
-                    for (i = 0; i < 7; i++) {
-                        $('#q17-2-' + (i + 1) + '').val(DNIND[i]); // récupération de la réponse (texte)
-                    }
-                }
-
-                if (DD != null) {
-                    DD = DD.split(',');
-                    for (i = 0; i < 7; i++) {
-                        $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
-                    }
-                }
 
                 window.setInterval(function () {
                     control_q17();
@@ -572,6 +538,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                     $('#q18-autres').val(tab[10]); // récupération de la réponse (texte)
                 }
+
+                var tab_answer_Q16 = getAnswerQ(answer_Q16);
+                if (tab_answer_Q16 != null) {
+                    DI_total = tab_answer_Q16[0];
+                }
+                if (DI_total == null || DI_total == NaN || DI_total == '') {
+                    DI_total = 0;
+                }
+
                 window.setInterval(function () {
                     control_q18();
                     control_q18_2();
@@ -613,6 +588,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                     $('#q19-autres').val(tab[9]); // récupération de la réponse (texte)
                 }
+
+                var tab_answer_Q16 = getAnswerQ(answer_Q16);
+                if (tab_answer_Q16 != null) {
+                    DNIND_total = tab_answer_Q16[2];
+                }
+                if (DNIND_total == null || DNIND_total == NaN || DNIND_total == '') {
+                    DNIND_total = 0;
+                }
+
                 window.setInterval(function () {
                     control_q19();
                     control_q19_2();
@@ -661,6 +645,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                     $('#q20-autres').val(tab[9]); // récupération de la réponse (texte)
                 }
+                var tab_answer_Q16 = getAnswerQ(answer_Q16);
+
+                if (tab_answer_Q16 != null) {
+                    DD_total = tab_answer_Q16[4];
+                }
+                if (DD_total == null || DD_total == NaN || DD_total == '') {
+                    DD_total = 0;
+                }
+
                 window.setInterval(function () {
                     control_q20();
                     control_q20_2();
@@ -680,7 +673,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (id == 21)
             {
                 $('.oui-q21').hide();
-            $('.non-q21').hide();
+                $('.non-q21').hide();
                 var tab;
                 if (answer != null) {
                     tab = answer.split(',');
@@ -724,11 +717,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     if (tab[0] == 'oui') {
                         $('#q22-oui').val(tab[1]); // récupération de la réponse (texte)
                         $('#q22-else').val(tab[2]); // récupération de la réponse (texte)
-                    }else{
-                        
+                    } else {
+
                         $('#q22-else').val(tab[1]); // récupération de la réponse (texte)
                     }
-                    
+
                 }
 
                 window.setInterval(function () {

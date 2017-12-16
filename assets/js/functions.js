@@ -18,3 +18,13 @@ function getBackPage(id) {
     });
     return id_back;
 }
+
+function getAnswerQ(answer) {
+    var tab;
+    if (answer != null) {
+        tab = answer.split(',');
+    }
+    return tab;
+}
+
+

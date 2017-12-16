@@ -1,7 +1,8 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set("display_errors",0);error_reporting(0);
+ini_set("display_errors", 0);
+error_reporting(0);
 
 class Home extends Home_Controller {
 
@@ -64,6 +65,20 @@ class Home extends Home_Controller {
             $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, $question_id, $user);
             $answer_Dechets = $this->AnswerModel->getAnswerDechets($survey, $question_id, $user);
             $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
+            $answer_Q13 = $this->AnswerModel->getAnswer(3, 4, $user);
+            $tab_Q13 = $answer_Q13['answer_body'];
+            if ($tab_Q13 != null) {
+                $tab_Q13 = explode(",", $tab_Q13);  // (implode) Join array elements with a string
+            }
+            $total_Q13 = ($tab_Q13[0]); 
+            
+            $answer_Q15 = $this->AnswerModel->getAnswer(3, 6, $user);
+            $tab_Q15 = $answer_Q15['answer_body'];
+            if ($tab_Q15 != null) {
+                $tab_Q15 = explode(",", $tab_Q15);  // (implode) Join array elements with a string
+            }
+            $moy_Q15 = ($tab_Q15[0] + $tab_Q15[1]) / 2; // la moyenne entre min et max dans Q15
+            $answer_Q16 = $this->AnswerModel->getAnswer(3, 44, $user);
 
 
             $this->data["question_json"] = json_encode($question);
@@ -84,7 +99,10 @@ class Home extends Home_Controller {
             $this->data['Dechets_qte'] = json_encode($answer_Dechets['qte']);
             $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
             $this->data["back_page"] = json_encode($back_page);
-            $this->data["rapport"] =  $this->AnswerModel->getAllAnswers($survey, $dataLogin["id"]);
+            $this->data["rapport"] = $this->AnswerModel->getAllAnswers($survey, $dataLogin["id"]);
+            $this->data["total_Q13"] = json_encode($total_Q13);
+            $this->data["moy_Q15"] = json_encode($moy_Q15);
+            $this->data["answer_Q16"] = json_encode($answer_Q16['answer_body']);
 
             $this->load->view('survey', $this->data);
         }
@@ -343,16 +361,16 @@ class Home extends Home_Controller {
 
     public function get_answer_test($survey, $user) {
         $result = $this->AnswerModel->getAllAnswers($survey, $user);
-       // var_dump(json_encode($result));
+        // var_dump(json_encode($result));
         echo $result[1]['answer_question_id'];
         $length = count($result);
         $answers = array();
-        for($i=0; $i < $length; $i++){
-            $answers[$result[$i]['question_number']]= $result[$i]['answer_body'];
+        for ($i = 0; $i < $length; $i++) {
+            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
         }
-        
+
         var_dump($answers);
-       
+
         die;
     }
 

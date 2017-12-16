@@ -190,6 +190,7 @@ function control_q17() {
 function control_q18() {
 
     var somme = 0;
+    
 
     for (i = 1; i < 7; i++)
     {

@@ -97,11 +97,11 @@ function insertQ13() {
     var Q13_2_1 = $('#q13-2-1').val();
     var Q13_2_2 = $('#q13-2-2').val();
     var Q13 = [Q13_1_1, Q13_1_2, Q13_2_1, Q13_2_2];
-    var next = 14 ;
+    
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_back/",
-        data: {"answer_body": Q13, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": next, 'back': question_number,},
+        data: {"answer_body": Q13, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 16, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -117,135 +117,6 @@ function insertQ15() {
         type: "post",
         url: base_url + "index.php/home/set_answers_back/",
         data: {"answer_body": Q15, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 16, 'back': question_number,},
-        dataType: "json",
-//        success: function (result) {
-//            console.log(result);
-//        }
-    });
-}
-function insertQ21() {
-    var Q21_1 = $('input[name="Q21"]:checked').val();
-    var Q21_2;
-
-    if (Q21_1 == 'oui') {
-        Q21_2 = $('#q21-oui').val();
-    } else {
-        Q21_2 = $('#q21-non').val();
-    }
-    var Q21_3 = $('#q21-else').val();
-    var Q21 = [Q21_1, Q21_2, Q21_3];
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q21, "question_id": question_id, "user_id": user_id, "survey_id": survey},
-        dataType: "json",
-//        success: function (result) {
-//            console.log(result);
-//        }
-    });
-}
-
-function insertQ22() {
-    var Q22_1 = $('input[name="Q22"]:checked').val();
-    var Q22_2;
-    var Q22;
-    var Q22_3 = $('#q22-else').val();
-
-    if (Q22_1 == 'oui') {
-        Q22_2 = $('#q22-oui').val();
-        Q22 = [Q22_1, Q22_2, Q22_3];
-    }else{
-       Q22 = [Q22_1, Q22_3]; 
-    }
-
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q22, "question_id": question_id, "user_id": user_id, "survey_id": survey},
-        dataType: "json",
-//        success: function (result) {
-//            console.log(result);
-//        }
-    });
-}
-
-function insertQ23() {
-    var Q23_1 = $('input[name="Q23"]:checked').val();
-    var Q23_2;
-    var Q23;
-
-    if (Q23_1 == 'non') {
-        Q23_2 = $('#q23-non').val();
-        Q23 = [Q23_1, Q23_2];
-    }
-
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q23, "question_id": question_id, "user_id": user_id, "survey_id": survey},
-        dataType: "json",
-//        success: function (result) {
-//            console.log(result);
-//        }
-    });
-}
-
-function insertQ28() {
-    var Q28_1 = $('input[name="Q28"]:checked').val();
-    var Q28_2;
-    var Q28;
-
-    if (Q28_1 == 'non') {
-        Q28_2 = $('#q28-non').val();
-        Q28 = [Q28_1, Q28_2];
-    } else {
-        Q27 = Q28_1;
-    }
-
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q28, "question_id": question_id, "user_id": user_id, "survey_id": survey},
-        dataType: "json",
-        success: function (result) {
-            console.log(result);
-        }
-    });
-}
-function insertQ30() {
-    var Q30_1 = $('input[name="Q30"]:checked').val();
-    var Q30_2;
-    var Q30;
-
-    if (Q30_1 == 'non') {
-        Q30_2 = $('#q30-non').val();
-        Q30 = [Q30_1, Q30_2];
-    } else {
-        Q30 = Q30_1;
-    }
-
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q30, "question_id": question_id, "user_id": user_id, "survey_id": survey},
-        dataType: "json",
-        success: function (result) {
-            console.log(result);
-        }
-    });
-}
-function insertQ33() {
-    var Q33_1 = $('input[name="Q33-1"]:checked').val();
-    var Q33_2 = $('input[name="Q33-2"]:checked').val();
-    var Q33_3 = $('input[name="Q33-3"]:checked').val();
-    var Q33_4 = $('input[name="Q33-4"]:checked').val();
-    var Q33_5 = $('input[name="Q33-5"]:checked').val();
-    var Q33_6 = $('input[name="Q33-6"]:checked').val();
-    var Q33 = [Q33_1, Q33_2, Q33_3, Q33_4, Q33_5, Q33_6];
-    $.ajax({
-        type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q33, "question_id": question_id, "user_id": user_id, "survey_id": survey},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -403,6 +274,136 @@ function insertQ20() {
     });
 
 }
+function insertQ21() {
+    var Q21_1 = $('input[name="Q21"]:checked').val();
+    var Q21_2;
+
+    if (Q21_1 == 'oui') {
+        Q21_2 = $('#q21-oui').val();
+    } else {
+        Q21_2 = $('#q21-non').val();
+    }
+    var Q21_3 = $('#q21-else').val();
+    var Q21 = [Q21_1, Q21_2, Q21_3];
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q21, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+
+function insertQ22() {
+    var Q22_1 = $('input[name="Q22"]:checked').val();
+    var Q22_2;
+    var Q22;
+    var Q22_3 = $('#q22-else').val();
+
+    if (Q22_1 == 'oui') {
+        Q22_2 = $('#q22-oui').val();
+        Q22 = [Q22_1, Q22_2, Q22_3];
+    }else{
+       Q22 = [Q22_1, Q22_3]; 
+    }
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q22, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+
+function insertQ23() {
+    var Q23_1 = $('input[name="Q23"]:checked').val();
+    var Q23_2;
+    var Q23;
+
+    if (Q23_1 == 'non') {
+        Q23_2 = $('#q23-non').val();
+        Q23 = [Q23_1, Q23_2];
+    }
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q23, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+
+function insertQ28() {
+    var Q28_1 = $('input[name="Q28"]:checked').val();
+    var Q28_2;
+    var Q28;
+
+    if (Q28_1 == 'non') {
+        Q28_2 = $('#q28-non').val();
+        Q28 = [Q28_1, Q28_2];
+    } else {
+        Q27 = Q28_1;
+    }
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q28, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+        }
+    });
+}
+function insertQ30() {
+    var Q30_1 = $('input[name="Q30"]:checked').val();
+    var Q30_2;
+    var Q30;
+
+    if (Q30_1 == 'non') {
+        Q30_2 = $('#q30-non').val();
+        Q30 = [Q30_1, Q30_2];
+    } else {
+        Q30 = Q30_1;
+    }
+
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q30, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+        }
+    });
+}
+function insertQ33() {
+    var Q33_1 = $('input[name="Q33-1"]:checked').val();
+    var Q33_2 = $('input[name="Q33-2"]:checked').val();
+    var Q33_3 = $('input[name="Q33-3"]:checked').val();
+    var Q33_4 = $('input[name="Q33-4"]:checked').val();
+    var Q33_5 = $('input[name="Q33-5"]:checked').val();
+    var Q33_6 = $('input[name="Q33-6"]:checked').val();
+    var Q33 = [Q33_1, Q33_2, Q33_3, Q33_4, Q33_5, Q33_6];
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers/",
+        data: {"answer_body": Q33, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+
 
 /*
  function insertQ2() {
