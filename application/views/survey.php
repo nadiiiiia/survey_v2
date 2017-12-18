@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var answer_body; // pour enregistrer les réponses simples
     </script>
     <body>
-        <?php //var_dump($answer_Q16) ; die; ?>;
+        <?php //var_dump($answer_Q16) ; die; ?>
 
         <!-- Navbar here-->
         <?php include('include/navbar.php'); ?>
