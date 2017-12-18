@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var back_page = <?php echo $back_page; ?>;
         var array_IDs = <?php echo $array_IDs_json; ?>;
         var answer_Q12 = <?php echo $answer_Q12; ?>;
-        var total_Q13 = <?php echo $total_Q13; ?>;
-        var moy_Q15 = <?php echo $moy_Q15; ?>;
+        var total_Q13;
+        var moy_Q15;
         var answer_Q16 = <?php echo $answer_Q16; ?>;
         var DI_total, DNIND_total, DD_total;
         var total_Q16 = 0; // le total de controle de Q16
@@ -446,6 +446,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 16)
             {
+
                 if (answer != null) {
                     var tab = answer.split(',');
 
@@ -459,6 +460,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                 window.setInterval(function () {
+                    total_Q13 = <?php echo $total_Q13; ?>;
+                    moy_Q15 = <?php echo $moy_Q15; ?>;
                     control_q16();
                 }, 50);
                 $(window).keydown(function (e) {
