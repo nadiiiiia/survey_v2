@@ -1,6 +1,6 @@
 
 function insertAnserSimple(answer) { // answer simple = radio ou texte
-   // alert(answer);
+    // alert(answer);
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers/",
@@ -9,7 +9,7 @@ function insertAnserSimple(answer) { // answer simple = radio ou texte
     });
 }
 
-function insertAnserSimple_Back(answer, next) { 
+function insertAnserSimple_Back(answer, next) {
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_back/",
@@ -21,7 +21,7 @@ function insertAnserSimple_Back(answer, next) {
 function insertQ5() {
     var Q5 = [];
     for (i = 0; i < 3; i++) {
-        Q5[i] = $('#q5-' + (i+1) + '').val();
+        Q5[i] = $('#q5-' + (i + 1) + '').val();
     }
 
     $.ajax({
@@ -97,7 +97,7 @@ function insertQ13() {
     var Q13_2_1 = $('#q13-2-1').val();
     var Q13_2_2 = $('#q13-2-2').val();
     var Q13 = [Q13_1_1, Q13_1_2, Q13_2_1, Q13_2_2];
-    
+
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_back/",
@@ -125,11 +125,11 @@ function insertQ15() {
 }
 function insertQ16() {
     var Q16_1_1 = $('#q16-1').val();
-    var Q16_1_2 = $('input[name="Q16-1"]:checked').val(); 
+    var Q16_1_2 = $('input[name="Q16-1"]:checked').val();
     var Q16_2_1 = $('#q16-2').val();
-    var Q16_2_2 = $('input[name="Q16-2"]:checked').val(); 
+    var Q16_2_2 = $('input[name="Q16-2"]:checked').val();
     var Q16_3_1 = $('#q16-3').val();
-    var Q16_3_2 = $('input[name="Q16-3"]:checked').val(); 
+    var Q16_3_2 = $('input[name="Q16-3"]:checked').val();
 
     var Q16 = [Q16_1_1, Q16_1_2, Q16_2_1, Q16_2_2, Q16_3_1, Q16_3_2];
     $.ajax({
@@ -146,18 +146,18 @@ function insertQ17() {
     var DI = [];
     var DNIND = [];
     var DD = [];
-        
-    for(i=0;i<6;i++)
+
+    for (i = 0; i < 6; i++)
     {
-       DI[i] = $('#q17-1-'+(i+1)+'').val();
-       DNIND[i] = $('#q17-2-'+(i+1)+'').val();
-       DD[i] = $('#q17-3-'+(i+1)+'').val();
+        DI[i] = $('#q17-1-' + (i + 1) + '').val();
+        DNIND[i] = $('#q17-2-' + (i + 1) + '').val();
+        DD[i] = $('#q17-3-' + (i + 1) + '').val();
     }
 
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q17/",
-        data: {"DI": DI , "DNIND": DNIND,  "DD": DD, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        data: {"DI": DI, "DNIND": DNIND, "DD": DD, "question_id": question_id, "user_id": user_id, "survey_id": survey},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -173,7 +173,7 @@ function insertQ18() {
 
     // le 1er tableau
     for (i = 1; i < 7; i++) {
-        Q18_1_1[i] = $('input[name="Q18-' + i +'"]:checked').val();  //oui/non
+        Q18_1_1[i] = $('input[name="Q18-' + i + '"]:checked').val();  //oui/non
     }
     for (i = 1; i < 7; i++) {
         Q18_1_2[i] = $('#q18-' + i + '-2').val(); //qte
@@ -206,7 +206,7 @@ function insertQ19() {
     // le 1er tableau
     var Q19_1_1 = []; // contient les valeurs oui/non
     for (i = 1; i < 11; i++) {
-        Q19_1_1[i] = $('input[name="Q19-' + i +'"]:checked').val();
+        Q19_1_1[i] = $('input[name="Q19-' + i + '"]:checked').val();
     }
     var oui_non_table = [Q19_1_1[1], Q19_1_1[2], Q19_1_1[3], Q19_1_1[4], Q19_1_1[5], Q19_1_1[6], Q19_1_1[7], Q19_1_1[8], Q19_1_1[9], Q19_1_1[10]];
 
@@ -245,7 +245,7 @@ function insertQ20() {
 
     // le 1er tableau
     for (i = 1; i < 8; i++) {
-        Q20_1_1[i] = $('input[name="Q20-' + i +'"]:checked').val();  //oui/non
+        Q20_1_1[i] = $('input[name="Q20-' + i + '"]:checked').val();  //oui/non
     }
     for (i = 1; i < 8; i++) {
         Q20_1_3[i] = $('#q20-' + i + '-3').val(); //qte
@@ -305,8 +305,8 @@ function insertQ22() {
     if (Q22_1 == 'oui') {
         Q22_2 = $('#q22-oui').val();
         Q22 = [Q22_1, Q22_2, Q22_3];
-    }else{
-       Q22 = [Q22_1, Q22_3]; 
+    } else {
+        Q22 = [Q22_1, Q22_3];
     }
 
     $.ajax({
@@ -398,6 +398,16 @@ function insertQ33() {
         url: base_url + "index.php/home/set_answers/",
         data: {"answer_body": Q33, "question_id": question_id, "user_id": user_id, "survey_id": survey},
         dataType: "json",
+//        success: function (result) {
+//            console.log(result);
+//        }
+    });
+}
+
+function insertContact() {
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_contact/"+ survey +"/"+user_id,
 //        success: function (result) {
 //            console.log(result);
 //        }
@@ -967,6 +977,6 @@ function insertQ33() {
  dataType: "json"
  });
  }
-  */
+ */
 
- 
+

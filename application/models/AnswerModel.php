@@ -32,6 +32,36 @@ Class AnswerModel extends CI_Model {
         }
     }
     
+        public function addContact($contactData) {
+        $entreprise = $data['Entreprise'];
+        $Personne = $data['Personne_contact'];
+        $mail = $data['Contact_mail'];
+        $tel = $data['contact_téléphonique'];
+        
+        $this->db->select('*');
+        $this->db->from('ref_mail_list');
+        $this->db->where('Contact_mail', $mail); //le meme utilisateur
+        
+
+        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
+            if ($this->db->insert('ref_mail_list', $contactData)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {  /// traitement si la réponse existe --> update
+            if ($this->db->set('Entreprise', $entreprise)
+                            ->set('Personne_contact', $Personne)
+                            ->set('contact_téléphonique', $tel)
+                            ->where('Contact_mail', $mail)
+                            ->update('ref_mail_list')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    
      public function getAnswer($survey_id, $question_id,$user_id) {
             $query = $this->db->select('answer_body')
                 ->from('survey_answers')

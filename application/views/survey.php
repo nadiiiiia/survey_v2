@@ -958,11 +958,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ33();
+                        insertContact();
                         window.location.href = href_next;
                     }
                 });
                 $("#next_btn").click(function () {
                     insertQ33();
+                    insertContact();
                     $(this).attr("href", href_next);
                 });
             }
