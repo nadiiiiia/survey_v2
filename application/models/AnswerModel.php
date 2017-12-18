@@ -31,17 +31,16 @@ Class AnswerModel extends CI_Model {
             }
         }
     }
-    
-        public function addContact($contactData) {
-        $entreprise = $data['Entreprise'];
-        $Personne = $data['Personne_contact'];
-        $mail = $data['Contact_mail'];
-        $tel = $data['contact_téléphonique'];
-        
+
+    public function addContact($contactData) {
+        $entreprise = $contactData['Entreprise'];
+        $Personne = $contactData['Personne_contact'];
+        $mail = $contactData['Contact_mail'];
+        $tel = $contactData['contact_téléphonique'];
+
         $this->db->select('*');
         $this->db->from('ref_mail_list');
         $this->db->where('Contact_mail', $mail); //le meme utilisateur
-        
 
         if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
             if ($this->db->insert('ref_mail_list', $contactData)) {
@@ -61,9 +60,9 @@ Class AnswerModel extends CI_Model {
             }
         }
     }
-    
-     public function getAnswer($survey_id, $question_id,$user_id) {
-            $query = $this->db->select('answer_body')
+
+    public function getAnswer($survey_id, $question_id, $user_id) {
+        $query = $this->db->select('answer_body')
                 ->from('survey_answers')
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('answer_question_id', $question_id)  //la meme question
@@ -76,16 +75,15 @@ Class AnswerModel extends CI_Model {
         } else {
             return null;
         }
-         
-      
     }
-     public function getAllAnswers($survey_id, $user_id) {
-            $query = $this->db->select('*')
+
+    public function getAllAnswers($survey_id, $user_id) {
+        $query = $this->db->select('*')
                 ->from('survey_answers')
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('answer_survey_id', $survey_id) //le meme questionnaire
-                    ->join("survey_complete_question", 'survey_complete_question.survey_id = answer_survey_id AND survey_complete_question.question_id = answer_question_id')
-            //        ->join("survey_complete_question", 'survey_complete_question.question_id = answer_question_id')
+                ->join("survey_complete_question", 'survey_complete_question.survey_id = answer_survey_id AND survey_complete_question.question_id = answer_question_id')
+                //        ->join("survey_complete_question", 'survey_complete_question.question_id = answer_question_id')
                 ->get(); //select * from ipw_report_categ‏
 
         $ret = $query->result_array();
@@ -94,8 +92,6 @@ Class AnswerModel extends CI_Model {
         } else {
             return null;
         }
-         
-      
     }
 
     public function addAnswerActivity($data) {
@@ -123,14 +119,15 @@ Class AnswerModel extends CI_Model {
                             ->set('DD', $DD)
                             ->where('question_id', $question_id)
                             ->where('user_id', $user_id)
-                           // ->where('activity_id', $activity_id)
+                            // ->where('activity_id', $activity_id)
                             ->update('survey_activity_answer')) {
                 return true;
             }
         }
     }
-         public function getAnswerActivity($survey_id, $question_id,$user_id) {
-            $query = $this->db->select('*')
+
+    public function getAnswerActivity($survey_id, $question_id, $user_id) {
+        $query = $this->db->select('*')
                 ->from('survey_activity_answer')
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('question_id', $question_id)  //la meme question
@@ -138,22 +135,21 @@ Class AnswerModel extends CI_Model {
                 ->get(); //select * from ipw_report_categ‏
 
         $ret = $query->result_array();
-if ($ret) {
-            return $ret[0]; 
+        if ($ret) {
+            return $ret[0];
         } else {
             return null;
         }
-        
-      
     }
-     public function addAnswerDechets($data) {
+
+    public function addAnswerDechets($data) {
         $survey_id = $data['survey_id'];
         $question_id = $data['question_id'];
         $user_id = $data['user_id'];
         $oui_non = $data['oui_non'];
         $qte = $data['qte'];
         $autres = $data['autres'];
-        
+
         $this->db->select('*');
         $this->db->from('survey_dechets_ans');
         $this->db->where('user_id', $user_id); //le meme utilisateur
@@ -177,9 +173,9 @@ if ($ret) {
             }
         }
     }
-    
-             public function getAnswerDechets($survey_id, $question_id,$user_id) {
-            $query = $this->db->select('*')
+
+    public function getAnswerDechets($survey_id, $question_id, $user_id) {
+        $query = $this->db->select('*')
                 ->from('survey_dechets_ans')
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('question_id', $question_id)  //la meme question
@@ -187,16 +183,15 @@ if ($ret) {
                 ->get(); //select * from ipw_report_categ‏
 
         $ret = $query->result_array();
-             //return $ret[0];
+        //return $ret[0];
         if ($ret) {
-            return $ret[0]; 
+            return $ret[0];
         } else {
             return null;
         }
-      
     }
-    
-        public function setBackPage($data) {
+
+    public function setBackPage($data) {
         $user = $data['user_id'];
         $survey = $data['survey_id'];
         $question = $data['question_nbr'];
@@ -227,14 +222,13 @@ if ($ret) {
     public function getBackPage($user, $survey) {
         $query = $this->db->select('question_nbr, back_nbr')
                 ->from("survey_back_question")
-                ->where('user_id', $user) 
-                ->where('survey_id', $survey) 
+                ->where('user_id', $user)
+                ->where('survey_id', $survey)
                 ->get();
-            
-          $ret = $query->result_array();
+
+        $ret = $query->result_array();
         return $ret;
     }
-
 
 }
 

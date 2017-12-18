@@ -407,7 +407,9 @@ function insertQ33() {
 function insertContact() {
     $.ajax({
         type: "post",
-        url: base_url + "index.php/home/set_contact/"+ survey +"/"+user_id,
+        url: base_url + "index.php/home/set_contact/",
+        data: {"survey_id": survey, "user_id": user_id},
+        dataType: "json",
 //        success: function (result) {
 //            console.log(result);
 //        }
