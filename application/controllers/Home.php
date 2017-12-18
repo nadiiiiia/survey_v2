@@ -247,7 +247,7 @@ class Home extends Home_Controller {
 
         $this->AnswerModel->addAnswer($answer_data);
 
-        if ($next > 0) {
+        if ($next == 21) {
             $back_data = array(
                 'user_id' => $user,
                 'survey_id' => $survey,
@@ -352,7 +352,7 @@ class Home extends Home_Controller {
 
     public function set_answers_test() {
 
-        $result = $this->input->post('answer_body');
+        $result = $this->input->post('next');
         //  $result = implode(",", $result); 
 
         $this->output->set_content_type('application/json');
