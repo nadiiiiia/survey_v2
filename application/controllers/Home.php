@@ -65,13 +65,14 @@ class Home extends Home_Controller {
             $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, $question_id, $user);
             $answer_Dechets = $this->AnswerModel->getAnswerDechets($survey, $question_id, $user);
             $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
+            $answer_Q12 = $this->AnswerModel->getAnswer(3, 3, $user);
             $answer_Q13 = $this->AnswerModel->getAnswer(3, 4, $user);
             $tab_Q13 = $answer_Q13['answer_body'];
             if ($tab_Q13 != null) {
                 $tab_Q13 = explode(",", $tab_Q13);  // (implode) Join array elements with a string
             }
-            $total_Q13 = ($tab_Q13[0]); 
-            
+            $total_Q13 = ($tab_Q13[0]);
+
             $answer_Q15 = $this->AnswerModel->getAnswer(3, 6, $user);
             $tab_Q15 = $answer_Q15['answer_body'];
             if ($tab_Q15 != null) {
@@ -79,6 +80,7 @@ class Home extends Home_Controller {
             }
             $moy_Q15 = ($tab_Q15[0] + $tab_Q15[1]) / 2; // la moyenne entre min et max dans Q15
             $answer_Q16 = $this->AnswerModel->getAnswer(3, 44, $user);
+
 
 
             $this->data["question_json"] = json_encode($question);
@@ -100,6 +102,7 @@ class Home extends Home_Controller {
             $this->data['Dechets_autres'] = json_encode($answer_Dechets['autres']);
             $this->data["back_page"] = json_encode($back_page);
             $this->data["rapport"] = $this->AnswerModel->getAllAnswers($survey, $dataLogin["id"]);
+            $this->data["answer_Q12"] = json_encode($answer_Q12['answer_body']);
             $this->data["total_Q13"] = json_encode($total_Q13);
             $this->data["moy_Q15"] = json_encode($moy_Q15);
             $this->data["answer_Q16"] = json_encode($answer_Q16['answer_body']);
@@ -216,6 +219,10 @@ class Home extends Home_Controller {
         $qte_table = $this->input->post('qte_table');
         $autres = $this->input->post('autres');
         $percent = $this->input->post('percent_table');
+        $back = $this->input->post('back');
+        $next = $this->input->post('next');
+
+
 
         //transformer les tableaux en string
         $oui_non_table = implode(",", $oui_non_table);  // (implode) Join array elements with a string
@@ -240,21 +247,15 @@ class Home extends Home_Controller {
 
         $this->AnswerModel->addAnswer($answer_data);
 
-//        $result = array();
-//        $element = array();
-//
-//        foreach ($answer_body as $cle => $valeur) {
-//            $data = array_values($valeur);
-//            $element['survey_id'] = $data[0];
-//            $element['question_id'] = $data[1];
-//            $element['user_id'] = $data[2];
-//            $element['dechet_id'] = $data[3];
-//            $element['qte'] = $data[4];
-//            $result[] = $element;
-//        }
-//        foreach ($result as $row) {
-//            $this->AnswerModel->addAnswerDechets($row);
-//        }
+        if ($next > 0) {
+            $back_data = array(
+                'user_id' => $user,
+                'survey_id' => $survey,
+                'question_nbr' => $next,
+                'back_nbr' => $back);
+
+            $this->AnswerModel->setBackPage($back_data);
+        }
     }
 
     public function set_answers_q14() {

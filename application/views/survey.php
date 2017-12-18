@@ -24,13 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var answer = <?php echo $answer; ?>; // la réponse enregistrée dans la BD 
         var back_page = <?php echo $back_page; ?>;
         var array_IDs = <?php echo $array_IDs_json; ?>;
+        var answer_Q12 = <?php echo $answer_Q12; ?>;
         var total_Q13 = <?php echo $total_Q13; ?>;
         var moy_Q15 = <?php echo $moy_Q15; ?>;
         var answer_Q16 = <?php echo $answer_Q16; ?>;
-        var total_q13;
-        var moyenne_q15;
         var DI_total, DNIND_total, DD_total;
-       
+        var total_Q16 = 0; // le total de controle de Q16
+        var msg_Q16; // message d'erreur de Q16
+
 //        var total = $('#q13-1-1').val();
 //        var total_unit = localStorage.getItem('q13-1-2');
 //        if (total_unit == null) {
@@ -41,15 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (chiffre == null || chiffre == NaN || chiffre == '') {
             chiffre = 0;
         }
-
-
-
-
-
         var answer_body; // pour enregistrer les réponses simples
     </script>
     <body>
-        <?php //var_dump($answer_Q16) ; die; ?>;
 
         <!-- Navbar here-->
         <?php include('include/navbar.php'); ?>
@@ -355,10 +350,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 window.setInterval(function () {
                     if ($('input[name="Q12"]:checked').val() == 'non') {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/14';
-                        control_Q16 = 15;
                     } else {
                         href_next = base_url + 'index.php/home/survey/' + survey + '/13';
-                        control_Q16 = 13;
                     }
                 }, 50);
                 $(window).keydown(function (e) {
@@ -401,18 +394,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             {
                 var next_page;
                 $('input[value="' + answer + '"][name="Q14"]').prop('checked', true); // récupération de la réponse (radio)
-//                window.setInterval(function () {
-//                    if ($('input[name="Q14"]:checked').val() == 'non') {
-//                        href_next = base_url + 'index.php/home/survey/' + survey + '/16';
-//                        next_page = 16;
-//                    } else {
-//                        href_next = base_url + 'index.php/home/survey/' + survey + '/15';
-//                        next_page = 15;
-//                    }
-//                }, 50);
+                window.setInterval(function () {
+                    if ($('input[name="Q14"]:checked').val() == 'non') {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/21';
+                        next_page = 21;
+                    } else {
+                        href_next = base_url + 'index.php/home/survey/' + survey + '/15';
+                        next_page = 15;
+                    }
+                }, 50);
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
-                        insertAnserSimple($('input[name="Q14"]:checked').val());
+                        insertAnserSimple_Back($('input[name="Q14"]:checked').val(), next_page);
                         window.location.href = href_next;
                     }
                 });
@@ -463,7 +456,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('#q16-3').val(tab[4]); // récupération de la réponse (texte)
                     $('input[value="' + tab[5] + '"][name="Q16-3"]').prop('checked', true); // récupération de la réponse (radio)
                 }
-            
+
 
                 window.setInterval(function () {
                     control_q16();
@@ -705,6 +698,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#next_btn').click(function () {
                     insertQ21();
                     $("#next_btn").attr("href", href_next);
+                });
+                $('#back_btn').click(function () {
+                    href_back = base_url + 'index.php/home/survey/' + survey + '/' + getBackPage(id);
+                    $("#back_btn").attr("href", href_back);
                 });
 
             }

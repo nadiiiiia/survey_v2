@@ -77,6 +77,7 @@ function control_q16() {  //
     var DI = $('#q16-1').val();
     var DNIND = $('#q16-2').val();
     var DD = $('#q16-3').val();
+    var total = 0;
     if (DI == null || DI == NaN || DI == '') {
         DI = 0;
     }
@@ -86,15 +87,24 @@ function control_q16() {  //
     if (DD == null || DD == NaN || DD == '') {
         DD = 0;
     }
+    
     DI = parseFloat(DI);
     DNIND = parseFloat(DNIND);
     DD = parseFloat(DD);
 
     somme = DI + DNIND + DD;
+    
+    if(answer_Q12 == 'oui'){
+        total_Q16 = total_Q13;
+        msg_Q16 =  ' du chiffre d’affaires  dans  Q13';
+    }if(answer_Q12 == 'non'){
+        total_Q16 = moy_Q15;
+        msg_Q16 = ' moyenne de Min et Max dans  Q15';
+    }
 
-    progressBar('progress_q16', somme, total_q13);
-    percent_val('percent_q16', somme, total_q13, 'Tonnes');
-    control_error('error_q16', ' du chiffre d’affaires  dans  Q13', somme, total_q13, 'Tonnes');
+    progressBar('progress_q16', somme, total_Q16);
+    percent_val('percent_q16', somme, total_Q16, 'Tonnes');
+    control_error('error_q16', msg_Q16, somme, total_Q16, 'Tonnes');
 
 
 }

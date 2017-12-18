@@ -194,7 +194,7 @@ function insertQ18() {
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q18_q19_q20/",
-        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 0, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -230,7 +230,7 @@ function insertQ19() {
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q18_q19_q20/",
-        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 0, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
@@ -266,7 +266,7 @@ function insertQ20() {
     $.ajax({
         type: "post",
         url: base_url + "index.php/home/set_answers_q18_q19_q20/",
-        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        data: {"oui_non_table": oui_non_table, "qte_table": qte_table, "autres": autres, "percent_table": percent_table, "question_id": question_id, "user_id": user_id, "survey_id": survey, "next": 21, 'back': question_number,},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
