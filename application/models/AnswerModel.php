@@ -88,6 +88,8 @@ Class AnswerModel extends CI_Model {
 
         $ret = $query->result_array();
         if ($ret) {
+           //
+           // var_dump($ret); die;
             return $ret; // return all fields of table : ipw_create_report
         } else {
             return null;

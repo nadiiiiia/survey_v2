@@ -328,6 +328,8 @@ function insertQ23() {
     if (Q23_1 == 'non') {
         Q23_2 = $('#q23-non').val();
         Q23 = [Q23_1, Q23_2];
+    } else {
+        Q23 = Q23_1;
     }
 
     $.ajax({
@@ -350,7 +352,7 @@ function insertQ28() {
         Q28_2 = $('#q28-non').val();
         Q28 = [Q28_1, Q28_2];
     } else {
-        Q27 = Q28_1;
+        Q28 = Q28_1;
     }
 
     $.ajax({
