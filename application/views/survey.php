@@ -31,6 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var DI_total, DNIND_total, DD_total;
         var total_Q16 = 0; // le total de controle de Q16
         var msg_Q16; // message d'erreur de Q16
+        
 
 //        var total = $('#q13-1-1').val();
 //        var total_unit = localStorage.getItem('q13-1-2');
@@ -220,13 +221,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple($('#q6').val());
-                        insertContact();
+                        //insertContact();
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
                     insertAnserSimple($('#q6').val());
-                    insertContact();
+                   // insertContact();
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -489,6 +490,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var DD = <?php echo $answer_Q17_DD; ?>;
 
 
+                if (DI != null) {
+                    DI = DI.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-1-' + (i + 1) + '').val(DI[i]); // récupération de la réponse (texte)
+                    }
+                }
+
+                if (DNIND != null) {
+                    DNIND = DNIND.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-2-' + (i + 1) + '').val(DNIND[i]); // récupération de la réponse (texte)
+                    }
+                }
+
+                if (DD != null) {
+                    DD = DD.split(',');
+                    for (i = 0; i < 7; i++) {
+                        $('#q17-3-' + (i + 1) + '').val(DD[i]); // récupération de la réponse (texte)
+                    }
+                }
 
                 window.setInterval(function () {
                     control_q17();

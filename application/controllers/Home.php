@@ -43,7 +43,7 @@ class Home extends Home_Controller {
         $this->load->view('connexion');
     }
 
-    public function pastrouve() {
+    public function pastrouve() { 
         header("HTTP/1.1 404 Not Found");
         $this->load->view('error_404');
     }
@@ -161,7 +161,7 @@ class Home extends Home_Controller {
     public function set_contact() {
         $survey = $survey = $this->input->post('survey_id');
         $user = $user = $this->input->post('user_id');
-        $entreprise = $this->AnswerModel->getAnswer($survey, 12, $user);
+        $entreprise = $this->AnswerModel->getAnswer($survey, 11, $user);
         $contact = $this->AnswerModel->getAnswer($survey, 34, $user);
         $contact = explode(",", $contact['answer_body']);  //transform string to array;
 
@@ -380,24 +380,36 @@ class Home extends Home_Controller {
         $this->output->set_output(json_encode($result));
         return $result;
     }
+    
+    public function get_all_simple_answers($survey, $user){ /// pour le rapport PDF
+        $result = $this->AnswerModel->getAllAnswers($survey, $user);
+        $length = count($result);
+          $answers = array();
+        for ($i = 0; $i < $length; $i++) {
+            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
+        }
+        return $answers;
+    }
 
     public function get_answer_test($survey, $user) {
         $result = $this->AnswerModel->getAllAnswers($survey, $user);
         // var_dump(json_encode($result));
-        echo $result[1]['answer_question_id'];
-        $length = count($result);
-        $answers = array();
-        for ($i = 0; $i < $length; $i++) {
-            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
-        }
+       // echo $result[1]['answer_question_id'];
+//        $length = count($result);
+//        $answers = array();
+//        for ($i = 0; $i < $length; $i++) {
+//            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
+//        }
 
-        var_dump($answers);
+             $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
+        echo $this->data["SimpleAnswers"][1] ;
 
         die;
     }
 
-    public function generate_pdf_survey() {
-        $this->data["action"] = 'attach';
+    public function generate_pdf_survey($survey, $user) {
+        
+        $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
         $this->load->view('surveyReport', $this->data);
     }
 
