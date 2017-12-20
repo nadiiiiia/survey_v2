@@ -37,8 +37,8 @@
                 <tr>
                     <th scope="row">Exigences environnementales</th>
                     <td> <input type="radio" name="Q33-4" id='q33-4-1' value="jamais"></td>
-                    <td><input type="radio" name="Q32-4" id='q33-4-2' value="parfois"></td>
-                    <td><input type="radio" name="Q32-4" id='q33-4-3' value="souvent"></td>
+                    <td><input type="radio" name="Q33-4" id='q33-4-2' value="parfois"></td>
+                    <td><input type="radio" name="Q33-4" id='q33-4-3' value="souvent"></td>
                 </tr>
                 <tr>
                     <th scope="row">AMO environnementale</th>

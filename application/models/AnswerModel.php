@@ -92,6 +92,30 @@ Class AnswerModel extends CI_Model {
             return null;
         }
     }
+    
+        public function setCompany($answer, $user_email) {
+       
+        $this->db->select('*');
+        $this->db->from('ref_mail_list');
+        $this->db->where('Contact_mail', $user_email); //le meme utilisateur
+
+        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
+            if ($this->db->insert('ref_mail_list', $contactData)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {  /// traitement si la réponse existe --> update
+            if ($this->db->set('Entreprise', $entreprise)
+                            
+                            ->where('Contact_mail', $mail)
+                            ->update('ref_mail_list')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
     public function addAnswerActivity($data) {
         $survey_id = $data['survey_id'];

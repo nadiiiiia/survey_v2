@@ -178,6 +178,28 @@ class Home extends Home_Controller {
         // var_dump($contact_data); die;
         $this->AnswerModel->addContact($contact_data);
     }
+    
+        public function set_answers_q3_back() {
+
+        $Entreprise = $this->input->post('answer');
+        $user_email = $this->input->post('user_email');
+        $contact_data = array(
+            'Entreprise' => $entreprise['answer_body'],
+            'Département' => 0,
+            'Personne_contact' => '',
+            'Contact_mail' => $user_email,
+            'contact_téléphonique' => '',
+            'Démolition' => '',
+            'Désamiantage' => '',
+            'Sciage' => '',
+            'Géographie' => '');
+        echo 'test!!!';
+       //  var_dump($contact_data);
+         die;
+
+
+        $this->AnswerModel->setCompany($answer, $user_email);
+    }
 
     public function set_answers_back() {
         $answer = $this->input->post('answer_body');

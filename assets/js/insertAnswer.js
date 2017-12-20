@@ -17,6 +17,14 @@ function insertAnserSimple_Back(answer, next) {
         dataType: "json"
     });
 }
+function insertQ3_Back(answer, next) {
+    $.ajax({
+        type: "post",
+        url: base_url + "index.php/home/set_answers_q3_back/",
+        data: {"answer_body": answer, "user_email": user_email, "next": next, 'back': question_number},
+        dataType: "json"
+    });
+}
 
 function insertQ5() {
     var Q5 = [];

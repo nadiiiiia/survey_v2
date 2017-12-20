@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var base_url = "<?php echo base_url(); ?>";
         var user_id = "<?php echo $id_user_connected; ?>";
+        var user_email = "<?php echo $email_user_connected; ?>";
         var id = <?php echo $id; ?>;
         var survey = <?php echo $survey; ?>;
         var id_next = id + 1;
