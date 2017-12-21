@@ -62,7 +62,7 @@ Class AnswerModel extends CI_Model {
     }
 
     public function getContactByMail($mail) {
-        $query = $this->db->select('Entreprise, Personne_contact, contact_téléphonique, Contact_mail')
+        $query = $this->db->select('*')
                 ->from('ref_mail_list')
                 ->where('Contact_mail', $mail)
                 ->get();
@@ -75,26 +75,27 @@ Class AnswerModel extends CI_Model {
         }
     }
 
-    public function setCompany($answer, $user_email) {
+    public function setCompany($entreprise, $user_email) {
 
-        $this->db->select('*');
-        $this->db->from('ref_mail_list');
-        $this->db->where('Contact_mail', $user_email); //le meme utilisateur
+        if ($this->db->set('Entreprise', $entreprise)
+                        ->where('Contact_mail', $user_email)
+                        ->update('ref_mail_list')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
-            if ($this->db->insert('ref_mail_list', $contactData)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {  /// traitement si la réponse existe --> update
-            if ($this->db->set('Entreprise', $entreprise)
-                            ->where('Contact_mail', $mail)
-                            ->update('ref_mail_list')) {
-                return true;
-            } else {
-                return false;
-            }
+    public function setContact($new_contact,$new_tel, $new_mail, $user_email) {
+        
+        if ($this->db->set('new_contact', $new_contact)
+                        ->set('new_telephone', $new_tel)
+                        ->set('new_mail', $new_mail)
+                        ->where('Contact_mail', $user_email)
+                        ->update('ref_mail_list')) {
+            return true;
+        } else {
+            return false;
         }
     }
 

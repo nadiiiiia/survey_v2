@@ -17,30 +17,35 @@ function insertAnserSimple_Back(answer, next) {
         dataType: "json"
     });
 }
-function insertQ3_Back(answer, next) {
+function insertQ3(answer) {
+  
     $.ajax({
         type: "post",
-        url: base_url + "index.php/home/set_answers_q3_back/",
-        data: {"answer_body": answer, "user_email": user_email, "next": next, 'back': question_number},
+        url: base_url + "index.php/home/set_answers_q3/",
+        data: {"answer_body": answer, "user_email": user_email},
         dataType: "json"
     });
+
+
 }
 
 function insertQ5() {
-    var Q5 = [];
-    for (i = 0; i < 3; i++) {
-        Q5[i] = $('#q5-' + (i + 1) + '').val();
-    }
-
-    $.ajax({
+    var new_contact = $('#q5-1').val();
+    var new_tel = $('#q5-2').val();
+    var new_mail= $('#q5-3').val();
+    
+    
+   // if( ($('#q5-1').val() != contact['Personne_contact'])|| ($('#q5-2').val() != contact['contact_téléphonique']) || ($('#q5-3').val() != contact['Contact_mail'])){
+       $.ajax({
         type: "post",
-        url: base_url + "index.php/home/set_answers/",
-        data: {"answer_body": Q5, "question_id": question_id, "user_id": user_id, "survey_id": survey},
+        url: base_url + "index.php/home/set_answers_q5/",
+        data: {"new_contact": new_contact, "new_tel": new_tel,"new_mail": new_mail, "user_email": user_email},
         dataType: "json",
 //        success: function (result) {
 //            console.log(result);
 //        }
-    });
+    }); 
+   // }
 }
 
 function insertQ9() {

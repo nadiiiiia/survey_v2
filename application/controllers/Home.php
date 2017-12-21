@@ -182,28 +182,26 @@ class Home extends Home_Controller {
         $this->AnswerModel->addContact($contact_data);
     }
     
-        public function set_answers_q3_back() {
+        public function set_answers_q3() {
 
-        $Entreprise = $this->input->post('answer');
+        $Entreprise = $this->input->post('answer_body');
         $user_email = $this->input->post('user_email');
         $contact_data = array(
-            'Entreprise' => $entreprise['answer_body'],
-            'Département' => 0,
-            'Personne_contact' => '',
-            'Contact_mail' => $user_email,
-            'contact_téléphonique' => '',
-            'Démolition' => '',
-            'Désamiantage' => '',
-            'Sciage' => '',
-            'Géographie' => '');
-        echo 'test!!!';
-       //  var_dump($contact_data);
-         die;
-
-
-        $this->AnswerModel->setCompany($answer, $user_email);
+            'Entreprise' => $Entreprise);
+        
+        $this->AnswerModel->setCompany($Entreprise, $user_email);
     }
+     public function set_answers_q5() {
 
+        $new_contact = $this->input->post('new_contact');
+        $new_tel = $this->input->post('new_tel');
+        $new_mail = $this->input->post('new_mail');
+        $user_email = $this->input->post('user_email');
+       
+        
+    $this->AnswerModel->setContact($new_contact,$new_tel, $new_mail, $user_email);
+     }
+      
     public function set_answers_back() {
         $answer = $this->input->post('answer_body');
         $user = $this->input->post('user_id');
@@ -398,7 +396,7 @@ class Home extends Home_Controller {
 
     public function set_answers_test() {
 
-        $result = $this->input->post('next');
+        $result = $this->input->post('contact_data');
         //  $result = implode(",", $result); 
 
         $this->output->set_content_type('application/json');
