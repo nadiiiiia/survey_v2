@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var DI_total, DNIND_total, DD_total;
         var total_Q16 = 0; // le total de controle de Q16
         var msg_Q16; // message d'erreur de Q16
+        var contact =  <?php echo $contact; ?>;
         
 
 //        var total = $('#q13-1-1').val();
@@ -164,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 3)
             {
-                $('#q3').val(answer); // récupération de la réponse (texte)
+                $('#q3').val(contact['Entreprise']); // récupération de la réponse (texte)
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple($('#q3').val());
@@ -196,15 +197,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 5)
             {
-                var tab;
-                if (answer != null) {
-                    tab = answer.split(',');
-                    $('#q5-1').val(tab[0]); // récupération de la réponse (texte)
-                    $('#q5-2').val(tab[1]); // récupération de la réponse (texte)
-                    $('#q5-3').val(tab[2]); // récupération de la réponse (texte)
-                }
-
-
+              
+                    $('#q5-1').val(contact['Personne_contact']); // récupération de la réponse (texte)
+                    $('#q5-2').val(contact['contact_téléphonique']); // récupération de la réponse (texte)
+                    $('#q5-3').val(contact['Contact_mail']); // récupération de la réponse (texte) 
+                
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ5();

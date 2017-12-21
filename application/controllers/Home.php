@@ -60,7 +60,9 @@ class Home extends Home_Controller {
             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
             $question_id = $question[0]["question_id"];
             $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
-            $user = $dataLogin["id"];
+            $user = $dataLogin["id"];  
+            $email= $dataLogin["email"];
+            $contact = $this->AnswerModel->getContactByMail($email);
             $answer = $this->AnswerModel->getAnswer($survey, $question_id, $user);
             $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, $question_id, $user);
             $answer_Dechets = $this->AnswerModel->getAnswerDechets($survey, $question_id, $user);
@@ -106,6 +108,7 @@ class Home extends Home_Controller {
             $this->data["total_Q13"] = json_encode($total_Q13);
             $this->data["moy_Q15"] = json_encode($moy_Q15);
             $this->data["answer_Q16"] = json_encode($answer_Q16['answer_body']);
+            $this->data["contact"] = json_encode($contact);
 
             $this->load->view('survey', $this->data);
         }
@@ -426,6 +429,17 @@ class Home extends Home_Controller {
              $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
         echo $this->data["SimpleAnswers"][1] ;
 
+        die;
+    }
+      public function get_contact(){ /// pour le rapport PDF
+        $result = $this->AnswerModel->getContactByMail('amtp.nicolas@orange.fr');
+//        $length = count($result);
+//          $answers = array();
+//        for ($i = 0; $i < $length; $i++) {
+//            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
+//        }
+//        return $answers;
+        var_dump($result);
         die;
     }
 

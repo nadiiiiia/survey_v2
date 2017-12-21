@@ -61,13 +61,50 @@ Class AnswerModel extends CI_Model {
         }
     }
 
+    public function getContactByMail($mail) {
+        $query = $this->db->select('Entreprise, Personne_contact, contact_téléphonique, Contact_mail')
+                ->from('ref_mail_list')
+                ->where('Contact_mail', $mail)
+                ->get();
+
+        $ret = $query->result_array();
+        if ($ret) {
+            return $ret[0];
+        } else {
+            return null;
+        }
+    }
+
+    public function setCompany($answer, $user_email) {
+
+        $this->db->select('*');
+        $this->db->from('ref_mail_list');
+        $this->db->where('Contact_mail', $user_email); //le meme utilisateur
+
+        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
+            if ($this->db->insert('ref_mail_list', $contactData)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {  /// traitement si la réponse existe --> update
+            if ($this->db->set('Entreprise', $entreprise)
+                            ->where('Contact_mail', $mail)
+                            ->update('ref_mail_list')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     public function getAnswer($survey_id, $question_id, $user_id) {
         $query = $this->db->select('answer_body')
                 ->from('survey_answers')
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('answer_question_id', $question_id)  //la meme question
                 ->where('answer_survey_id', $survey_id) //le meme questionnaire
-                ->get(); 
+                ->get();
 
         $ret = $query->result_array();
         if ($ret) {
@@ -83,37 +120,13 @@ Class AnswerModel extends CI_Model {
                 ->where('user_id', $user_id) //le meme utilisateur
                 ->where('answer_survey_id', $survey_id) //le meme questionnaire
                 ->join("survey_complete_question", 'survey_complete_question.survey_id = answer_survey_id AND survey_complete_question.question_id = answer_question_id')
-                ->get(); 
+                ->get();
 
         $ret = $query->result_array();
         if ($ret) {
-            return $ret; 
+            return $ret;
         } else {
             return null;
-        }
-    }
-    
-        public function setCompany($answer, $user_email) {
-       
-        $this->db->select('*');
-        $this->db->from('ref_mail_list');
-        $this->db->where('Contact_mail', $user_email); //le meme utilisateur
-
-        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
-            if ($this->db->insert('ref_mail_list', $contactData)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {  /// traitement si la réponse existe --> update
-            if ($this->db->set('Entreprise', $entreprise)
-                            
-                            ->where('Contact_mail', $mail)
-                            ->update('ref_mail_list')) {
-                return true;
-            } else {
-                return false;
-            }
         }
     }
 
