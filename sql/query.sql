@@ -19,8 +19,8 @@ ALTER TABLE `survey_answers` CHANGE  `answer_body` `answer_body` VARCHAR(1000) D
 --
 -- Ajouter des champs dans la table ref_mail_list (21/12/2017)
 --
-ALTER TABLE `ref_mail_list` ADD `new_contact`  varchar(37) DEFAULT NULL, AFTER `Personne_contact`;
+ALTER TABLE `ref_mail_list` ADD `new_contact`  varchar(37) DEFAULT NULL AFTER `Personne_contact`;
 
-ALTER TABLE `ref_mail_list` ADD `new_mail`  varchar(49) DEFAULT NULL, AFTER `Contact_mail`;
+ALTER TABLE `ref_mail_list` ADD `new_mail`  varchar(49) DEFAULT NULL AFTER `Contact_mail`;
 
-ALTER TABLE `ref_mail_list` ADD `new_telephone `  varchar(14) DEFAULT NULL, AFTER `contact_téléphonique`;
+ALTER TABLE `ref_mail_list` ADD `new_telephone`  varchar(14) DEFAULT NULL AFTER `contact_téléphonique`;
