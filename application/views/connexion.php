@@ -37,8 +37,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class=" alert-danger"><?php echo validation_errors(); ?></div>
                             <div class="text-center">
+                                  <a href="<?php echo base_url(); ?>oversight/"  class="btn cyan-darken-3-color waves-effect waves-light" >Dashboard</a>
                                 <input type="submit" class="btn cyan-darken-3-color waves-effect waves-light" value="Connexion">
+                              
                             </div>
+                            
                             <?php echo form_close(); ?>
                         </div>
 

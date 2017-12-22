@@ -82,6 +82,8 @@ class Home extends Home_Controller {
             }
             $moy_Q15 = ($tab_Q15[0] + $tab_Q15[1]) / 2; // la moyenne entre min et max dans Q15
             $answer_Q16 = $this->AnswerModel->getAnswer(3, 44, $user);
+            
+             $this->session->set_userdata('contactFin', $contact); // save contact data in a session
 
 
 
@@ -411,6 +413,7 @@ class Home extends Home_Controller {
         for ($i = 0; $i < $length; $i++) {
             $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
         }
+      //  var_dump($answers);die;
         return $answers;
     }
 
@@ -425,9 +428,9 @@ class Home extends Home_Controller {
 //        }
 
              $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
-        echo $this->data["SimpleAnswers"][1] ;
-
-        die;
+//        echo $this->data["SimpleAnswers"][1] ;
+//
+//        die;
     }
       public function get_contact(){ /// pour le rapport PDF
         $result = $this->AnswerModel->getContactByMail('amtp.nicolas@orange.fr');
@@ -437,14 +440,17 @@ class Home extends Home_Controller {
 //            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
 //        }
 //        return $answers;
-        var_dump($result);
-        die;
+        
     }
 
     public function generate_pdf_survey($survey, $user) {
         
         $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
+        $this->data["ContactAnswers"] = $this->session->userdata('contactFin');
+       
         $this->load->view('surveyReport', $this->data);
+        
+       
     }
 
     public function fin() {

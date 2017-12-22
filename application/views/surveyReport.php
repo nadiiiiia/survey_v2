@@ -81,6 +81,156 @@ if ($Q16 != null) {
     $Q16 = explode(",", $Q16);  // (implode) Join array elements with a string
 }
 
+$ans_21;
+$Q21 = $SimpleAnswers[21];
+if ($Q21 != null &&  strstr($Q21, ',')) {
+    $Q21 = explode(",", $Q21);  // (implode) Join array elements with a string
+    if($Q21[0] == 'oui'){
+    $ans_21 = ' <tr>
+        <td colspan="6" class="Q21" ><strong>Avez-vous développé des actions/réflexions en matière de prévention ? </strong></td>
+        <td>'.$Q21[0].'</td> 	
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Si oui, pouvez-vous préciser lesquelles?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q21[1].'</td>
+    </tr>
+
+    <tr>
+        <td colspan="7"><strong>Pouvez-vous nous indiquer quels sont selon vous les freins au développement de ces pratiques?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q21[2].'</td>
+    </tr> ';
+}else{
+    $ans_21 = ' <tr>
+        <td colspan="6" class="Q21" ><strong>Avez-vous développé des actions/réflexions en matière de prévention ? </strong></td>
+        <td>'.$Q21[0].'</td> 	
+    </tr>
+   
+    <tr>
+        <td colspan="7"><strong>Si non, pourquoi?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q21[1].'</td>
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Pouvez-vous nous indiquer quels sont selon vous les freins au développement de ces pratiques?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q21[2].'</td>
+    </tr>';
+}
+}
+$ans_22;
+$Q22 = $SimpleAnswers[22];
+if ($Q22 != null &&  strstr($Q22, ',')) {
+    $Q22 = explode(",", $Q22);  // (implode) Join array elements with a string
+    
+ if($Q22[0] == 'oui'){
+        $ans_22 ='   <tr>
+        <td colspan="6" class="Q22" ><strong>Pratiquez-vous le concassage de bétons directement sur vos chantiers ?  </strong></td>
+        <td>'. $Q22[0].'</td> 	
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Si oui, pouvez-vous nous indiquer si vous disposez de votre propre concasseur ou si vous le louez pour des campagnes ponctuelles de concassage ?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'. $Q22[1].'</td>
+    </tr>
+
+    <tr>
+        <td colspan="7"><strong>Pouvez-vous estimer le tonnage de bétons concassés sur vos chantiers en 2015 ?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'. $Q22[2].'</td>
+    </tr>';
+    }else{
+       $ans_22 ='<tr>
+        <td colspan="6" class="Q22" ><strong>Pratiquez-vous le concassage de bétons directement sur vos chantiers ?  </strong></td>
+        <td>'. $Q22[0].'</td> 	
+    </tr>
+    
+    <tr>
+        <td colspan="7"><strong>Pouvez-vous estimer le tonnage de bétons concassés sur vos chantiers en 2015 ?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'. $Q22[1].'</td>
+    </tr>'; 
+    }
+}
+
+$ans_23;
+$Q23 = $SimpleAnswers[23];
+if ($Q23 != null &&  strstr($Q23, ',')) {
+    $Q23 = explode(",", $Q23);  // (implode) Join array elements with a string
+    
+    $ans_23 = '<tr>
+
+    <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
+        <td>'. $Q23[0].'</td> 	
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Si non, pourquoi?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q23[1].'</td>
+    </tr> ';
+}else{
+    $ans_23 = '<tr>
+    <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
+        <td>'.$Q23.'</td> 	
+    </tr>';
+}
+
+$ans_28;
+$Q28 = $SimpleAnswers[28];
+if (strstr($Q28, ',')) {
+    $Q28 = explode(",", $Q28);  
+    
+    $ans_28 = '<tr>
+        <td colspan="6" class="Q28"><strong>Avez-vous mis en place une traçabilité et un suivi des déchets produits sur vos chantiers et des exutoires utilisés?</strong></td>
+        <td>'. $Q28[0].'</td>       
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q28[1].'</td>
+    </tr> ';
+}else{
+    $ans_28 = '<tr>
+        <td colspan="6" class="Q28"><strong>Avez-vous mis en place une traçabilité et un suivi des déchets produits sur vos chantiers et des exutoires utilisés?</strong></td>
+        <td>'. $Q28.'</td>       
+    </tr>';
+}
+
+$ans_30;
+$Q30 = $SimpleAnswers[30];
+if ($Q30 != null &&  strstr($Q30, ',')) {
+    $Q30 = explode(",", $Q30);  // (implode) Join array elements with a string
+    
+    $ans_30 = '<tr>
+        <td colspan="5" class="Q30"><strong>Utilisez-vous en approvisionnement pour vos chantiers des matériaux recyclés?</strong></td>
+        <td colspan="2" >'.$Q30[0].'</td>       
+    </tr>
+    <tr>
+        <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">'.$Q30[1].'</td>
+    </tr>';
+}else{
+    $ans_30 = '<tr>
+        <td colspan="5" class="Q30"><strong>Utilisez-vous en approvisionnement pour vos chantiers des matériaux recyclés?</strong></td>
+        <td colspan="2" >'.$Q30.'</td>       
+    </tr>';
+}
+
+
+
+
 $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de Bâtiment spécialisées dans la démolition</h1> 
 <br>
 <h4  style="text-align:center; color:red;" >Questionnaire à usage exclusif du Réseau des CERC</h4>
@@ -104,19 +254,19 @@ $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de B
     <tbody>
 	<tr>
         <td class="Q3"><strong>Nom de l\'établissement :</strong></td>
-        <td colspan="3">' . $SimpleAnswers[3] . '</td> 
+        <td colspan="3">' .$ContactAnswers['Entreprise']. '</td> 
 			
     </tr>
 	<tr >
         <td class="Q4"><strong>Adresse de l\'établissement:</strong></td>
-        <td colspan="3">' . $SimpleAnswers[4] . '</td> 
+        <td colspan="3">' .$SimpleAnswers[4]. '</td> 
 	  		
     </tr>
     <tr>
         <td colspan="7" class="Q5"><strong>Personne à joindre si besoin deprécisions:</strong></td>	
     </tr>
     <tr>
-        <td colspan="7">Nom: &nbsp; ' . $Q5[0] . '&nbsp; &nbsp; Téléphone:&nbsp; ' . $Q5[1] . '&nbsp; &nbsp; E-mail: ' . $Q5[2] . ' </td>	
+        <td colspan="7">Nom: &nbsp; ' .$ContactAnswers['new_contact']. '&nbsp; &nbsp; Téléphone:&nbsp; ' . $ContactAnswers[new_telephone] . '&nbsp; &nbsp; E-mail: ' . $ContactAnswers[new_mail] . ' </td>	
     </tr>
     <tr>
         <td class="Q6"><strong>Votre code APE ?</strong></td>
@@ -352,57 +502,14 @@ $html .= '<p>&nbsp;</p>
 </table>
 <h2>3. Votre positionnement sur la gestion des déchets</h2>
 <table>
-    <tbody>
-
-    <tr>
-        <td colspan="6" class="Q21" ><strong>Avez-vous développé des actions/réflexions en matière de prévention ? </strong></td>
-        <td></td> 	
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si oui, pouvez-vous préciser lesquelles?</strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Reponse Q21</td>
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si non, pourquoi?</strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Reponse Q21</td>
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Pouvez-vous nous indiquer quels sont selon vous les freins au développement de ces pratiques?</strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Reponse Q21</td>
-    </tr>  
+    <tbody>';
+$html.=$ans_21;
+$html.=$ans_22;
+$html.=$ans_23;
     
     
-   <tr>
-        <td colspan="6" class="Q22" ><strong>Pratiquez-vous le concassage de bétons directement sur vos chantiers ?  </strong></td>
-        <td></td> 	
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si oui, pouvez-vous nous indiquer si vous disposez de votre propre concasseur ou si vous le louez pour des campagnes ponctuelles de concassage ?</strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Reponse Q22</td>
-    </tr>
+  $html.='  
 
-    <tr>
-        <td colspan="7"><strong>Pouvez-vous estimer le tonnage de bétons concassés sur vos chantiers en 2015 ?</strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Reponse Q22</td>
-    </tr>  
-    <tr>
-
-    <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
-        <td></td> 	
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si non, pourquoi?</strong></td>
-    </tr>
     <tr>
         <td colspan="7" class="Q24"><strong>Comment jugez-vous le maillage en points de collecte en Île-de-France ?</strong></td>
     </tr>
@@ -435,32 +542,20 @@ $html .= '<table>
     </tr>
     <tr>
         <td colspan="7">' . $SimpleAnswers[27] . '</td>
-    </tr>
-     <tr>
-        <td colspan="6" class="Q28"><strong>Avez-vous mis en place une traçabilité et un suivi des déchets produits sur vos chantiers et des exutoires utilisés?</strong></td>
-        <td>reponse Q28</td>       
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">reponse Q28</td>
-    </tr> 
+    </tr>';
+$html.=$ans_28;
+    
+    
+  $html.='
+
     <tr>
         <td colspan="6" class="Q29"><strong>Vous êtes-vous fixé des objectifs chiffrés de valorisation des déchets produits sur chantiers?</strong></td>
         <td>' . $SimpleAnswers[29] . '</td>       
-    </tr>
-    <tr>
-        <td colspan="5" class="Q30"><strong>Utilisez-vous en approvisionnement pour vos chantiers des matériaux recyclés?</strong></td>
-        <td colspan="2" >Réponse Q30</td>       
-    </tr>
-    <tr>
-        <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
-    </tr>
-    <tr>
-        <td colspan="7">Réponse Q30</td>
-    </tr>
-      <tr>
+    </tr>';
+$html.=$ans_30;
+    
+    
+  $html.='    <tr>
         <td colspan="7" class="Q31"><strong>De manière générale, quelles sont les difficultés rencontrées par votre entreprise pour gérer vos déchets?</strong></td>
     </tr>
     <tr>
