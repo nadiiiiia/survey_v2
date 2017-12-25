@@ -83,7 +83,10 @@ class Home extends Home_Controller {
             $moy_Q15 = ($tab_Q15[0] + $tab_Q15[1]) / 2; // la moyenne entre min et max dans Q15
             $answer_Q16 = $this->AnswerModel->getAnswer(3, 44, $user);
             
+            $this->session->set_userdata('user', $user); // save contact data in a session
+             $this->session->set_userdata('survey', $survey); // save contact data in a session
              $this->session->set_userdata('contactFin', $contact); // save contact data in a session
+               $this->session->set_userdata('answer_Q17', $answer_Q17);
 
 
 
@@ -416,6 +419,17 @@ class Home extends Home_Controller {
       //  var_dump($answers);die;
         return $answers;
     }
+    
+    public function get_all_dechets_answers($survey, $user){ /// pour le rapport PDF
+        $result = $this->AnswerModel->getAllDechetsAnswers($survey, $user);
+        $length = count($result);
+          $answers = array();
+        for ($i = 0; $i < $length; $i++) {
+            $answers[$result[$i]['question_number']] = $result[$i];
+        }
+       // var_dump($answers);die;
+        return $answers;
+    }
 
     public function get_answer_test($survey, $user) {
         $result = $this->AnswerModel->getAllAnswers($survey, $user);
@@ -443,10 +457,17 @@ class Home extends Home_Controller {
         
     }
 
-    public function generate_pdf_survey($survey, $user) {
+    public function generate_pdf_survey() {
+        $survey = $this->session->userdata('survey');
+        $user = $this->session->userdata('user');
         
         $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
         $this->data["ContactAnswers"] = $this->session->userdata('contactFin');
+        $Q17= $this->session->userdata('answer_Q17');
+        $this->data['Q17_DI'] = $Q17['DI'];
+        $this->data['Q17_DNIND'] = $Q17['DNIND'];
+        $this->data['Q17_DD'] = $Q17['DD'];
+        $this->data["dechetsAnswers"] = $this->get_all_dechets_answers($survey, $user);
        
         $this->load->view('surveyReport', $this->data);
         

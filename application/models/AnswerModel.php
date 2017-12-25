@@ -228,6 +228,21 @@ Class AnswerModel extends CI_Model {
         }
     }
 
+    public function getAllDechetsAnswers($survey_id, $user_id) {
+        $query = $this->db->select('*')
+                ->from('survey_dechets_ans')
+                ->where('survey_dechets_ans.user_id', $user_id) //le meme utilisateur
+                ->where('survey_dechets_ans.survey_id', $survey_id) //le meme questionnaire
+                ->join("survey_complete_question", 'survey_complete_question.survey_id = survey_dechets_ans.survey_id AND survey_complete_question.question_id = survey_dechets_ans.question_id')
+                ->get();
+
+        $ret = $query->result_array();
+        if ($ret) {
+            return $ret;
+        } else {
+            return null;
+        }
+    }
     public function setBackPage($data) {
         $user = $data['user_id'];
         $survey = $data['survey_id'];

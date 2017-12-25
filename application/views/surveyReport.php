@@ -41,8 +41,12 @@ $pdf->AddPage();
 
 
 $html = '<style>
+    
+.border td,.border th { 
+   border: 1px solid black;  
+   }
 table, td, th { 
-    border: 1px solid black;  
+   /*border: 1px solid black;  */
     padding: 7px;
     text-align: left;
 }
@@ -51,6 +55,9 @@ table {
 	font-size: large;
     width: 100%;
 }
+.answer{
+     color:blue;
+     }
 </style>';
 $Q5 = $SimpleAnswers[5];
 if ($Q5 != null) {
@@ -81,6 +88,54 @@ if ($Q16 != null) {
     $Q16 = explode(",", $Q16);  // (implode) Join array elements with a string
 }
 
+if ($Q17_DI != null) {
+    $Q17_DI = explode(",", $Q17_DI);  // (implode) Join array elements with a string
+}
+if ($Q17_DNIND != null) {
+    $Q17_DNIND = explode(",", $Q17_DNIND);  // (implode) Join array elements with a string
+}
+if ($Q17_DD != null) {
+    $Q17_DD = explode(",", $Q17_DD);  // (implode) Join array elements with a string
+}
+$Q18_1 = $dechetsAnswers[18];
+$Q18_oui_non;
+$Q18_qte;
+$Q18_autres = $Q18_1['autres'];
+if ($Q18_1 != null) {
+    $Q18_oui_non = explode(",", $Q18_1['oui_non']); 
+    $Q18_qte = explode(",", $Q18_1['qte']); 
+}
+
+$Q19_1 = $dechetsAnswers[19];
+$Q19_oui_non;
+$Q19_qte;
+$Q19_autres = $Q19_1['autres'];
+if ($Q19_1 != null) {
+    $Q19_oui_non = explode(",", $Q19_1['oui_non']); 
+    $Q19_qte = explode(",", $Q19_1['qte']); 
+}  
+
+$Q20_1 = $dechetsAnswers[20];
+$Q20_oui_non;
+$Q20_qte;
+$Q20_autres = $Q20_1['autres'];
+if ($Q20_1 != null) {
+    $Q20_oui_non = explode(",", $Q20_1['oui_non']); 
+    $Q20_qte = explode(",", $Q20_1['qte']); 
+}
+
+$Q18_2 = $SimpleAnswers[18];
+if ($Q18_2 != null) {
+    $Q18_2 = explode(",", $Q18_2);  // (implode) Join array elements with a string
+}
+$Q19_2 = $SimpleAnswers[19];
+if ($Q19_2 != null) {
+    $Q19_2 = explode(",", $Q19_2);  // (implode) Join array elements with a string
+}
+$Q20_2 = $SimpleAnswers[20];
+if ($Q20_2 != null) {
+    $Q20_2 = explode(",", $Q20_2);  // (implode) Join array elements with a string
+}
 $ans_21;
 $Q21 = $SimpleAnswers[21];
 if ($Q21 != null &&  strstr($Q21, ',')) {
@@ -88,38 +143,38 @@ if ($Q21 != null &&  strstr($Q21, ',')) {
     if($Q21[0] == 'oui'){
     $ans_21 = ' <tr>
         <td colspan="6" class="Q21" ><strong>Avez-vous développé des actions/réflexions en matière de prévention ? </strong></td>
-        <td>'.$Q21[0].'</td> 	
+        <td class="answer">'.$Q21[0].'</td> 	
     </tr>
     <tr>
         <td colspan="7"><strong>Si oui, pouvez-vous préciser lesquelles?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q21[1].'</td>
+        <td colspan="7" class="answer">'.$Q21[1].'</td>
     </tr>
 
     <tr>
         <td colspan="7"><strong>Pouvez-vous nous indiquer quels sont selon vous les freins au développement de ces pratiques?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q21[2].'</td>
+        <td colspan="7" class="answer">'.$Q21[2].'</td>
     </tr> ';
 }else{
     $ans_21 = ' <tr>
         <td colspan="6" class="Q21" ><strong>Avez-vous développé des actions/réflexions en matière de prévention ? </strong></td>
-        <td>'.$Q21[0].'</td> 	
+        <td class="answer">'.$Q21[0].'</td> 	
     </tr>
    
     <tr>
         <td colspan="7"><strong>Si non, pourquoi?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q21[1].'</td>
+        <td colspan="7" class="answer">'.$Q21[1].'</td>
     </tr>
     <tr>
         <td colspan="7"><strong>Pouvez-vous nous indiquer quels sont selon vous les freins au développement de ces pratiques?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q21[2].'</td>
+        <td colspan="7" class="answer">'.$Q21[2].'</td>
     </tr>';
 }
 }
@@ -131,32 +186,32 @@ if ($Q22 != null &&  strstr($Q22, ',')) {
  if($Q22[0] == 'oui'){
         $ans_22 ='   <tr>
         <td colspan="6" class="Q22" ><strong>Pratiquez-vous le concassage de bétons directement sur vos chantiers ?  </strong></td>
-        <td>'. $Q22[0].'</td> 	
+        <td class="answer">'. $Q22[0].'</td> 	
     </tr>
     <tr>
         <td colspan="7"><strong>Si oui, pouvez-vous nous indiquer si vous disposez de votre propre concasseur ou si vous le louez pour des campagnes ponctuelles de concassage ?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'. $Q22[1].'</td>
+        <td colspan="7" class="answer">'. $Q22[1].'</td>
     </tr>
 
     <tr>
         <td colspan="7"><strong>Pouvez-vous estimer le tonnage de bétons concassés sur vos chantiers en 2015 ?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'. $Q22[2].'</td>
+        <td colspan="7" class="answer">'. $Q22[2].'</td>
     </tr>';
     }else{
        $ans_22 ='<tr>
         <td colspan="6" class="Q22" ><strong>Pratiquez-vous le concassage de bétons directement sur vos chantiers ?  </strong></td>
-        <td>'. $Q22[0].'</td> 	
+        <td class="answer">'. $Q22[0].'</td> 	
     </tr>
     
     <tr>
         <td colspan="7"><strong>Pouvez-vous estimer le tonnage de bétons concassés sur vos chantiers en 2015 ?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'. $Q22[1].'</td>
+        <td colspan="7" class="answer">'. $Q22[1].'</td>
     </tr>'; 
     }
 }
@@ -169,18 +224,18 @@ if ($Q23 != null &&  strstr($Q23, ',')) {
     $ans_23 = '<tr>
 
     <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
-        <td>'. $Q23[0].'</td> 	
+        <td class="answer">'. $Q23[0].'</td> 	
     </tr>
     <tr>
         <td colspan="7"><strong>Si non, pourquoi?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q23[1].'</td>
+        <td colspan="7" class="answer">'.$Q23[1].'</td>
     </tr> ';
 }else{
     $ans_23 = '<tr>
     <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
-        <td>'.$Q23.'</td> 	
+        <td class="answer">'.$Q23.'</td> 	
     </tr>';
 }
 
@@ -191,18 +246,18 @@ if (strstr($Q28, ',')) {
     
     $ans_28 = '<tr>
         <td colspan="6" class="Q28"><strong>Avez-vous mis en place une traçabilité et un suivi des déchets produits sur vos chantiers et des exutoires utilisés?</strong></td>
-        <td>'. $Q28[0].'</td>       
+        <td class="answer">'. $Q28[0].'</td>       
     </tr>
     <tr>
         <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q28[1].'</td>
+        <td colspan="7" class="answer">'.$Q28[1].'</td>
     </tr> ';
 }else{
     $ans_28 = '<tr>
         <td colspan="6" class="Q28"><strong>Avez-vous mis en place une traçabilité et un suivi des déchets produits sur vos chantiers et des exutoires utilisés?</strong></td>
-        <td>'. $Q28.'</td>       
+        <td class="answer">'. $Q28.'</td>       
     </tr>';
 }
 
@@ -213,22 +268,29 @@ if ($Q30 != null &&  strstr($Q30, ',')) {
     
     $ans_30 = '<tr>
         <td colspan="5" class="Q30"><strong>Utilisez-vous en approvisionnement pour vos chantiers des matériaux recyclés?</strong></td>
-        <td colspan="2" >'.$Q30[0].'</td>       
+        <td colspan="2" class="answer">'.$Q30[0].'</td>       
     </tr>
     <tr>
         <td colspan="7"><strong>Si non, pourquoi ? </strong></td>
     </tr>
     <tr>
-        <td colspan="7">'.$Q30[1].'</td>
+        <td colspan="7" class="answer">'.$Q30[1].'</td>
     </tr>';
 }else{
     $ans_30 = '<tr>
         <td colspan="5" class="Q30"><strong>Utilisez-vous en approvisionnement pour vos chantiers des matériaux recyclés?</strong></td>
-        <td colspan="2" >'.$Q30.'</td>       
+        <td colspan="2" class="answer">'.$Q30.'</td>       
     </tr>';
 }
 
-
+$ans_2 = '';
+if($SimpleAnswers[1]=='non' || $SimpleAnswers[1]==''){
+   $ans_2 = '	<tr>
+        <td colspan="2" class="Q2"><strong>Si non, pour quelles raisons?</strong></td>
+        <td colspan="5" class="answer">' . $SimpleAnswers[2] . '</td> 
+	  		
+    </tr>'; 
+}
 
 
 $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de Bâtiment spécialisées dans la démolition</h1> 
@@ -239,52 +301,49 @@ $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de B
     <tbody>
 	<tr>
         <td colspan="6" class="Q1"><strong> Au cours de l’année 2015, sur vos différents chantiers, votre entreprise a-t-elle généré des déchets?</strong></td>
-        <td >' . $SimpleAnswers[1] . '</td> 
+        <td class="answer">' . $SimpleAnswers[1] . '</td> 
 			
-    </tr>
-	<tr>
-        <td colspan="2" class="Q2"><strong>Si non, pour quelles raisons?</strong></td>
-        <td colspan="5">' . $SimpleAnswers[2] . '</td> 
-	  		
-    </tr>
-    </tbody>
+    </tr>';
+
+$html.= $ans_2;
+$html.='</tbody>
 </table>    
-<h2>1. Description del’entreprise</h2>
+<h2 style=" color:#006064;">1. Description del’entreprise</h2>
 <table>
     <tbody>
 	<tr>
-        <td class="Q3"><strong>Nom de l\'établissement :</strong></td>
-        <td colspan="3">' .$ContactAnswers['Entreprise']. '</td> 
+        <td class="Q3"><strong>Q3. Nom de l\'établissement :</strong></td>
+        <td colspan="2" class="answer">' .$ContactAnswers['Entreprise']. '</td> 
 			
     </tr>
 	<tr >
-        <td class="Q4"><strong>Adresse de l\'établissement:</strong></td>
-        <td colspan="3">' .$SimpleAnswers[4]. '</td> 
+        <td class="Q4"><strong>Q4. Adresse de l\'établissement:</strong></td>
+        <td colspan="3" class="answer">' .$SimpleAnswers[4]. '</td> 
 	  		
     </tr>
     <tr>
-        <td colspan="7" class="Q5"><strong>Personne à joindre si besoin deprécisions:</strong></td>	
+        <td colspan="7" class="Q5"><strong>Q5. Personne à joindre si besoin deprécisions:</strong></td>	
     </tr>
     <tr>
-        <td colspan="7">Nom: &nbsp; ' .$ContactAnswers['new_contact']. '&nbsp; &nbsp; Téléphone:&nbsp; ' . $ContactAnswers[new_telephone] . '&nbsp; &nbsp; E-mail: ' . $ContactAnswers[new_mail] . ' </td>	
+        <td colspan="7">Nom: &nbsp; <div class="answer">' .$ContactAnswers['new_contact']. ' </div> &nbsp; &nbsp; Téléphone:&nbsp; ' . $ContactAnswers[new_telephone] . '&nbsp; &nbsp; E-mail: ' . $ContactAnswers[new_mail] . ' </td>	
     </tr>
     <tr>
-        <td class="Q6"><strong>Votre code APE ?</strong></td>
+        <td class="Q6"><strong>Q6. Votre code APE ?</strong></td>
         <td colspan="3" >' . $SimpleAnswers[6] . '</td> 
       		
     </tr>
     <tr>
-        <td class="Q7"><strong>Votre effectif salarié ?</strong></td>
+        <td class="Q7"><strong>Q7. Votre effectif salarié ?</strong></td>
         <td colspan="3" >' . $SimpleAnswers[7] . '</td> 
       		
     </tr>
     <tr>
-        <td colspan="2" class="Q8" ><strong>Le chiffre d’affaires de votre établissement en 2015? </strong></td>
+        <td colspan="2" class="Q8" ><strong>Q8. Le chiffre d’affaires de votre établissement en 2015? </strong></td>
         <td colspan="2">' . $SimpleAnswers[8] . ' K€</td> 
       		
     </tr>
     <tr>
-        <td colspan="4" class="Q9"><strong>Sur quelles zones géographiques réalisez-vous votre chiffre d’affaires ?</strong></td>
+        <td colspan="4" class="Q9"><strong>Q9. Sur quelles zones géographiques réalisez-vous votre chiffre d’affaires ?</strong></td>
         
       		
     </tr>
@@ -299,7 +358,7 @@ $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de B
         </td>    		
     </tr>
     <tr>
-        <td colspan="4" class="Q10"><strong>Comment votre chiffre d’affaires se répartit-il en fonction des activités suivantes ?</strong></td>
+        <td colspan="4" class="Q10"><strong>Q10. Comment votre chiffre d’affaires se répartit-il en fonction des activités suivantes ?</strong></td>
         
     </tr>
     <tr>
@@ -315,13 +374,13 @@ $html .= '<h1  style="text-align:center;" >Enquête auprès des entreprises de B
         </td>    		
     </tr>
      <tr>
-        <td colspan="4" class="Q11"><strong>Sur quels types de bâtiment votre entreprise œuvre-t-elle ?</strong></td>
+        <td colspan="4" class="Q11"><strong>Q11. Sur quels types de bâtiment votre entreprise œuvre-t-elle ?</strong></td>
     </tr>
     <tr>
         <td colspan="4">
         <ul>
            <li>Logements:  ' . $Q11[0] . '  % </li>
-           <li>Bureaux et administrations : ' . $Q11[1] . ' </li>
+           <li>Bureaux et administrations : ' . $Q11[1] . ' %</li>
            <li>Commerces: ' . $Q11[2] . '  %</li>
            <li>Désamiantage: ' . $Q11[3] . '  %</li>
            <li>Bâtiments industriels: ' . $Q11[4] . '  %</li>
@@ -340,12 +399,12 @@ $html .= '<p>&nbsp;</p>
 <table>
     <tbody>
 	<tr>
-        <td colspan="6" class="Q12"><strong> Au cours de l’année 2015, sur vos différents chantiers, votre entreprise a-t-elle généré des déchets?</strong></td>
+        <td colspan="6" class="Q12"><strong>Q12.  Au cours de l’année 2015, sur vos différents chantiers, votre entreprise a-t-elle généré des déchets?</strong></td>
         <td >' . $SimpleAnswers[12] . '</td> 
 			
     </tr>
 	<tr>
-        <td colspan="7" class="Q13"><strong>Si oui, Pouvez-vous nous indiquer:</strong></td>
+        <td colspan="7" class="Q13"><strong>Q13. Pouvez-vous nous indiquer:</strong></td>
         
 	  		
     </tr>
@@ -358,19 +417,19 @@ $html .= '<p>&nbsp;</p>
         </td>  
     </tr>
     <tr>
-        <td colspan="6" class="Q14"><strong>Si non, Etes-vous en mesure d’estimer cette quantité, même approximativement?</strong></td>
+        <td colspan="6" class="Q14"><strong>Q14. Si non, Etes-vous en mesure d’estimer cette quantité, même approximativement?</strong></td>
         <td>' . $SimpleAnswers[14] . '</td>
     </tr>
     <tr>
-        <td colspan="4" class="Q15"><strong>Si oui, Pouvez-vous nous indiquer cette fourchette ?</strong></td>
+        <td colspan="4" class="Q15"><strong>Q15. Si oui, Pouvez-vous nous indiquer cette fourchette ?</strong></td>
         <td colspan="3"> Min: ' . $Q15[0] . '  &nbsp; Max:' . $Q15[1] . ' </td>
     </tr>
     <tr>
-        <td colspan="7" class="Q16"><strong>Pouvez-vous nous indiquer la répartition des déchets produits sur vos chantiers, par grande nature?</strong></td>
+        <td colspan="7" class="Q16"><strong>Q16. Pouvez-vous nous indiquer la répartition des déchets produits sur vos chantiers, par grande nature?</strong></td>
     </tr>
     <tr>
         <td colspan="7">
-<table class="table">
+<table class="border">
 
     <!--Table head-->
     <thead class="blue-grey lighten-4">
@@ -410,12 +469,12 @@ $html .= '<p>&nbsp;</p>
 </td>
     </tr>
      <tr>
-        <td colspan="7" class="Q17"><strong>Pour chacune de vos activités, comme se répartit cette quantité?</strong></td>
+        <td colspan="7" class="Q17"><strong>Q17. Pour chacune de vos activités, comme se répartit cette quantité?</strong></td>
     </tr>
     <tr>
         <td colspan="7">
         
-<table class="table">
+<table class="border" style="border: 1px solid black;">
 
     <!--Table head-->
     <thead class="blue-grey lighten-4">
@@ -435,44 +494,44 @@ $html .= '<p>&nbsp;</p>
         <tr>
             <th scope="row">Démolition - technicité courante </th>
             
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>'.$Q17_DI[0].'</td>
+            <td>'.$Q17_DNIND[0].'</td>
+            <td>'.$Q17_DD[0].'</td>
         </tr>
         <tr>
             <th scope="row">Démolition à l\'explosif</th>
             
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>'.$Q17_DI[1].'</td>
+            <td>'.$Q17_DNIND[1].'</td>
+            <td>'.$Q17_DD[1].'</td>
         </tr>
         <tr>
             <th scope="row">Découpe du béton (par carottage ou sciage)</th>
             
-            <td></td>
-            <td></td>
-            <td></td>  
+            <td>'.$Q17_DI[2].'</td>
+            <td>'.$Q17_DNIND[2].'</td>
+            <td>'.$Q17_DD[2].'</td>  
         </tr>
         <tr>
             <th scope="row">Désamiantage</th>
 
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>'.$Q17_DI[3].'</td>
+            <td>'.$Q17_DNIND[3].'</td>
+            <td>'.$Q17_DD[3].'</td>
         </tr>
         <tr>
             <th scope="row">Curage</th>
             
-            <td></td>
-            <td></td>
-            <td></td>
+          <td>'.$Q17_DI[4].'</td>
+            <td>'.$Q17_DNIND[4].'</td>
+            <td>'.$Q17_DD[4].'</td>
         </tr>
         <tr>
             <th scope="row">Autres activités</th>
             
-            <td></td>
-            <td></td>
-            <td></td>  
+            <td>'.$Q17_DI[5].'</td>
+            <td>'.$Q17_DNIND[5].'</td>
+            <td>'.$Q17_DD[5].'</td>  
         </tr>
     </tbody>
     <!--Table body-->
@@ -481,23 +540,470 @@ $html .= '<p>&nbsp;</p>
         </td>
     </tr>
      <tr>
-        <td colspan="7" class="Q18"><strong>Pouvez-vous nous préciser la nature de vos déchets inertes et les exutoires utilisés?</strong></td>
+        <td colspan="7" class="Q18"><strong>Q18-1. Pouvez-vous nous préciser la nature de vos déchets inertes et les exutoires utilisés?</strong></td>
     </tr>
     <tr>
-        <td colspan="7">Reponse tableau Q18</td>
+        <td colspan="7">
+        <table class="tableQ18 border">
+
+            <!--Table head-->
+            <thead class="blue-grey lighten-4">
+                <tr>
+                    <th>Les  déchets inertes</th>
+                    <th>oui/non</th>
+                    <th>Quantité</th>
+
+                </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody class="qte">
+                <tr>
+                    <th scope="row">1. Terres et matériaux meubles non pollués</th>
+                    
+                    
+                    <td>'.$Q18_oui_non[0].'</td>
+                    <td>'.$Q18_qte[0].'</td>
+                   
+                </tr>
+                <tr>
+                    <th scope="row">2. Graves et matériaux rocheux</th>
+                     
+                    <td>'.$Q18_oui_non[1].'</td>
+                    <td>'.$Q18_qte[1].'</td>
+                 
+                </tr>
+                <tr>
+                    <th scope="row">3. Béton  sans ferraille ou peu ferraillé</th>
+                  
+                    <td>'.$Q18_oui_non[2].'</td>
+                    <td>'.$Q18_qte[2].'</td>
+                   
+                </tr>
+                <tr>
+                    <th scope="row">4. Briques, tuiles et céramiques</th>
+                   
+                    <td>'.$Q18_oui_non[3].'</td>
+                    <td>'.$Q18_qte[3].'</td>
+                  
+                </tr>
+                <tr>
+                    <th scope="row">5. Mélanges de déchets inertes</th>
+                 
+                    <td>'.$Q18_oui_non[4].'</td>
+                    <td>'.$Q18_qte[4].'</td>
+                  
+                </tr>
+                <tr>
+                    <th scope="row">6. Autres déchets inertes </th>
+                    
+                    <td>'.$Q18_oui_non[5].'</td>
+                    <td>'.$Q18_qte[5].'</td>
+                   
+                </tr>
+                <tr>
+                    <td colspan="3">Précisez: '.$Q18_autres.'</td>
+                </tr>
+                
+            </tbody>
+            <!--Table body-->
+        </table>        
+
+
+
+</td>
     </tr>
+
+<tr>
+    <td colspan="7"> 
+        <strong>Q18-2. Merci d’indiquer les filières utilisées pour la gestion de vos déchets inertes :</strong>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="7">
+        <table class="table border">
+
+            <!--Table head-->
+            <thead class="blue-grey lighten-4">
+                <tr>
+                    <th>Exutoires pour les déchets inertes</th>
+                    <th> %</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody class="percent">
+                <tr>
+                    <th scope="row">Réemploi sur site</th>
+                    <td>'.$Q18_2[0].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Réutilisation sur un autre site</th>
+                    <td>'.$Q18_2[1].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Aménagement paysager</th>
+                    <td>'.$Q18_2[2].'</td>
+                </tr>
+                <tr>
+                    <th scope="row">Déchèterie / Centre de regroupement / centre de tri</th>
+                    <td>'.$Q18_2[3].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Plateforme de recyclage de déchets inertes</th>
+                    <td>'.$Q18_2[4].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Carrière</th>
+                    <td>'.$Q18_2[5].'</td>
+                </tr>
+                <tr>
+                    <th scope="row">ISDND (recouvrement, aménagements)</th>
+                    <td>'.$Q18_2[6].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">ISDI</th>
+                    <td>'.$Q18_2[7].'</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Prise en charge par un collecteur</th>
+                    <td>'.$Q18_2[8].'</td>
+                </tr>
+                <tr>
+                    <th scope="row">'.$Q18_2[10].'</th>
+                    <td>'.$Q18_2[9].'</td>
+                </tr>
+
+            </tbody>
+            <!--Table body-->
+        </table>
+    </td>
+</tr>
          <tr>
-        <td colspan="7" class="Q19"><strong>Pouvez-vous nous préciser la nature de vos déchets non dangereux non inertes et les exutoires utilisés ?</strong></td>
+        <td colspan="7" class="Q19"><strong>Q19-1. Pouvez-vous nous préciser la nature de vos déchets non dangereux non inertes et les exutoires utilisés ?</strong></td>
     </tr>
+    
+    
+   
     <tr>
-        <td colspan="7">Reponse tableau Q19</td>
+        <td colspan="7">
+        <table class="tableQ19 border">
+
+            <!--Table head-->
+            <thead class="blue-grey lighten-4">
+                <tr>
+                    <th>Les déchets non inertes non dangereux</th>
+                    <th>oui/non</th>
+                    <th>Quantité</th>
+
+                </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody class="qte">
+                <tr>
+                    <th scope="row">1. Mélanges déchets non dangereux non inertes (DIB)</th>
+                    
+                    
+                    <td>'.$Q19_oui_non[0].'</td>
+                        <td>'.$Q19_qte[0].'</td>
+                   
+                </tr>
+                <tr>
+                    <th scope="row">2. Métaux</th>
+                     
+                    <td>'.$Q19_oui_non[1].'</td>
+                        <td>'.$Q19_qte[1].'</td>
+                 
+                </tr>
+                <tr>
+                    <th scope="row">3. Plâtre - plaques et carreaux</th>
+                  
+                    <td>'.$Q19_oui_non[2].'</td>
+                        <td>'.$Q19_qte[2].'</td>
+                   
+                </tr>
+                <tr>
+                    <th scope="row">4. Plâtre - enduits sur supports inertes</th>
+                   
+                    <td>'.$Q19_oui_non[3].'</td>
+                        <td>'.$Q19_qte[3].'</td>
+                  
+                </tr>
+                <tr>
+                    <th scope="row">5. Plastiques</th>
+                 
+                    <td>'.$Q19_oui_non[4].'</td>
+                        <td>'.$Q19_qte[4].'</td>
+                  
+                </tr>
+                <tr>
+                    <th scope="row">6. Vitrages</th>
+                    
+                    <td>'.$Q19_oui_non[5].'</td>
+                        <td>'.$Q19_qte[5].'</td>
+                   
+                </tr>
+                <tr>
+                     <th scope="row">7. Bois brut ou faiblement adjuventés</th>
+                    
+                    <td>'.$Q19_oui_non[6].'</td>
+                        <td>'.$Q19_qte[6].'</td>
+                </tr>
+                <tr>
+                     <th scope="row">8. Déchets végétaux</th>
+                    
+                    <td>'.$Q19_oui_non[7].'</td>
+                        <td>'.$Q19_qte[7].'</td>
+                </tr>
+                <tr>
+                     <th scope="row">9. Déchets résiduels issus de l\'usage et occupation des bâtiments</th>
+                    
+                    <td>'.$Q19_oui_non[8].'</td>
+                        <td>'.$Q19_qte[8].'</td>
+                </tr>
+                <tr>
+                     <th scope="row">10. Autres déchets non dangereux</th>
+                    
+                        <td>'.$Q19_oui_non[9].'</td>
+                        <td>'.$Q19_qte[9].'</td>
+                   
+                </tr>
+                <tr>
+                    <td colspan="3">Précisez: '.$Q19_autres.'</td>
+                </tr>
+            </tbody>
+            <!--Table body-->
+        </table>    </td>
     </tr>
      <tr>
-        <td colspan="7" class="Q20"><strong>Pouvez-vous nous préciser la nature de vos déchets dangereux et les exutoires utilisés ?</strong></td>
+        <td colspan="7"><strong>Q19-2  Merci d’indiquer les filières utilisées pour la gestion de vos déchets non dangereux non inertes :</strong></td>
     </tr>
     <tr>
-        <td colspan="7">Reponse tableau Q20</td>
+    <td colspan="7">
+    
+<table class="table border">
+
+    <!--Table head-->
+    <thead class="blue-grey lighten-4">
+        <tr>
+            <th>Exutoires pour les déchets non dangereux</th>
+            <th> %</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody class="percent">
+        <tr>
+            <th scope="row">Réemploi sur site</th>
+            <td>'.$Q19_2[0].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Réutilisation sur un autre site</th>
+            <td>'.$Q19_2[1].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Déchèterie / Centre de regroupement / centre de tri</th>
+            <td>'.$Q19_2[2].'</td>
+        </tr>
+        <tr>
+            <th scope="row">Centre de valorisation matière (ex : recyclage du plâtre, broyage bois, …)</th>
+            <td>'.$Q19_2[3].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Eco-organisme d’une filière REP</th>
+            <td>'.$Q19_2[4].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Centre de valorization énergétique</th>
+            <td>'.$Q19_2[5].'</td>
+        </tr>
+        <tr>
+            <th scope="row">ISDND </th>
+            <td>'.$Q19_2[6].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Prise en charge par un collecteur</th>
+            <td>'.$Q19_2[7].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">'.$Q19_2[9].'</th>
+            <td>'.$Q19_2[8].'</td>
+        </tr>
+        
+    </tbody>
+    <!--Table body-->
+</table>
+
+    </td>
     </tr>
+     <tr>
+        <td colspan="7" class="Q20"><strong>Q20-1. Pouvez-vous nous préciser la nature de vos déchets dangereux et les exutoires utilisés ?</strong></td>
+    </tr>
+    <tr>
+        <td colspan="7">
+        <table class="tableQ20 border">
+
+    <!--Table head-->
+    <thead class="blue-grey lighten-4">
+        <tr>
+            <th>Les déchets dangereux</th>
+            <th>oui/non</th>
+            <th>Quantité</th>
+
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody class="qte">
+        <tr>
+            <th scope="row">1. Terres et matériaux meubles pollués</th>
+
+
+            <td>'.$Q20_oui_non[0].'</td>
+            <td>'.$Q20_qte[0].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">2. Amiante</th>
+
+            <td>'.$Q20_oui_non[1].'</td>
+            <td>'.$Q20_qte[1].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">3. Bois traités <small>(traverses chemin fer, poteaux EDF ou FT, bois recouvert de peintures au plomb, etc.)</small></th>
+
+            <td>'.$Q20_oui_non[2].'</td>
+            <td>'.$Q20_qte[2].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">4. Lampes</th>
+
+            <td>'.$Q20_oui_non[3].'</td>
+            <td>'.$Q20_qte[3].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">5. Déchets d\'équipements électriques et électroniques (DEEE)</th>
+
+            <td>'.$Q20_oui_non[4].'</td>
+            <td>'.$Q20_qte[4].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">6. Equipements techniques (hors DEEE)</th>
+
+            <td>'.$Q20_oui_non[5].'</td>
+            <td>'.$Q20_qte[5].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">7. Autres déchets dangereux</th>
+
+                    <td>'.$Q20_oui_non[6].'</td>
+                    <td>'.$Q20_qte[6].'</td>
+                   
+                </tr>
+                <tr>
+                    <td colspan="3">Précisez: '.$Q20_autres.'</td>
+                </tr>
+    </tbody>
+    <!--Table body-->
+</table>        
+
+        </td>
+    </tr>
+  <tr>
+<td colspan="7">
+<strong>Q20-2  Merci d’indiquer les filières utilisées pour la gestion de vos déchets dangereux: </strong>
+</td>  
+</tr>
+      <tr>
+<td colspan="7">
+<table class="table border">
+
+    <!--Table head-->
+    <thead class="blue-grey lighten-4">
+        <tr>
+            <th>Exutoires pour les déchets dangereux</th>
+            <th> %</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody class="percent">
+        <tr>
+            <th scope="row">Traitement et réemploi sur site</th>
+            <td>'.$Q20_2[0].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Déchèterie / Centre de regroupement / centre de tri</th>
+            <td>'.$Q20_2[1].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Valorisation (ex : vitrification amiante, traitement des terres polluées, …)</th>
+            <td>'.$Q20_2[2].'</td>
+        </tr>
+        <tr>
+            <th scope="row">Eco-organisme d’une filière REP</th>
+            <td>'.$Q20_2[3].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">UIDD</th>
+            <td>'.$Q20_2[4].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Stockage d’amiante en ISDND</th>
+            <td>'.$Q20_2[5].'</td>
+        </tr>
+        <tr>
+            <th scope="row">ISDD</th>
+            <td>'.$Q20_2[6].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">Prise en charge par un collecteur</th>
+            <td>'.$Q20_2[7].'</td>
+
+        </tr>
+        <tr>
+            <th scope="row">'.$Q20_2[9].'</th>
+            <td>'.$Q20_2[8].'</td>
+        </tr>
+        
+    </tbody>
+    <!--Table body-->
+</table>
+
+</td>  
+</tr>
+    
+    
     	</tbody>
 </table>
 <h2>3. Votre positionnement sur la gestion des déchets</h2>
@@ -535,7 +1041,7 @@ $html .= '<table>
     </tr>
    
     <tr>
-        <td colspan="7"> Réponse Q26</td>
+        <td colspan="7"> ' . $SimpleAnswers[26] . '</td>
     </tr> 
     <tr>
         <td colspan="7" class="Q27"><strong>Estimez-vous avoir une connaissance suffisante sur les différentes filières ?</strong></td>
@@ -595,159 +1101,6 @@ $html .= '<h2>4. Relation avec les maîtres d’ouvrages</h2>
     </tr>
     </tbody>
 </table>';
-
-/*
- * 
-  $html.= '<p>&nbsp;</p>
-  <h2> Informations de Devis</h2>
-
-  <table>
-  <tbody>
-  <tr>
-  <td ><strong>Vous êtes un:</strong></td>
-  <td colspan="3" >' . $dossier->titre . '</td>
-  </tr>
-  <tr>
-  <td><strong>Destination:</strong></td>
-  <td >' . $dossier->destination . '</td>
-  <td><strong>Type de fret:</strong></td>
-  <td  >' . $dossier->fret . '</td>
-
-
-  </tr>
-  <tr>
-  <td><strong>Produit:</strong></td>
-  <td colspan="3" >' . $dossier->produit . '</td>
-  </tr>';
-
-
-  $voiture = '<tr>
-  <td><strong>Marque:</strong></td>
-  <td>' . $dossier->marque . '</td>
-  <td><strong>Modèle:</strong></td>
-  <td>' . $dossier->model . '</td>
-  </tr>';
-
-  if ($dossier->produit == 'voiture') {
-  $html.=$voiture;
-  } else {
-  $html.='';
-  }
-
-  $circulation = '<tr>
-  <td><strong>Numéro de série:</strong></td>
-  <td>' . $dossier->serial . '</td>
-  <td><strong>Date de circulation:</strong></td>
-  <td>' . $dossier->circulation . '</td>
-  </tr>';
-
-  if (($dossier->produit == 'voiture' || $dossier->produit == 'camion' || $dossier->produit == 'camionnette' || $dossier->produit == 'engin' || $dossier->produit == 'tracteur' || $dossier->produit == 'benne' || $dossier->produit == 'moto' || $dossier->produit == 'avion' || $dossier->produit == 'bateau') && ($dossier->circulation != '0000-00-00')) {
-  $html.=$circulation;
-  } else {
-  $html.='';
-  }
-  $html.= '<tr>
-  <td><strong>Valeur:</strong></td>
-  <td>' . $dossier->valeur . '</td>
-  <td><strong>Date de demande:</strong></td>
-  <td>' . $dossier->created_at . '</td>
-  </tr>
-
-  </tbody>
-  </table>';
-
-  if ($dossier->facture == 1) {
-  $facture = "Oui";
-  } else {
-  $facture = "Non";
-  }
-
-  if ($dossier->transitaire == 1) {
-  $transitaire = "Oui";
-  } else {
-  $transitaire = "Non";
-  }
-
-  if ($dossier->relationPart == 1) {
-  $relationPart = "Oui";
-  } else {
-  $relationPart = "Non";
-  }
-
-  if ($dossier->declarant == 1) {
-  $declarant = "Oui";
-  } else {
-  $declarant = "Non";
-  }
-
-  if ($dossier->relPartDec == 1) {
-  $relPartDec = "Oui";
-  } else {
-  $relPartDec = "Non";
-  }
-
-  if ($dossier->cle == 1) {
-  $cle = "Oui";
-  } else {
-  $cle = "Non";
-  }
-
-  $html.= '<p>&nbsp;</p>
-  <h2>Questions</h2>
-
-  <table>
-  <tbody>
-  <tr>
-  <td colspan="5"><strong>Avez vous une facture d\'achat ?</strong></td>
-  <td>' . $facture . '</td>
-  </tr>
-  <tr>
-  <td colspan="5"><strong>Avez vous un transitaire ?</strong></td>
-  <td>' . $transitaire . '</td>
-  </tr>
-  <tr>
-  <td colspan="5"><strong>Voulez vous une mise en relation avec un de nos partenaires ?</strong></td>
-  <td>' . $relationPart . '</td>
-  </tr>
-  <tr>
-  <td colspan="5"><strong>Avez vous un déclarant ?</strong></td>
-  <td>' . $declarant . '</td>
-  </tr>';
-
-  $adresseDeclarant = '	<tr>
-  <td colspan="2"><strong>Adresse du déclarant:</strong></td>
-  <td colspan="4">' . $dossier->adresseDeclarant . '</td>
-  </tr>';
-
-  if ($dossier->declarant == 1 && $dossier->declarant != '') {
-  $html.=$adresseDeclarant;
-  } else {
-  $html.='';
-  }
-
-  $html.='<tr>
-  <td colspan="5"><strong>Voulez vous une mise en relation avec un de nos partenaires déclarant?</strong></td>
-  <td>' . $relPartDec . '</td>
-  </tr>
-  <tr>
-  <td colspan="5"><strong>souhaitez vous une solution clé en main? (prise en charge auprès de la douane et livraison)</strong></td>
-  <td>' . $cle . '</td>
-  </tr>
-  </tbody>
-  </table>
-
-  <p>&nbsp;</p>
-  <h2>Avancement et Remarques:&nbsp;</h2>
-  <table>
-  <tbody>
-  <tr>
-  <td style="color:red;">'.$dossier->remarques.'</td>
-  </tr>
-  </tbody>
-  </table>
-
-
-  '; */
 
 
 
