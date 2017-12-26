@@ -6,11 +6,12 @@
             <file>file:/C:/wamp/www/survey_v2/application/models/AnswerModel.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/controllers/Home.php</file>
             <file>file:/C:/wamp/www/survey_v2/assets/js/insertAnswer.js</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/fin.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/surveyReport.php</file>
-            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q20.php</file>
-            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q18.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q19.php</file>
             <file>file:/C:/wamp/www/survey_v2/application/views/survey.php</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/include/answer_q17.php</file>
+            <file>file:/C:/wamp/www/survey_v2/application/views/accueil.php</file>
         </group>
     </open-files>
 </project-private>

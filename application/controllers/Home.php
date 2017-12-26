@@ -86,8 +86,8 @@ class Home extends Home_Controller {
             $this->session->set_userdata('user', $user); // save contact data in a session
              $this->session->set_userdata('survey', $survey); // save contact data in a session
              $this->session->set_userdata('contactFin', $contact); // save contact data in a session
-               $this->session->set_userdata('answer_Q17', $answer_Q17);
-
+             
+      
 
 
             $this->data["question_json"] = json_encode($question);
@@ -444,7 +444,7 @@ class Home extends Home_Controller {
              $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
 //        echo $this->data["SimpleAnswers"][1] ;
 //
-//        die;
+//        
     }
       public function get_contact(){ /// pour le rapport PDF
         $result = $this->AnswerModel->getContactByMail('amtp.nicolas@orange.fr');
@@ -463,10 +463,11 @@ class Home extends Home_Controller {
         
         $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
         $this->data["ContactAnswers"] = $this->session->userdata('contactFin');
-        $Q17= $this->session->userdata('answer_Q17');
-        $this->data['Q17_DI'] = $Q17['DI'];
-        $this->data['Q17_DNIND'] = $Q17['DNIND'];
-        $this->data['Q17_DD'] = $Q17['DD'];
+        $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, 45, $user);
+        
+        $this->data['Q17_DI'] = $answer_Q17['DI']; 
+        $this->data['Q17_DNIND'] = $answer_Q17['DNIND'];
+        $this->data['Q17_DD'] = $answer_Q17['DD'];
         $this->data["dechetsAnswers"] = $this->get_all_dechets_answers($survey, $user);
        
         $this->load->view('surveyReport', $this->data);

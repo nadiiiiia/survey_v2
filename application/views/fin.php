@@ -34,7 +34,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <br>
 
                             <div class="text-center">
-                             </div>
+                                <a href="<?php echo base_url(); ?>index.php/home/generate_pdf_survey" class="btn cyan-darken-3-color waves-effect waves-light" >Télécharger</a>
+                            <a href="<?php echo base_url(); ?>index.php/home/survey/3/1" class="btn cyan-darken-3-color waves-effect waves-light" >Reprendre</a>
+                            </div>
+
+                            
 
                         </div>
 
