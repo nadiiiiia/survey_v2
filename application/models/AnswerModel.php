@@ -75,6 +75,20 @@ Class AnswerModel extends CI_Model {
         }
     }
 
+    public function verifyMailList($user_mail, $contact_data) {
+        $this->db->select('*');
+        $this->db->from('ref_mail_list');
+        $this->db->where('Contact_mail', $user_mail); //le meme utilisateur
+
+        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
+            if ($this->db->insert('ref_mail_list', $contact_data)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     public function setCompany($entreprise, $user_email) {
 
         if ($this->db->set('Entreprise', $entreprise)
@@ -86,8 +100,8 @@ Class AnswerModel extends CI_Model {
         }
     }
 
-    public function setContact($new_contact,$new_tel, $new_mail, $user_email) {
-        
+    public function setContact($new_contact, $new_tel, $new_mail, $user_email) {
+
         if ($this->db->set('new_contact', $new_contact)
                         ->set('new_telephone', $new_tel)
                         ->set('new_mail', $new_mail)
@@ -243,6 +257,7 @@ Class AnswerModel extends CI_Model {
             return null;
         }
     }
+
     public function setBackPage($data) {
         $user = $data['user_id'];
         $survey = $data['survey_id'];

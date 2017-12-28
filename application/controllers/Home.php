@@ -54,14 +54,15 @@ class Home extends Home_Controller {
         } else {
             $dataLogin = $this->session->userdata('logged_in');
             // $this->data['role'] = $dataLogin["role"];
-            // $question_gr = $this->SurveyModel->getQuestionsBySurveyAndGroup($survey, $group);
+             $email= $dataLogin["email"];
+            $this->verify_mail_list($email);
             $gr_questions = $this->SurveyModel->getGrQuestionsBySurvey($survey);
 
             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
             $question_id = $question[0]["question_id"];
             $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
             $user = $dataLogin["id"];  
-            $email= $dataLogin["email"];
+           
             $contact = $this->AnswerModel->getContactByMail($email);
             $answer = $this->AnswerModel->getAnswer($survey, $question_id, $user);
             $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, $question_id, $user);
@@ -119,34 +120,6 @@ class Home extends Home_Controller {
         }
     }
 
-    /*
-      public function page($survey, $id) {
-      if (!$this->session->userdata('logged_in')) {
-      redirect('login', 'refresh');
-      } else {
-      $dataLogin = $this->session->userdata('logged_in');
-      // $this->data['role'] = $dataLogin["role"];
-      $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
-      $id_questions = $this->SurveyModel->getIdQuestionsBySurvey($survey);
-      $back_page = $this->AnswerModel->getBackPage($dataLogin["id"], $survey);
-      $this->data["back_page"] = json_encode($back_page);
-      //var_dump($this->data["back_page"]);die;
-
-      $this->data["question_json"] = json_encode($question);
-      $this->data["question_id"] = json_encode($question[0]["question_id"]);
-      $this->data["question_number"] = json_encode($question[0]["question_number"]);
-      $this->data["question_body"] = json_encode($question[0]["question_body"]);
-      $this->data["question_note"] = json_encode($question[0]["question_note"]);
-      $this->data["section_number"] = json_encode($question[0]["section_number"]);
-      $this->data["section_name"] = json_encode($question[0]["section_name"]);
-      $this->data["array_IDs_json"] = json_encode($id_questions);
-
-      $this->data['id'] = $id;
-      $this->data['survey'] = $survey;
-      $this->load->view('page', $this->data);
-      }
-      }
-     */
 
     public function set_answers() {
         $answer = $this->input->post('answer_body');
@@ -433,14 +406,6 @@ class Home extends Home_Controller {
 
     public function get_answer_test($survey, $user) {
         $result = $this->AnswerModel->getAllAnswers($survey, $user);
-        // var_dump(json_encode($result));
-       // echo $result[1]['answer_question_id'];
-//        $length = count($result);
-//        $answers = array();
-//        for ($i = 0; $i < $length; $i++) {
-//            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
-//        }
-
              $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
 //        echo $this->data["SimpleAnswers"][1] ;
 //
@@ -454,6 +419,22 @@ class Home extends Home_Controller {
 //            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
 //        }
 //        return $answers;
+        
+    }
+    
+          public function verify_mail_list($user_mail){ /// pour vérifier que le mail exite dans la table ref_mail_list
+          
+              $contact_data = array(
+            'Entreprise' => '',
+            'Département' => 0,
+            'Personne_contact' => '',
+            'Contact_mail' => $user_mail,
+            'contact_téléphonique' => '',
+            'Démolition' => '',
+            'Désamiantage' => '',
+            'Sciage' => '',
+            'Géographie' => '');
+              $this->AnswerModel->verifyMailList($user_mail, $contact_data);
         
     }
 
