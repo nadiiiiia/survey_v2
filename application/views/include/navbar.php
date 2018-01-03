@@ -9,14 +9,14 @@
                             
                             <li class="nav-item ">
                                 <a href="<?php echo base_url(); ?>index.php/home/generate_pdf_survey" class="nav-link  waves-effect waves-light" >
-                                    <i class="fa fa-file-pdf-o"></i> Télécharger
+                                    <i class="fa fa-file-pdf-o"></i> 
                                 </a>
                                 
                             </li>
                             
                             <li class="nav-item ">
                                 <a href="<?php echo base_url(); ?>index.php/home/logout" id="logout" class="nav-link  waves-effect waves-light" >
-                                    <i class="fa fa-sign-out"></i> Déconnexion <!--onclick="(function(){localStorage.clear();})()"-->
+                                    <i class="fa fa-sign-out"></i> <!--onclick="(function(){localStorage.clear();})()"-->
                                 </a>
                                 
                             </li>

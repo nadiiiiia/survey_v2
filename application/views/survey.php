@@ -32,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var DI_total, DNIND_total, DD_total;
         var total_Q16 = 0; // le total de controle de Q16
         var msg_Q16; // message d'erreur de Q16
-        var contact =  <?php echo $contact; ?>;
-        
+        var contact = <?php echo $contact; ?>;
+
 
 //        var total = $('#q13-1-1').val();
 //        var total_unit = localStorage.getItem('q13-1-2');
@@ -197,16 +197,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 5)
             {
-                if(contact['new_contact']== null){
+                if (contact['new_contact'] == null) {
                     $('#q5-1').val(contact['Personne_contact']); // récupération de la réponse (texte)
                     $('#q5-2').val(contact['contact_téléphonique']); // récupération de la réponse (texte)
                     $('#q5-3').val(contact['Contact_mail']); // récupération de la réponse (texte) 
-                }else{
+                } else {
                     $('#q5-1').val(contact['new_contact']); // récupération de la réponse (texte)
                     $('#q5-2').val(contact['new_telephone']); // récupération de la réponse (texte)
                     $('#q5-3').val(contact['new_mail']); // récupération de la réponse (texte)   
                 }
-                
+
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertQ5();
@@ -230,7 +230,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
                 $('#next_btn').click(function () {
                     insertAnserSimple($('#q6').val());
-                   // insertContact();
+                    // insertContact();
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -998,9 +998,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script>
             $(document).ready(function () {  // LocalStorage
 
-                $('input').addClass("useLocal useLocalInput");
-                $('input[type="checkbox"]').addClass("Q_18");
-                $('select').addClass("useLocal useLocalSelect");
+                $('input').addClass("input");
+                $('select').addClass("input");
+
+                $('.inputs').keydown(function (e) {
+                    if (e.which === 13) {
+                        var index = $('.inputs').index(this) + 1;
+                        $('.inputs').eq(index).focus();
+                    }
+                });
 
                 ///////// Setters///////
                 window.setInterval(function () {
