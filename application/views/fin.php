@@ -64,6 +64,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
         <!-- SCRIPTS here -->
         <?php include('include/scripts.php'); ?>
+           <script type="text/javascript">
+            $(document).ready(function () {
+              
+              $('#pdf').hide();
+            });
+        </script>
         <script type="text/javascript">
             $(document).ready(function () {
                 var href_back = base_url + 'index.php/home/4';
