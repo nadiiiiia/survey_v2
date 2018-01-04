@@ -54,6 +54,6 @@ $route['accueil'] = 'home/accueil';
 $route['login'] = 'home/connexion';
 $route['logout'] = 'home/logout';
 $route['home/(:num)']='home/survey/$1';
-//$route['question/(:num)/(:num)']='home/page/$1/$1';
+//$route['survey_pdf/(:num)/(:num)']='home/survey_pdf/$1/$1';
 $route['404_override'] = 'home/pastrouve';
 $route['translate_uri_dashes'] = FALSE;

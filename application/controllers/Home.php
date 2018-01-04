@@ -455,6 +455,23 @@ class Home extends Home_Controller {
         
        
     }
+    
+        public function survey_pdf($user) {
+            
+        $this->data["SimpleAnswers"] = $this->get_all_simple_answers(3, $user);
+        $email= $this->AnswerModel->getMailById($user);
+        $this->data["ContactAnswers"] = $this->AnswerModel->getContactByMail($email);
+        $answer_Q17 = $this->AnswerModel->getAnswerActivity(3, 45, $user);
+        
+        $this->data['Q17_DI'] = $answer_Q17['DI']; 
+        $this->data['Q17_DNIND'] = $answer_Q17['DNIND'];
+        $this->data['Q17_DD'] = $answer_Q17['DD'];
+        $this->data["dechetsAnswers"] = $this->get_all_dechets_answers(3, $user);
+       
+        $this->load->view('surveyReport', $this->data);
+        
+       
+    }
 
     public function fin() {
         $this->load->view('fin', $this->data);

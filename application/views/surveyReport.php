@@ -237,7 +237,7 @@ if ($Q23 != null &&  strstr($Q23, ',')) {
     </tr> ';
 }else{
     $ans_23 = '<tr>
-    <td colspan="6" class="Q23" ><strong>Triez-vous  vos déchets sur chantiers?</strong></td>
+    <td colspan="6" class="Q23" ><strong>Q23. Triez-vous  vos déchets sur chantiers?</strong></td>
         <td class="answer">'.$Q23.'</td> 	
     </tr>';
 }
@@ -1083,7 +1083,7 @@ $Q33 = $SimpleAnswers[33];
 if ($Q33 != null) {
     $Q33 = explode(",", $Q33);  // (implode) Join array elements with a string
 }
-$html .= '<h2>4. Relation avec les maîtres d’ouvrages</h2>
+$html .= ' <br><h2>4. Relation avec les maîtres d’ouvrages</h2>
 <table>
     <tbody>
     <tr>

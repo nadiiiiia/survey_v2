@@ -75,6 +75,20 @@ Class AnswerModel extends CI_Model {
         }
     }
 
+    public function getMailById($id) {
+        $query = $this->db->select('email')
+                ->from('survey_users')
+                ->where('id', $id)
+                ->get();
+
+        $ret = $query->result_array();
+        if ($ret) {
+            return $ret[0]['email'];
+        } else {
+            return null;
+        }
+    }
+
     public function verifyMailList($user_mail, $contact_data) {
         $this->db->select('*');
         $this->db->from('ref_mail_list');
