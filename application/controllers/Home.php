@@ -450,10 +450,11 @@ class Home extends Home_Controller {
         $this->data['Q17_DNIND'] = $answer_Q17['DNIND'];
         $this->data['Q17_DD'] = $answer_Q17['DD'];
         $this->data["dechetsAnswers"] = $this->get_all_dechets_answers($survey, $user);
+        $email= $this->AnswerModel->getMailById($user);
+        $this->data["email"] = $email;
        
         $this->load->view('surveyReport', $this->data);
-        
-       
+               
     }
     
         public function survey_pdf($user) {
@@ -467,10 +468,10 @@ class Home extends Home_Controller {
         $this->data['Q17_DNIND'] = $answer_Q17['DNIND'];
         $this->data['Q17_DD'] = $answer_Q17['DD'];
         $this->data["dechetsAnswers"] = $this->get_all_dechets_answers(3, $user);
+        $this->data["email"] = $email;
        
         $this->load->view('surveyReport', $this->data);
-        
-       
+               
     }
 
     public function fin() {

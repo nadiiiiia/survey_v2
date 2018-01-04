@@ -1122,7 +1122,7 @@ $pdf->lastPage();
 //}else{
 //ob_clean();
 //$pdf->Output('survey.pdf', 'I');
-$pdf->Output( 'Questionnaire.pdf', 'D');
+$pdf->Output( 'Questionnaire_'.$email.'.pdf', 'D');
 //ob_end_clean();
 //}
 
