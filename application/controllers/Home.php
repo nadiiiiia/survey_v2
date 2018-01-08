@@ -244,13 +244,24 @@ class Home extends Home_Controller {
         $back = $this->input->post('back');
         $next = $this->input->post('next');
 
-
-
         //transformer les tableaux en string
+        if($oui_non_table != null){
         $oui_non_table = implode(",", $oui_non_table);  // (implode) Join array elements with a string
+        }else{
+            $oui_non_table = '';
+        }
+        if ($qte_table != null){
         $qte_table = implode(",", $qte_table);  // (implode) Join array elements with a string
+        }else{
+            $qte_table='';
+        }
+        if($percent != null){
         $percent = implode(",", $percent);  // (implode) Join array elements with a string
-
+        }else{
+            $percent='';
+        }
+      
+        
         $dechets_data = array(
             'survey_id' => $survey,
             'question_id' => $question,
@@ -259,7 +270,7 @@ class Home extends Home_Controller {
             'qte' => $qte_table,
             'autres' => $autres);
 
-        $this->AnswerModel->addAnswerDechets($dechets_data);
+        
 
         $answer_data = array(
             'answer_question_id' => $question,
@@ -268,6 +279,7 @@ class Home extends Home_Controller {
             'answer_body' => $percent);
 
         $this->AnswerModel->addAnswer($answer_data);
+        $this->AnswerModel->addAnswerDechets($dechets_data);
 
         if ($next == 21) {
             $back_data = array(
@@ -381,6 +393,8 @@ class Home extends Home_Controller {
         $this->output->set_output(json_encode($result));
         return $result;
     }
+ 
+    
     
     public function get_all_simple_answers($survey, $user){ /// pour le rapport PDF
         $result = $this->AnswerModel->getAllAnswers($survey, $user);

@@ -536,6 +536,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
                 var Dechets_qte = <?php echo $Dechets_qte ?>;
                 var Dechets_autres = <?php echo $Dechets_autres ?>;
+                
                 if (Dechets_oui_non != null) {
                     Dechets_oui_non = Dechets_oui_non.split(',');
                     for (i = 1; i < 7; i++) {
@@ -595,7 +596,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('input[value="' + Dechets_oui_non[i - 1] + '"][name="Q19-' + i + '"]').prop('checked', true); // récupération de la réponse (radio)
                     }
                 }
-                if (Dechets_oui_non != null) {
+                if (Dechets_qte != null) {
                     Dechets_qte = Dechets_qte.split(',');
                     for (i = 1; i < 11; i++) {
                         $('#q19-' + i + '-3').val(Dechets_qte[i - 1]); // récupération de la réponse (texte)
