@@ -26,14 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <?php echo form_open('verifyLogin'); ini_set("display_errors",0);error_reporting(0);  //controllers/verifyLogin.php ?>
                             <div class="md-form">
                                 <i class="fa fa-envelope prefix grey-text"></i>
-                                <input type="text" name="email" required="required" id="email" value="<?php echo $_GET["login"] ?>" class="form-control">
-                                <label for="email"><?php if(!isset($_GET["login"])) echo "E-mail"; ?></label>
+                                <input type="text" name="email" required="required" id="email" value="<?php echo $_GET["login"] ?>" placeholder="E-mail" class="form-control">
+                                <label for="email"><?php if(!isset($_GET["login"])) echo ""; ?></label>
                             </div>
 
                             <div class="md-form">
                                 <i class="fa fa-lock prefix grey-text"></i>
-                                <input type="password" name="password" required="required" id="password" class="form-control">
-                                <label for="password">Mot de passe</label>
+                                <input type="password" name="password" required="required" id="password" placeholder="Mot de Passe" class="form-control">
+                                <label for="password"><!--Mot de passe--></label>
                             </div>
                             <div class=" alert-danger"><?php echo validation_errors(); ?></div>
                             <div class="text-center">

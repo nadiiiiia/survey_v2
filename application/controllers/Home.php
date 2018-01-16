@@ -55,7 +55,7 @@ class Home extends Home_Controller {
             $dataLogin = $this->session->userdata('logged_in');
             // $this->data['role'] = $dataLogin["role"];
              $email= $dataLogin["email"];
-            $this->verify_mail_list($email);
+            $this->verify_mail_list($email); // pour ajouter le mail s'il n'existe pas dans ref_mail_list 
             $gr_questions = $this->SurveyModel->getGrQuestionsBySurvey($survey);
 
             $question = $this->SurveyModel->getQuestionBySurvey($survey, $id);
@@ -171,13 +171,13 @@ class Home extends Home_Controller {
     }
      public function set_answers_q5() {
 
-        $new_contact = $this->input->post('new_contact');
-        $new_tel = $this->input->post('new_tel');
-        $new_mail = $this->input->post('new_mail');
+        $Personne_contact = $this->input->post('new_contact');
+        $contact_téléphonique = $this->input->post('new_tel');
+        $Contact_mail = $this->input->post('new_mail');
         $user_email = $this->input->post('user_email');
        
         
-    $this->AnswerModel->setContact($new_contact,$new_tel, $new_mail, $user_email);
+    $this->AnswerModel->setContact($Personne_contact,$contact_téléphonique, $Contact_mail, $user_email);
      }
       
     public function set_answers_back() {

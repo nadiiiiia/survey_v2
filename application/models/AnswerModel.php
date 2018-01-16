@@ -116,9 +116,9 @@ Class AnswerModel extends CI_Model {
 
     public function setContact($new_contact, $new_tel, $new_mail, $user_email) {
 
-        if ($this->db->set('new_contact', $new_contact)
-                        ->set('new_telephone', $new_tel)
-                        ->set('new_mail', $new_mail)
+        if ($this->db->set('Personne_contact', $new_contact)
+                        ->set('contact_téléphonique', $new_tel)
+                      //  ->set('new_mail', $new_mail)
                         ->where('Contact_mail', $user_email)
                         ->update('ref_mail_list')) {
             return true;

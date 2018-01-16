@@ -197,15 +197,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 5)
             {
-                if (contact['new_contact'] == null) {
+               
                     $('#q5-1').val(contact['Personne_contact']); // récupération de la réponse (texte)
                     $('#q5-2').val(contact['contact_téléphonique']); // récupération de la réponse (texte)
                     $('#q5-3').val(contact['Contact_mail']); // récupération de la réponse (texte) 
-                } else {
-                    $('#q5-1').val(contact['new_contact']); // récupération de la réponse (texte)
-                    $('#q5-2').val(contact['new_telephone']); // récupération de la réponse (texte)
-                    $('#q5-3').val(contact['new_mail']); // récupération de la réponse (texte)   
-                }
+         
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
