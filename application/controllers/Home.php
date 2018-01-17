@@ -139,26 +139,7 @@ class Home extends Home_Controller {
         $this->AnswerModel->addAnswer($answer_data);
     }
 
-    public function set_contact() {
-        $survey = $survey = $this->input->post('survey_id');
-        $user = $user = $this->input->post('user_id');
-        $entreprise = $this->AnswerModel->getAnswer($survey, 11, $user);
-        $contact = $this->AnswerModel->getAnswer($survey, 34, $user);
-        $contact = explode(",", $contact['answer_body']);  //transform string to array;
 
-        $contact_data = array(
-            'Entreprise' => $entreprise['answer_body'],
-            'Département' => 0,
-            'Personne_contact' => $contact[0],
-            'Contact_mail' => $contact[2],
-            'contact_téléphonique' => $contact[1],
-            'Démolition' => '',
-            'Désamiantage' => '',
-            'Sciage' => '',
-            'Géographie' => '');
-        // var_dump($contact_data); die;
-        $this->AnswerModel->addContact($contact_data);
-    }
     
         public function set_answers_q3() {
 

@@ -32,34 +32,6 @@ Class AnswerModel extends CI_Model {
         }
     }
 
-    public function addContact($contactData) {
-        $entreprise = $contactData['Entreprise'];
-        $Personne = $contactData['Personne_contact'];
-        $mail = $contactData['Contact_mail'];
-        $tel = $contactData['contact_téléphonique'];
-
-        $this->db->select('*');
-        $this->db->from('ref_mail_list');
-        $this->db->where('Contact_mail', $mail); //le meme utilisateur
-
-        if ($this->db->count_all_results() == 0) { /// traitement si la réponse n'existe pas --> insert
-            if ($this->db->insert('ref_mail_list', $contactData)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {  /// traitement si la réponse existe --> update
-            if ($this->db->set('Entreprise', $entreprise)
-                            ->set('Personne_contact', $Personne)
-                            ->set('contact_téléphonique', $tel)
-                            ->where('Contact_mail', $mail)
-                            ->update('ref_mail_list')) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
 
     public function getContactByMail($mail) {
         $query = $this->db->select('*')
@@ -118,7 +90,7 @@ Class AnswerModel extends CI_Model {
 
         if ($this->db->set('Personne_contact', $new_contact)
                         ->set('contact_téléphonique', $new_tel)
-                      //  ->set('new_mail', $new_mail)
+                        ->set('new_mail', $new_mail)
                         ->where('Contact_mail', $user_email)
                         ->update('ref_mail_list')) {
             return true;

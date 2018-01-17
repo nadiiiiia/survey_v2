@@ -197,11 +197,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (id == 5)
             {
-               
-                    $('#q5-1').val(contact['Personne_contact']); // récupération de la réponse (texte)
-                    $('#q5-2').val(contact['contact_téléphonique']); // récupération de la réponse (texte)
-                    $('#q5-3').val(contact['Contact_mail']); // récupération de la réponse (texte) 
-         
+
+                $('#q5-1').val(contact['Personne_contact']); // récupération de la réponse (texte)
+                $('#q5-2').val(contact['contact_téléphonique']); // récupération de la réponse (texte)
+                if (contact['new_mail'] == null) {
+                    $('#q5-3').val(contact['Contact_mail']); // récupération de la réponse (texte)
+                } else {
+                    $('#q5-3').val(contact['new_mail']); // récupération de la réponse (texte) 
+                }
+
 
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
@@ -220,13 +224,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $(window).keydown(function (e) {
                     if (e.which === 13) {
                         insertAnserSimple($('#q6').val());
-                        //insertContact();
                         window.location.href = href_next;
                     }
                 });
                 $('#next_btn').click(function () {
                     insertAnserSimple($('#q6').val());
-                    // insertContact();
                     $("#next_btn").attr("href", href_next);
                 });
             }
@@ -532,7 +534,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var Dechets_oui_non = <?php echo $Dechets_oui_non ?>;
                 var Dechets_qte = <?php echo $Dechets_qte ?>;
                 var Dechets_autres = <?php echo $Dechets_autres ?>;
-                
+
                 if (Dechets_oui_non != null) {
                     Dechets_oui_non = Dechets_oui_non.split(',');
                     for (i = 1; i < 7; i++) {

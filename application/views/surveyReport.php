@@ -328,7 +328,7 @@ $html.='</tbody>
         <td colspan="7" class="Q5"><strong>Q5. Personne à joindre si besoin deprécisions:</strong></td>	
     </tr>
     <tr>
-        <td colspan="7">Nom: &nbsp; <span class="answer">' .$ContactAnswers['new_contact']. ' </span> &nbsp; &nbsp; Téléphone:&nbsp; <span class="answer">' . $ContactAnswers[new_telephone] . '</span> &nbsp; &nbsp; E-mail: <span class="answer">' . $ContactAnswers[new_mail] . ' </span></td>	
+        <td colspan="7">Nom: &nbsp; <span class="answer">' .$ContactAnswers['Personne_contact']. ' </span> &nbsp; &nbsp; Téléphone:&nbsp; <span class="answer">' . $ContactAnswers['contact_téléphonique'] . '</span> &nbsp; &nbsp; E-mail: <span class="answer">' . $ContactAnswers['new_mail'] . ' </span></td>	
     </tr>
     <tr>
         <td class="Q6"><strong>Q6. Votre code APE ?</strong></td>
