@@ -406,16 +406,7 @@ class Home extends Home_Controller {
 //
 //        
     }
-      public function get_contact(){ /// pour le rapport PDF
-        $result = $this->AnswerModel->getContactByMail('amtp.nicolas@orange.fr');
-//        $length = count($result);
-//          $answers = array();
-//        for ($i = 0; $i < $length; $i++) {
-//            $answers[$result[$i]['question_number']] = $result[$i]['answer_body'];
-//        }
-//        return $answers;
-        
-    }
+
     
           public function verify_mail_list($user_mail){ /// pour vérifier que le mail exite dans la table ref_mail_list
           
@@ -437,8 +428,10 @@ class Home extends Home_Controller {
         $survey = $this->session->userdata('survey');
         $user = $this->session->userdata('user');
         
+        
         $this->data["SimpleAnswers"] = $this->get_all_simple_answers($survey, $user);
-        $this->data["ContactAnswers"] = $this->session->userdata('contactFin');
+        $email= $this->AnswerModel->getMailById($user);
+        $this->data["ContactAnswers"] = $this->AnswerModel->getContactByMail($email);
         $answer_Q17 = $this->AnswerModel->getAnswerActivity($survey, 45, $user);
         
         $this->data['Q17_DI'] = $answer_Q17['DI']; 
@@ -447,6 +440,7 @@ class Home extends Home_Controller {
         $this->data["dechetsAnswers"] = $this->get_all_dechets_answers($survey, $user);
         $email= $this->AnswerModel->getMailById($user);
         $this->data["email"] = $email;
+        
        
         $this->load->view('surveyReport', $this->data);
                
