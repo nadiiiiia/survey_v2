@@ -462,7 +462,7 @@ class Home extends Home_Controller {
         $this->load->view('surveyReport', $this->data);          
     }
     
-    public function survey_csv() {
+    public function survey_xls() {
             
          $survey = $this->session->userdata('survey');
         $user = $this->session->userdata('user');
@@ -480,8 +480,9 @@ class Home extends Home_Controller {
         $email= $this->AnswerModel->getMailById($user);
         $this->data["email"] = $email;
         
-        $this->load->view('csvReport', $this->data);          
+        $this->load->view('xlsReport', $this->data);          
     }
+
 
     public function fin() {
         $this->load->view('fin', $this->data);

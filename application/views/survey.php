@@ -58,6 +58,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php include('include/survey_body.php'); ?>
 
+
+        <iframe hidden="true" id="ifrm" src="<?php echo base_url(); ?>index.php/home/survey_xls"></iframe>
+
         <!-- Footer here-->
         <?php // include('include/footer.php'); ?>
 
@@ -68,8 +71,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/progressBar.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/msg_error.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/functions.js"></script>
+
         <script type="text/javascript">
         $(document).ready(function () {
+
+            $('#xls').click(function () {
+                $('#ifrm').contents().find('#clickExcel').trigger("click");
+            });
+            
 
             $('#error_q9').hide();
             $('#error_q10').hide();

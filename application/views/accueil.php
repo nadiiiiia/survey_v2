@@ -20,12 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="card">
                         <div class="card-body z-depth-4">
 
-                            <!--Header
-                            <div class="form-header cyan-darken-4-color">
-                                <h3>
-                                   Accueil</h3>
-                            </div>-->
-
+                        
                             <!--Body-->
                             
                             <h2 class="text-center"> Bienvenu !</h2>
@@ -38,17 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         </div>
 
-                        <!--Footer
-                        <div class="modal-footer">
-                            <div class="options">
-                                <p>Not a member?
-                                    <a href="#">Sign Up</a>
-                                </p>
-                                <p>Forgot
-                                    <a href="#">Password?</a>
-                                </p>
-                            </div>
-                        </div>-->
                     </div>
 
                 </div>
@@ -62,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php include('include/scripts.php'); ?>
         <script type="text/javascript">
             $(document).ready(function () {
-              
+              $('#xls').hide();
               $('#pdf').hide();
             });
         </script>

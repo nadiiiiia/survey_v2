@@ -8,7 +8,7 @@
                             </li>-->
                             
                             <li class="nav-item ">
-                                <a href="<?php echo base_url(); ?>index.php/home/generate_pdf_survey" id="pdf" class="nav-link  waves-effect waves-light" >
+                                <a  id="xls" class="nav-link  waves-effect waves-light" >
                                     <i class="fa fa-file-excel-o"></i> 
                                 </a>
                                 
